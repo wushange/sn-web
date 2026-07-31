@@ -30,12 +30,20 @@ export default function NewsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-[3] min-h-[800px] py-[8.35vw]"
-      style={{
-        background: "#fff url(/images/news-bg.png) no-repeat 9vw bottom",
-        backgroundSize: "auto",
-      }}
+      className="relative z-[3] min-h-[800px] py-[40px] md:py-[8.35vw]"
+      style={{ background: "none" }}
     >
+      {/* Background — original uses ::before pseudo-element with news-bg.png */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ clipPath: "inset(0)" }}>
+        <div
+          className="absolute inset-0 bg-white"
+          style={{
+            background: "#fff url(/images/news-bg.png) no-repeat 9vw bottom",
+            backgroundSize: "auto",
+          }}
+        />
+      </div>
+
       {/* Red decorative angle at bottom */}
       <div className="absolute left-[-10vw] right-[-10vw] bottom-[-5.86vw] h-[4.16vw] bg-[rgba(199,0,11,0.15)] z-0" style={{ transform: "rotate(2.2deg)" }} />
 
@@ -43,9 +51,9 @@ export default function NewsSection() {
         <div className="flex flex-col lg:flex-row gap-10">
           {/* Left Column */}
           <div className="lg:w-[358px] flex-shrink-0 lg:pt-[5.46vw]">
-            <div className="fade-in-up-section opacity-0 translate-y-[30px] transition-all duration-700">
+            <div className="transition-all duration-700">
               <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">动态资讯</h2>
-              <p className="text-[16px] md:text-[20px] leading-[3.12vw] pt-[1.25vw] text-[#333]">
+              <p className="text-[16px] md:text-[20px] pt-[1.25vw] text-[#333]" style={{ lineHeight: "3.12vw" }}>
                 <Link href="/news" className="hover:text-[#c7000b] transition-colors">新闻资讯</Link>
               </p>
               <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#808080] mt-[1.82vw] mb-[3.5vw] max-w-[358px]">
@@ -58,13 +66,12 @@ export default function NewsSection() {
           {/* Right Column */}
           <div className="lg:ml-[100px] flex-1 max-w-full overflow-hidden">
             {/* Swiper Carousel */}
-            <div className="fade-in-up-section opacity-0 translate-y-[30px] transition-all duration-700 relative rounded-[1.0em] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] mb-[2.86vw]">
+            <div className="transition-all duration-700 relative rounded-[1.0em] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] mb-[2.86vw]">
               <div className="relative" style={{ paddingTop: "56.25%" }}>
                 {newsItems.map((item, index) => (
                   <Link key={item.id} href={`/news/${item.id}`}
                     className={`absolute inset-0 transition-opacity duration-500 ${index === activeSlide ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
                     <img src={item.image} alt={item.title} className="w-full h-full object-cover absolute inset-0" />
-                    {/* Gradient overlay using news-swiper-overlay.png style: repeat-x from bottom */}
                     <div className="absolute inset-0 pointer-events-none" style={{ background: "url(/images/news-swiper-overlay.png) repeat-x left bottom" }} />
                     <strong className="absolute left-6 md:left-10 right-6 md:right-10 bottom-[25px] text-white text-[18px] md:text-[22px] xl:text-[28px] leading-[36px] md:leading-[56px] line-clamp-2 font-normal">
                       {item.title}
@@ -88,10 +95,12 @@ export default function NewsSection() {
             </div>
 
             {/* News List */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 -mx-[1.97vw] pt-[2.86vw]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 pt-[2.86vw]" style={{ margin: "0 -1.97vw" }}>
               {newsItems.map((item, index) => (
                 <Link key={item.id} href={`/news/${item.id}`}
-                  className={`fade-in-up-section opacity-0 translate-y-[30px] transition-all duration-500 group block relative px-[1.97vw] mb-[2.6vw] ${index % 2 === 1 ? "md:translate-y-[3.22vw]" : ""}`}>
+                  className={`transition-all duration-500 group block relative mb-[2.6vw] ${index % 2 === 1 ? "md:translate-y-[3.22vw]" : ""}`}
+                  style={{ padding: "0 1.97vw" }}
+                >
                   <span className="inline-flex flex-col items-center justify-center w-[60px] h-[60px] bg-[#c7000b] text-white rounded-[0.3em] mb-6 text-center leading-[20px]">
                     <i className="text-[24px] not-italic leading-[26px] block">{item.date.split("-")[2]}</i>
                     <em className="text-[12px] not-italic block tracking-normal">{item.date.split("-")[0]}-{item.date.split("-")[1]}</em>
@@ -102,6 +111,7 @@ export default function NewsSection() {
                   <p className="text-[14px] md:text-[16px] leading-[30px] md:leading-[32px] text-[#808080] line-clamp-3 transition-all duration-500" style={{ maxHeight: "160px", overflow: "hidden" }}>
                     {item.summary}
                   </p>
+                  {/* Hover image reveal */}
                   <div className="absolute left-[1.97vw] top-[162px] w-[calc(100%-3.94vw)] h-[180px] rounded-[0.3em] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                     <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                   </div>
@@ -111,12 +121,6 @@ export default function NewsSection() {
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @media (max-width: 767px) {
-          .fade-in-up-section { opacity: 1 !important; transform: none !important; }
-        }
-      `}</style>
     </section>
   );
 }
