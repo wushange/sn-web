@@ -28,13 +28,13 @@ export default function SocialResponsibility() {
           {/* Left Content */}
           <div className={`lg:w-1/2 text-white pt-10 lg:pt-[110px] transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}`}>
             <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight">
-              社会责任
+              公司理念
             </h2>
             <p className="text-[16px] md:text-[20px] leading-relaxed pt-[1.25vw] text-white/90">
-              我们相信健康是造福和延续人类的强大力量
+              大音希声 千金一诺
             </p>
             <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-white/80 max-w-[358px] mt-[1.82vw] mb-[4.5vw]">
-              我们相信健康是造福和延续人类的强大力量，并且正在努力保障一个可持续的未来，使每个人都可以享受到健康带来的美好和机会。
+              声诺医疗——为守护人类健康提供中国方案。公司秉承"高端医疗装备+创新药物+先进治疗方法+大数据AI"的科学运营模式，依托产学研协同创新平台，构建数字经济和生物经济领域价值功能叠加的产业定位。
             </p>
             <Link
               href="/responsibility"

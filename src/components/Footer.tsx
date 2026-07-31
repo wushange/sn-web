@@ -6,36 +6,34 @@ const footerLinks = [
     href: "/about",
     children: [
       { label: "企业简介", href: "/about/profile" },
-      { label: "文化理念", href: "/about/culture" },
-      { label: "历史沿革", href: "/about/history" },
+      { label: "发展历程", href: "/about/history" },
       { label: "组织架构", href: "/about/structure" },
-      { label: "企业歌曲", href: "/about/songs" },
       { label: "企业荣誉", href: "/about/honor" },
     ],
   },
   {
-    title: "动态资讯",
-    href: "/news",
-    children: [
-      { label: "新闻资讯", href: "/news" },
-    ],
-  },
-  {
-    title: "产品与服务",
+    title: "产品与技术",
     href: "/products",
     children: [
-      { label: "产品", href: "/products/list" },
-      { label: "服务", href: "/service" },
-      { label: "创新", href: "/innovate" },
+      { label: "动脉斑块声动力治疗系统", href: "/products" },
+      { label: "经颅聚焦超声脑机接口", href: "/products" },
+      { label: "超声成像斑块识别", href: "/products" },
+      { label: "人工智能中央数据库", href: "/products" },
     ],
   },
   {
-    title: "电商平台",
-    href: "#",
+    title: "新闻资讯",
+    href: "/news",
     children: [
-      { label: "大药房旗舰店", href: "#" },
-      { label: "京东大药房旗舰店", href: "#" },
-      { label: "天猫旗舰店", href: "#" },
+      { label: "公司动态", href: "/news" },
+    ],
+  },
+  {
+    title: "联系我们",
+    href: "/contact",
+    children: [
+      { label: "电话：0451-00000000", href: "tel:0451-00000000" },
+      { label: "地址：哈尔滨高新区科技创新城", href: "#" },
     ],
   },
 ];
@@ -78,14 +76,14 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between py-[45px] text-[14px] text-[#A2A0A0]">
           <div>
-            © 2025 声诺医疗股份有限公司. All Rights Reserved.
+            © 2025 哈尔滨声诺医疗科技有限公司. All Rights Reserved.
             <a
               href="https://beian.miit.gov.cn"
               target="_blank"
               rel="noreferrer"
               className="text-[#8d8d8d] hover:text-[#c7000b] ml-4 transition-colors"
             >
-              京ICP备00000000号
+              黑ICP备00000000号
             </a>
           </div>
           <div className="flex gap-4 mt-3 md:mt-0">

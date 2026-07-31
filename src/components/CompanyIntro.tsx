@@ -69,7 +69,7 @@ export default function CompanyIntro({
   }, [setBannerNavVisible]);
 
   const animateCounters = useCallback(() => {
-    const targets = [2015, 500, 53.3];
+    const targets = [31, 4000, 215];
     const duration = 1800;
     const start = Date.now();
     const tick = () => {
@@ -79,7 +79,7 @@ export default function CompanyIntro({
       setCounters({
         num1: Math.floor(targets[0] * ease),
         num2: Math.floor(targets[1] * ease),
-        num3: parseFloat((targets[2] * ease).toFixed(1)),
+        num3: Math.floor(targets[2] * ease),
       });
       if (p < 1) requestAnimationFrame(tick);
     };
@@ -137,28 +137,28 @@ export default function CompanyIntro({
         {/* === Scroll-triggered fadeInUp items === */}
         <div ref={item1.ref} className={`transition-all duration-700 ${item1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
           <h4 className="text-[24px] md:text-[30px] xl:text-[48px] font-normal leading-tight text-[#221815]">
-            声诺医疗股份有限公司
+            哈尔滨声诺医疗科技有限公司
           </h4>
         </div>
 
         <div ref={item2.ref} className={`transition-all duration-700 ${item2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
           <h5 className="text-[18px] md:text-[20px] xl:text-[24px] font-normal leading-relaxed py-[14px] text-[#333]">
-            前身"劳九芝堂药铺"起源于清顺治七年，被列入国家级非物质文化遗产保护目录
+            专注高端医疗装备 · 声动力智能诊疗系统领航者
           </h5>
         </div>
 
         <div ref={item3.ref} className={`transition-all duration-700 ${item3.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
           <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#555] mb-[4.2vw] max-w-[900px]">
-            声诺医疗股份有限公司是国家重点中药企业、国家重点高新技术企业、国家级创新型试点企业、国家中医药管理局中医药工程学重点学科建设单位、国家企业技术中心、国家知识产权示范企业、国内A股上市公司、湖南省工业质量标杆示范企业、首届长沙市市长质量奖获奖企业、国家博士后科研工作站。
+            哈尔滨声诺医疗科技有限公司坐落于哈尔滨高新区科技创新城，为国家认定高新技术企业、黑龙江省专精特新中小企业，专注声动力、经颅聚焦超声无创诊疗高端医疗器械研发、转化与产业化，是黑龙江省内唯一同时具备超声相控阵器件自研、整机系统集成、临床方案落地全链条能力的医疗科技企业。核心产品"动脉斑块声动力治疗系统"为全球首台（套），拥有完全自主知识产权。
           </p>
         </div>
 
         {/* Stat counters */}
         <div ref={counterRef} className={`flex flex-wrap gap-[5.62vw] mb-[5.62vw] ${item4.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"} transition-all duration-700`}>
           {[
-            { value: counters.num1, suffix: "年", label: '前身"劳九芝堂药铺"起源于清顺治七年' },
-            { value: counters.num2, suffix: "+家", label: "拥有500多家连锁门店" },
-            { value: counters.num3, suffix: "亿元", label: "公司总资产达53.3亿元" },
+            { value: counters.num1, suffix: "项", label: "专利核心技术及自主知识产权" },
+            { value: counters.num2, suffix: "㎡", label: "现代化研发生产基地" },
+            { value: counters.num3, suffix: "%", label: "2022-2024累计研发投入占营收比" },
           ].map((stat, i) => (
             <div key={i}>
               <strong className="text-[50px] md:text-[80px] xl:text-[90px] leading-none font-normal block">

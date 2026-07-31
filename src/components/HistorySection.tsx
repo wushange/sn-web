@@ -4,20 +4,20 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const milestones = [
-  { year: 1650, title: "劳氏家业 生机勃发", image: "/images/history-1.jpg" },
-  { year: 1956, title: "岁月锤炼 与时俱进", image: "/images/history-2.jpg" },
-  { year: 1984, title: "友搏药业 研发伊始", image: "/images/history-1984.jpg" },
-  { year: 1994, title: "扩大规模 奋楫扬帆", image: "/images/history-3.jpg" },
-  { year: 1995, title: "成功研制核心产品", image: "/images/history-1995.jpg" },
-  { year: 2000, title: "鸣锣上市 再启征程", image: "/images/history-4.jpg" },
-  { year: 2012, title: "新厂落成 铸就辉煌", image: "/images/history-2012.jpg" },
-  { year: 2015, title: "强强联合 并肩同行", image: "/images/history-5.jpg" },
-  { year: 2021, title: "全新时代 未来可期", image: "/images/history-6.jpg" },
+  { year: 2021, title: "完成天使轮融资", image: "/images/history-1.jpg" },
+  { year: 2022, title: "完成原理样机制造", image: "/images/history-2.jpg" },
+  { year: 2023, title: "完成Pre-A轮融资", image: "/images/history-1984.jpg" },
+  { year: 2024, title: "高新技术企业认定", image: "/images/history-3.jpg" },
+  { year: 2025, title: "设备通过注册检测", image: "/images/history-1995.jpg" },
+  { year: 2026, title: "启动多中心临床试验", image: "/images/history-4.jpg" },
+  { year: 2027, title: "取得三类注册证", image: "/images/history-2012.jpg" },
+  { year: 2028, title: "完成IPO申报", image: "/images/history-5.jpg" },
+  { year: 2029, title: "完成合格IPO上市", image: "/images/history-6.jpg" },
 ];
 
-const yearLines = [1650, 1956, 1984, 1994, 1995, 2000, 2012, 2015, 2021];
-const bottomRow = [1650, 1956];
-const topRow = [1984, 1995, 2012];
+const yearLines = [2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029];
+const bottomRow = [2021, 2022];
+const topRow = [2023, 2025, 2027];
 
 export default function HistorySection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,10 +42,10 @@ export default function HistorySection() {
           {/* Left */}
           <div className={`lg:w-[500px] pt-[60px] transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}`}>
             <h2 className="text-[26px] md:text-[38px] xl:text-[48px] font-normal tracking-[2px] md:tracking-[6px] leading-tight text-[#221815]">
-              历史沿革
+              发展历程
             </h2>
             <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#808080] my-[12px] md:my-[32px]">
-              声诺医疗，一部书写了三百多年的医药诗篇，从华夏文明的岁月洗礼中款款而来，在中华大地的百花齐放中全情舒展。
+              声诺医疗依托近20年跨学科科研积淀，从基础机理研究到核心器件自研，从整机装备到临床转化，一步一个脚印，为守护人类健康提供中国方案。
             </p>
             <Link href="/about/history" className="btn-brand">
               了解详情
@@ -92,8 +92,8 @@ export default function HistorySection() {
                   } ${index === activeIndex ? 'font-bold scale-110' : ''}`}
                   style={
                     isTop
-                      ? item.year === 1984 ? { left: '730px', bottom: '-104px', color: '#0168b6' }
-                        : item.year === 1995 ? { left: '808px', bottom: '-104px', color: '#0168b6' }
+                      ? item.year === 2023 ? { left: '730px', bottom: '-104px', color: '#0168b6' }
+                        : item.year === 2025 ? { left: '808px', bottom: '-104px', color: '#0168b6' }
                         : { left: '990px', bottom: '-104px', color: '#0168b6' }
                       : index === 0 ? { marginLeft: '58px' }
                       : index === 1 ? { marginLeft: '462px' }

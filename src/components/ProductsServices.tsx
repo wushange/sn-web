@@ -18,41 +18,41 @@ interface ServiceCard {
 const serviceRows: ServiceCard[][] = [
   [
     {
-      icon: "/images/icons/otc.png", iconHover: "/images/icons/otc-hover.png",
-      title: "非处方药", subtitle: "over the counter drug",
-      description: "非处方药指为方便公众用药，在保证用药安全的前提下，经国家卫生行政部门规定或审定后，不需要医师或其它医疗专业人员开写处方即可购买的药品，一般公众凭自我判断，按照药品标签及使用说明就可自行使用。",
+      icon: "/images/icons/hospital.png", iconHover: "/images/icons/hospital-hover.png",
+      title: "动脉斑块声动力治疗系统", subtitle: "Plaque Sonodynamic Therapy System",
+      description: "全球首台（套）动脉斑块声动力治疗系统（MT-SDT2.0），集生物医疗技术和大数据AI于一体，通过超声与声敏剂协同精准清除动脉粥样硬化斑块，无创、靶向、疗效显著，拥有我国自主知识产权。",
       href: "/products", color: "#c7000b", rowBgPattern: "/images/txt_icon1.png",
     },
     {
-      icon: "/images/icons/rx.png", iconHover: "/images/icons/rx-hover.png",
-      title: "处方药", subtitle: "Prescription Drug",
-      description: "处方药指必须凭执业医师或执业助理医师处方才可调配、购买和使用的药品；而非处方药则不需要凭医师处方即可自行判断、购买和使用的药品。",
-      href: "#", color: "#00a54f", rowBgPattern: "/images/txt_icon1.png",
+      icon: "/images/icons/stemcell.png", iconHover: "/images/icons/stemcell-hover.png",
+      title: "脑机接口·经颅聚焦超声", subtitle: "tFUS Brain-Computer Interface",
+      description: "自研4-8通道同心圆环形相控换能器，实现1.5mm级颅内聚焦精度，面向脑胶质瘤、阿尔茨海默症、帕金森病等提供无创深部神经调控诊疗，正在研发转化中。",
+      href: "#", color: "#008fd5", rowBgPattern: "/images/txt_icon1.png",
     },
     {
-      icon: "/images/icons/hospital.png", iconHover: "/images/icons/hospital-hover.png",
-      title: "互联网医院", subtitle: "Internet Hospital",
-      description: "声诺互联网医院是互联网+中医医疗健康服务平台，为用户提供便捷的线上医疗服务。",
-      href: "/service", color: "#008fd5", rowBgPattern: "/images/txt_icon1.png", hidden: true,
+      icon: "/images/icons/health.png", iconHover: "/images/icons/health-hover.png",
+      title: "超声成像斑块精准识别", subtitle: "High-res Ultrasound Imaging",
+      description: "应用高分辨率诊断超声自动识别、分型斑块并预判声动力治疗适应症，依据斑块厚度、狭窄率、血流速度等指标给出个体化治疗参数建议与预后判断。",
+      href: "/service", color: "#00a54f", rowBgPattern: "/images/txt_icon1.png",
     },
   ],
   [
     {
       icon: "/images/icons/chain.png", iconHover: "/images/icons/chain-hover.png",
-      title: "医药连锁", subtitle: "Pharmaceutical chain",
-      description: "500余家连锁门店，将健康延伸至生活。营销网络遍布全国，全方位、全生命周期守护人类健康。",
+      title: "近红外光学定位系统", subtitle: "Near-infrared Optical Navigation",
+      description: "基于双目立体视觉的光学导航系统，实时高精度定位诊断超声探头，误差范围＜0.5mm，并将治疗换能器精确引导至斑块位置，实现精准定位与跟踪。",
       href: "/service", color: "#004d7e", rowBgPattern: "/images/txt_icon2.png",
     },
     {
-      icon: "/images/icons/stemcell.png", iconHover: "/images/icons/stemcell-hover.png",
-      title: "干细胞&创新药", subtitle: "Stem cells & innovative drugs",
-      description: "依托国家级科研平台，开展全方位产、学、研合作，承担多项国家重大新药创制、国家重点研发计划。以现代发展路径，探索新技术、新药研发，并在再生医学等领域初露锋芒。",
+      icon: "/images/icons/otc.png", iconHover: "/images/icons/otc-hover.png",
+      title: "近场均匀超声换能器", subtitle: "Uniform Near-field Transducer",
+      description: "自研治疗超声换能器解决近声场强度紊乱的行业难题，波束不均匀系数（BNR）2.0-2.5之间，超过进口品牌，为声动力治疗精准疗效提供根本保证。",
       href: "/innovate", color: "#f36e21", rowBgPattern: "/images/txt_icon2.png",
     },
     {
-      icon: "/images/icons/health.png", iconHover: "/images/icons/health-hover.png",
-      title: "健康产品", subtitle: "Health products",
-      description: "声诺医疗结合传统中医药在固本强基、治未病、疾病康复方面的诉求，积极布局探索药食同源、大健康系列产品的研发、生产、经营。百年品质，诚信保障，给大众最好的健康呵护。",
+      icon: "/images/icons/rx.png", iconHover: "/images/icons/rx-hover.png",
+      title: "人工智能中央数据库", subtitle: "AI Central Database",
+      description: "基于AI算法和个体化治疗参数建立患者样本中央数据库，深度挖掘诊疗数据、持续优化治疗参数，为声动力治疗临床研究提供坚实数据保障。",
       href: "#", color: "#fec463", rowBgPattern: "/images/txt_icon2.png",
     },
   ],
@@ -132,9 +132,9 @@ export default function ProductsServices() {
     <section ref={sectionRef} className="relative bg-[#f5f5f5] pt-[7.81vw] pb-[100px] z-[4]">
       <div className="container-custom">
         <div className="relative mb-[2.81vw]">
-          <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">产品与服务</h2>
+          <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">产品与技术</h2>
           <p className="text-[16px] md:text-[20px] xl:text-[24px] leading-relaxed py-[14px] text-[#333]">
-            药者当付全力 医者当问良心<br />声诺医疗 · 股票代码：000000
+            大音希声 千金一诺<br />声诺医疗 · 高端医疗装备 · 超声脑机接口
           </p>
           <Link href="/products" className="btn-brand absolute right-0 bottom-0 hidden md:inline-block">了解详情</Link>
           <Link href="/products" className="btn-brand mt-4 md:hidden">了解详情</Link>

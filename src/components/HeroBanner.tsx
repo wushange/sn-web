@@ -20,14 +20,15 @@ const slides: Slide[] = [
   },
   {
     bgImage: "/images/banner-2.jpg",
-    title: "传承与创新相结合",
-    subtitle: "致力于从预防、治疗、康复三个领域\n为人类全生命周期健康管理提供精准有效的服务",
+    title: "动脉斑块声动力治疗系统",
+    subtitle: "全球首台（套）\n超声声动力疗法精准清除动脉粥样硬化斑块\n无创 · 靶向 · 安全有效",
     link: "/products",
     linkText: "了解详情",
   },
   {
     bgImage: "/images/banner-3.jpg",
-    title: "声诺医疗\n守护生命健康",
+    title: "经颅聚焦超声\n脑机接口诊疗系统",
+    subtitle: "4-8通道同心圆环形相控换能器\n毫米级颅内精准调控 · 无创神经调控",
     link: "/products",
     linkText: "了解详情",
   },

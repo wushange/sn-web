@@ -36,10 +36,10 @@ export default function JoinUs() {
             加入声诺医疗
           </h2>
           <h3 className="text-[16px] md:text-[20px] xl:text-[24px] font-normal leading-relaxed py-[14px] text-[#333]">
-            缔造健康的非凡之业，拼搏创新的非凡之路，共享美好的非凡之愿
+            大音希声 千金一诺 · 为守护人类健康提供中国方案
           </h3>
           <h4 className="text-[15px] md:text-[16px] text-[#808080] font-normal leading-[30px]">
-            留下您的手机号
+            留下您的联系方式，我们期待与您合作
           </h4>
 
           <form onSubmit={handleSubmit} className="mt-[1.14vw]">
