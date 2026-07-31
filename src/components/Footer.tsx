@@ -48,7 +48,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row py-[60px] md:py-[115px] border-b border-[#d9d9d9]">
           <div className="flex-shrink-0 mb-8 md:mb-0 md:pr-[60px] flex justify-center md:block">
             <Link href="/">
-              <img src="/images/logo-footer.png" alt="声诺医疗" className="h-[60px] w-auto" />
+              <img src="/images/logo8.png" alt="声诺医疗" className="h-[60px] w-auto" />
             </Link>
           </div>
 
