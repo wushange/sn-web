@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Noto Sans SC", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --brand-red: #c7000b;
+  --brand-red-dark: #AE0009;
+  --brand-red-light: rgba(199, 0, 11, 0.15);
+  --brand-green: #00a54f;
+  --brand-blue: #008fd5;
+  --brand-navy: #004d7e;
+  --brand-orange: #f36e21;
+  --brand-gold: #fec463;
+  --brand-yb-blue: #0168b6;
+  --text-dark: #221815;
+  --text-body: #333333;
+  --text-muted: #808080;
+  --text-light: #A2A0A0;
+  --bg-light: #f5f5f5;
+  --bg-white: #ffffff;
+  --border-light: #D9D9D9;
+  --border-lighter: #E6E6E6;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.21 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.21 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.21 0 0);
+  --primary: oklch(0.48 0.24 28);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.21 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.21 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.85 0 0);
+  --input: oklch(0.85 0 0);
+  --ring: oklch(0.48 0.24 28);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-white text-[#333];
+    font-family: "Noto Sans SC", "Microsoft YaHei", "Arial", sans-serif;
+    font-size: 16px;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .container-custom {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1230px;
+  }
+  @media (max-width: 1259px) {
+    .container-custom { max-width: 1170px; }
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-button:vertical { display: none; }
+::-webkit-scrollbar-corner, ::-webkit-scrollbar-track { background-color: #f5f5f5; }
+::-webkit-scrollbar-thumb { border-radius: 0; background-color: #c7000b; }
+::-webkit-scrollbar-thumb:vertical:hover { background-color: #c7000b; }
+
+/* Brand button */
+.btn-brand {
+  font-size: 16px;
+  line-height: 46px;
+  color: #fff;
+  height: 48px;
+  width: 180px;
+  text-align: center;
+  display: inline-block;
+  background: #c7000b url(/images/nav_si.png) no-repeat right top;
+  transition: all 0.3s ease;
+}
+.btn-brand:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+  color: #fff;
+}
+
+/* Animations */
+@keyframes scaleBg {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes radiusRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes rangeScale {
+  0% { opacity: 0; transform: scale(1); }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+/* Intersection observer triggered animations */
+.fade-in-up-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-up-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scale bg image */
+.scale-bg-img {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
