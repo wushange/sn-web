@@ -179,6 +179,196 @@
   background-size: cover;
 }
 
+/* ===== PC 导航栏（对齐 www.hnjzt.com 参考站） ===== */
+.pc-header {
+  height: 100px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  padding: 0 60px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.5s ease-in-out;
+}
+.pc-header.headerTransparent {
+  background: rgba(255, 255, 255, 0);
+  box-shadow: none;
+}
+/* logo */
+.pc-header .logo {
+  float: left;
+  margin-top: 20px;
+  position: relative;
+}
+.pc-header .logo img {
+  transition: all 0.5s ease-in-out;
+  height: 60px;
+  width: auto;
+}
+.pc-header.headerFixed .logo img { opacity: 1; }
+/* nav */
+.pc-header .headRx { float: right; }
+.pc-header .nav { float: left; }
+.pc-header .nav_a {
+  padding: 0 1.3vw;
+  display: inline-block;
+  line-height: 100px;
+  position: relative;
+  font-size: 18px;
+}
+.pc-header .nav_a:after {
+  content: "";
+  transition: all 0.5s ease-in-out;
+  width: 0%;
+  background: #C7000A;
+  height: 4px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+}
+.pc-header.headerFixed .nav_a.on:after,
+.pc-header.headerFixed .nav_a:hover:after,
+.pc-header:hover .nav_a.on:after,
+.pc-header:hover .nav_a:hover:after { width: 100%; left: 0; }
+.pc-header .nav_a.no { color: #333 !important; }
+.pc-header .nav_a.on { color: #c7000a; }
+.pc-header.headerTransparent .nav_a { color: #fff; }
+.pc-header.headerTransparent .nav_a:hover { color: #C7000A; }
+.pc-header.headerFixed .nav_a { color: #333; }
+.pc-header.headerFixed .nav_a:hover { color: #C7000A; }
+/* topLan 语言切换 */
+.pc-header .topLan {
+  float: left;
+  line-height: 19px;
+  height: 19px;
+  margin-top: 40px;
+  padding-left: 2.08vw;
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  position: relative;
+}
+.pc-header .topLan a { display: block; }
+.pc-header .topLan span {
+  background: url(/images/icons/lang.png) no-repeat left center;
+  padding-left: 26px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 19px;
+  color: #333;
+}
+.pc-header .topLan:after {
+  content: "";
+  background: url(/images/icons/lang-arrow.png) no-repeat center center;
+  display: inline-block;
+  height: 4px;
+  width: 7px;
+  position: absolute;
+  top: 50%;
+  right: -11px;
+  margin-top: -2px;
+}
+.pc-header.headerTransparent .topLan { border-left-color: rgba(255, 255, 255, 0.4); }
+.pc-header.headerTransparent .topLan span { background-image: url(/images/icons/lang-white.png); color: #fff; }
+.pc-header.headerTransparent .topLan:after { background-image: url(/images/icons/lang-arrow-white.png); }
+.pc-header.headerFixed .topLan,
+.pc-header:hover .topLan { border-left-color: #BCB9B8; }
+/* 下拉菜单 */
+.pc-header .subNavBox-fx {
+  background: #fff url(/images/subnav-bg.png) no-repeat right bottom;
+  top: 100px;
+  height: 540px;
+}
+.pc-header .subNvLx-fx {
+  background: #f5f5f5;
+  float: left;
+  width: 31.5%;
+  height: 540px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.pc-header .subNvLx-fx:before {
+  content: "";
+  background: url(/images/watermark-logo.png) no-repeat center center;
+  height: 716px;
+  width: 716px;
+  position: absolute;
+  top: 100px;
+  right: 92px;
+  animation: radiusRotate 50s linear infinite;
+}
+.pc-header .subNvRx-fx {
+  margin-left: 31.5%;
+  position: relative;
+  height: 540px;
+}
+.pc-header .subNvDl-fx {
+  position: absolute;
+  left: 6.14vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 360px;
+}
+.pc-header .subNv_a-fx {
+  line-height: 60px;
+  height: 60px;
+  font-size: 16px;
+  color: #808080;
+  display: block;
+  padding-left: 60px;
+}
+.pc-header .subNv_a-fx:hover {
+  color: #fff;
+  background: #c7000a url(/images/nav_si.png) no-repeat right top;
+}
+.pc-header .subNvImg-fx {
+  left: calc(360px + 12.7vw);
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.subNv_m {
+  font-size: 14px;
+  line-height: 28px;
+  color: #c7000a;
+  display: inline-block;
+  position: relative;
+}
+.subNv_m:after {
+  content: "";
+  width: 0%;
+  height: 1px;
+  background: #c7000a;
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.subNv_m:hover:after { width: 100%; }
+
+@media (max-width: 1799px) {
+  .pc-header { height: 76px; padding: 0 30px; }
+  .pc-header .logo { margin-top: 12px; }
+  .pc-header .logo img { height: 52px; }
+  .pc-header .nav_a { font-size: 17px; padding: 0 1.0vw; line-height: 76px; letter-spacing: 1px; }
+  .pc-header .topLan { margin-top: 28px; }
+  .pc-header .subNavBox-fx { top: 76px; height: 400px; }
+  .pc-header .subNvLx-fx { height: 400px; }
+  .pc-header .subNvLx-fx:before { height: 516px; width: 516px; top: 50px; right: 42px; background-size: cover; }
+  .pc-header .subNvRx-fx { height: 400px; }
+  .pc-header .subNvDl-fx { width: 320px; }
+  .pc-header .subNv_a-fx { line-height: 46px; height: 46px; padding-left: 40px; }
+  .pc-header .subNvImg-fx { left: calc(320px + 10.7vw); }
+}
+@media (max-width: 1379px) {
+  .pc-header .nav_a { font-size: 16px; padding: 0 0.9vw; }
+}
+@media (max-width: 1199px) {
+  .pc-header { padding: 0 15px; }
+  .pc-header .nav_a { padding: 0 5px; font-size: 14px; }
+}
+
 /* ===== 产品卡片 hover 颜色 ===== */
 .card-row-1 .card-hover:nth-child(1):hover { background: #c7000b !important; box-shadow: 0 0 25px rgba(199,0,11,0.4) !important; }
 .card-row-1 .card-hover:nth-child(2):hover { background: #00a54f !important; box-shadow: 0 0 25px rgba(0,165,79,0.4) !important; }

@@ -64,6 +64,7 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<Record<number, boolean>>({});
   const [isHoveringHeader, setIsHoveringHeader] = useState(false);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // "headerFixed" mode: when user scrolls >10px OR hovers the header
@@ -81,11 +82,13 @@ export default function Header() {
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
-  const handleMouseEnter = (index: number) => {
+  const handleMouseEnter = (index: number, hasChildren: boolean) => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
-    setActiveDropdown(index);
+    setHoverIndex(index);
+    if (hasChildren) setActiveDropdown(index);
   };
   const handleMouseLeave = () => {
+    setHoverIndex(null);
     hideTimer.current = setTimeout(() => setActiveDropdown(null), 200);
   };
 
@@ -103,7 +106,7 @@ export default function Header() {
 
       {/* ===== Mobile Header ===== */}
       <div className="fixed top-0 left-0 w-full z-[1001] bg-white flex items-center justify-between h-[56px] px-4 lg:hidden shadow-sm">
-        <Link href="/"><img src="/images/logo.png" alt="声诺医疗" className="h-9 w-auto" /></Link>
+        <Link href="/"><img src="/images/logo5.png" alt="声诺医疗" className="h-9 w-auto" /></Link>
         <div className="flex items-center gap-3">
           <Link href="/en" className="text-sm text-[#333]">EN</Link>
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="w-6 h-6 flex flex-col justify-center gap-[5px] relative">
@@ -142,82 +145,37 @@ export default function Header() {
 
       {/* ===== PC Header ===== */}
       <header
-        className={`hidden lg:block fixed top-0 left-0 w-full z-30 transition-all duration-500 ${headerFixed ? "bg-white shadow-[0_5px_15px_rgba(0,0,0,0.08)]" : "bg-transparent"}`}
-        style={{ height: headerFixed ? "76px" : "100px", padding: "0 30px" }}
+        className={`pc-header hidden lg:block ${headerFixed ? "headerFixed" : "headerTransparent"}`}
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
       >
-        {/* Logo — two images stacked, swapped by opacity */}
-        <Link
-          href="/"
-          className="float-left relative"
-          style={{ marginTop: headerFixed ? "12px" : "20px" }}
-        >
-          <img
-            src="/images/logo5.png"
-            alt="声诺医疗"
-            style={{ height: headerFixed ? "52px" : "60px", width: "auto", opacity: headerFixed ? 1 : 0, transition: "all 0.5s ease-in-out" }}
-          />
-          <img
-            src="/images/logo5.png"
-            alt="声诺医疗"
-            className="absolute left-0 top-0"
-            style={{ height: headerFixed ? "52px" : "60px", width: "auto", opacity: headerFixed ? 0 : 1, transition: "all 0.5s ease-in-out" }}
-          />
+        {/* Logo */}
+        <Link href="/" className="logo">
+          <img src="/images/logo5.png" alt="声诺医疗" />
         </Link>
 
-        <div className="float-right">
-          <ul className="nav float-left flex" style={{ marginRight: "0.7vw" }} onMouseLeave={handleMouseLeave}>
+        <div className="headRx">
+          <ul className="nav" onMouseLeave={handleMouseLeave}>
             {navItems.map((item, index) => (
-              <li key={index}
-                className="relative float-left"
-                onMouseEnter={() => item.children && handleMouseEnter(index)}>
+              <li key={index} className="relative float-left"
+                onMouseEnter={() => handleMouseEnter(index, !!item.children)}>
                 <Link
                   href={item.href}
-                  className="nav_a inline-block relative text-[14px] xl:text-[17px] transition-colors duration-300"
-                  style={{
-                    padding: "0 5px xl:padding:0 1.0vw",
-                    lineHeight: headerFixed ? "76px" : "100px",
-                    color: headerFixed ? "#333" : "#fff",
-                  }}
+                  className={`nav_a relative ${item.label === "首页" ? "on" : ""} ${hoverIndex !== null && hoverIndex !== index ? "no" : ""}`}
                 >
                   {item.label}
-                  {/* Red underline ::after via bg pseudo — we use a real div since we can't use ::after inline */}
-                  <span
-                    className="absolute left-1/2 bottom-0 h-[4px] bg-[#C7000A] transition-all duration-500"
-                    style={{ width: "0%" }}
-                  />
                 </Link>
 
                 {/* ===== Dropdown ===== */}
                 {item.children && activeDropdown === index && (
                   <div
-                    className="subNavBox absolute left-0 bg-white border-t border-[#E6E6E6] overflow-hidden"
-                    style={{
-                      top: headerFixed ? "76px" : "100px",
-                      width: "100vw",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      height: headerFixed ? "400px" : "540px",
-                      background: "#fff url(/images/subnav-bg.png) no-repeat right bottom",
-                    }}
-                    onMouseEnter={() => handleMouseEnter(index)}
+                    className="subNavBox subNavBox-fx absolute left-0 bg-white border-t border-[#E6E6E6] overflow-hidden"
+                    style={{ width: "100vw", left: "50%", transform: "translateX(-50%)" }}
+                    onMouseEnter={() => handleMouseEnter(index, true)}
                   >
                     {/* Left panel */}
-                    <div className="float-left relative z-[1] overflow-hidden" style={{ width: "31.5%", height: headerFixed ? "400px" : "540px", background: "#f5f5f5" }}>
-                      {/* Rotating watermark */}
-                      <div
-                        className="absolute bg-no-repeat bg-center animate-[radiusRotate_50s_linear_infinite]"
-                        style={{
-                          height: headerFixed ? "516px" : "716px",
-                          width: headerFixed ? "516px" : "716px",
-                          top: headerFixed ? "50px" : "100px",
-                          right: headerFixed ? "42px" : "92px",
-                          backgroundImage: "url(/images/watermark-logo.png)",
-                          backgroundSize: "cover",
-                        }}
-                      />
-                      <div className="absolute left-[60px] right-[60px] top-1/2 -translate-y-1/2">
+                    <div className="subNvLx subNvLx-fx">
+                      <div className="subNvtp absolute left-[60px] right-[60px] top-1/2 -translate-y-1/2">
                         <strong className="block text-[24px] font-normal leading-[40px] mb-[10px] text-[#333]">{item.label}</strong>
                         <p className="text-[14px] leading-[28px] text-[#808080] mb-[15px]">{item.description}</p>
                         <Link href={item.href} className="subNv_m inline-block text-[14px] leading-[28px] text-[#c7000a] relative">
@@ -227,14 +185,13 @@ export default function Header() {
                     </div>
 
                     {/* Right panel */}
-                    <div style={{ marginLeft: "31.5%", position: "relative", height: headerFixed ? "400px" : "540px" }}>
-                      <dl className="absolute left-[6.14vw] top-1/2 -translate-y-1/2" style={{ width: "320px" }}>
+                    <div className="subNvRx subNvRx-fx">
+                      <dl className="subNvDl-fx absolute top-1/2 -translate-y-1/2">
                         {item.children.map((child, ci) => (
                           <dd key={ci}>
                             <Link
                               href={child.href}
-                              className="subNv_a block text-[15px] text-[#333] hover:text-[#c7000a] transition-colors"
-                              style={{ lineHeight: "46px", height: "46px", paddingLeft: "40px" }}
+                              className="subNv_a subNv_a-fx block text-[16px] text-[#808080]"
                               {...(child.external ? { target: "_blank", rel: "noreferrer" } : {})}>
                               {child.label}
                             </Link>
@@ -246,8 +203,7 @@ export default function Header() {
                           src={item.image}
                           alt={item.label}
                           width={320} height={180}
-                          className="absolute rounded-lg"
-                          style={{ right: "9.37vw", top: "50%", transform: "translateY(-50%)" }}
+                          className="subNvImg-fx absolute rounded-lg"
                         />
                       )}
                     </div>
@@ -257,49 +213,12 @@ export default function Header() {
             ))}
           </ul>
 
-          {/* Language switcher — with icon */}
-          <div
-            className="topLan float-left relative"
-            style={{
-              lineHeight: "19px",
-              height: "19px",
-              marginTop: headerFixed ? "28px" : "40px",
-              paddingLeft: "2.08vw",
-              borderLeft: `1px solid ${headerFixed ? "#BCB9B8" : "rgba(255,255,255,0.4)"}`,
-            }}
-          >
-            <Link
-              href="/en"
-              className="topLan_link inline-flex items-center gap-[6px]"
-              style={{ paddingLeft: "26px", fontSize: "14px", lineHeight: "19px", color: headerFixed ? "#333" : "#fff" }}
-            >
-              EN
-              <span className="inline-block w-[7px] h-[4px] ml-[5px]" style={{ background: `url(/images/icons/lang-arrow.png) no-repeat center` }} />
-            </Link>
+          {/* Language switcher */}
+          <div className="topLan">
+            <Link href="/en"><span>EN</span></Link>
           </div>
         </div>
       </header>
-
-      <style jsx>{`
-        /* Red underline hover effect */
-        .nav_a:hover span { width: 100% !important; left: 0 !important; }
-
-        /* subNv_m underline */
-        .subNv_m::after {
-          content: "";
-          width: 0%;
-          height: 1px;
-          background: #c7000a;
-          transition: all 0.5s ease-in-out;
-          position: absolute;
-          left: 0;
-          bottom: 0;
-        }
-        .subNv_m:hover::after { width: 100%; }
-
-        /* subNv_a hover */
-        .subNv_a:hover { color: #c7000a !important; }
-      `}</style>
     </>
   );
 }
