@@ -154,12 +154,12 @@ export default function Header() {
           style={{ marginTop: headerFixed ? "12px" : "20px" }}
         >
           <img
-            src="/images/logo.png"
+            src="/images/logo5.png"
             alt="声诺医疗"
             style={{ height: headerFixed ? "52px" : "60px", width: "auto", opacity: headerFixed ? 1 : 0, transition: "all 0.5s ease-in-out" }}
           />
           <img
-            src="/images/logo_w.png"
+            src="/images/logo5.png"
             alt="声诺医疗"
             className="absolute left-0 top-0"
             style={{ height: headerFixed ? "52px" : "60px", width: "auto", opacity: headerFixed ? 0 : 1, transition: "all 0.5s ease-in-out" }}
