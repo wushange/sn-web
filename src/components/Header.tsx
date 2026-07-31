@@ -63,7 +63,11 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [mobileExpanded, setMobileExpanded] = useState<Record<number, boolean>>({});
+  const [isHoveringHeader, setIsHoveringHeader] = useState(false);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // "headerFixed" mode: when user scrolls >10px OR hovers the header
+  const headerFixed = isScrolled || isHoveringHeader;
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -84,41 +88,43 @@ export default function Header() {
   const handleMouseLeave = () => {
     hideTimer.current = setTimeout(() => setActiveDropdown(null), 200);
   };
+
   const toggleMobileExpand = (index: number) => {
     setMobileExpanded(prev => ({ ...prev, [index]: !prev[index] }));
   };
 
   return (
     <>
+      {/* Head background overlay - shows when dropdown is open */}
+      <div
+        className={`hidden lg:block fixed inset-0 z-[28] bg-black/60 transition-all duration-500 ${activeDropdown !== null ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        onClick={() => setActiveDropdown(null)}
+      />
+
       {/* ===== Mobile Header ===== */}
       <div className="fixed top-0 left-0 w-full z-[1001] bg-white flex items-center justify-between h-[56px] px-4 lg:hidden shadow-sm">
-        <Link href="/" className="flex-shrink-0">
-          <img src="/images/logo.png" alt="声诺医疗" className="h-9 w-auto" />
-        </Link>
+        <Link href="/"><img src="/images/logo.png" alt="声诺医疗" className="h-9 w-auto" /></Link>
         <div className="flex items-center gap-3">
           <Link href="/en" className="text-sm text-[#333]">EN</Link>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="w-6 h-6 flex flex-col justify-center gap-[5px] relative"
-          >
-            <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? 'rotate-45 translate-y-[7px]' : ''}`} />
-            <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? '-rotate-45 -translate-y-[7px]' : ''}`} />
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="w-6 h-6 flex flex-col justify-center gap-[5px] relative">
+            <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+            <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
           </button>
         </div>
       </div>
 
-      {/* Mobile overlay */}
-      <div className={`fixed inset-0 bg-black/50 z-[1000] transition-opacity duration-300 lg:hidden ${mobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+      {/* Mobile overlay + menu */}
+      <div className={`fixed inset-0 bg-black/50 z-[1000] transition-opacity duration-300 lg:hidden ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={() => setMobileMenuOpen(false)} />
-      <div className={`fixed top-[56px] right-0 bottom-0 w-full max-w-[320px] bg-white z-[1001] transition-transform duration-300 overflow-y-auto lg:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed top-[56px] right-0 bottom-0 w-full max-w-[320px] bg-white z-[1001] transition-transform duration-300 overflow-y-auto lg:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="py-2">
           {navItems.map((item, index) => (
             <div key={index} className="border-b border-gray-100">
               <div className="flex items-center justify-between px-5 py-3 cursor-pointer"
                 onClick={() => item.children ? toggleMobileExpand(index) : setMobileMenuOpen(false)}>
                 <Link href={item.href} className="text-[15px] text-[#333]" onClick={() => setMobileMenuOpen(false)}>{item.label}</Link>
-                {item.children && <span className={`text-xs transition-transform ${mobileExpanded[index] ? 'rotate-90' : ''}`}>▶</span>}
+                {item.children && <span className={`text-xs transition-transform ${mobileExpanded[index] ? "rotate-90" : ""}`}>▶</span>}
               </div>
               {item.children && mobileExpanded[index] && (
                 <div className="bg-gray-50 py-1">
@@ -136,87 +142,163 @@ export default function Header() {
 
       {/* ===== PC Header ===== */}
       <header
-        className={`hidden lg:block fixed top-0 left-0 w-full z-[999] transition-all duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent header-transparent'}`}
+        className={`hidden lg:block fixed top-0 left-0 w-full z-30 transition-all duration-500 ${headerFixed ? "bg-white shadow-[0_5px_15px_rgba(0,0,0,0.08)]" : "bg-transparent"}`}
+        style={{ height: headerFixed ? "76px" : "100px", padding: "0 30px" }}
+        onMouseEnter={() => setIsHoveringHeader(true)}
+        onMouseLeave={() => setIsHoveringHeader(false)}
       >
-        <div className="container-custom flex items-center justify-between" style={{ height: "100px" }}>
-          <Link href="/" className="flex-shrink-0 flex items-center" style={{ height: "100px", lineHeight: "100px" }}>
-            <img src="/images/logo.png" alt="声诺医疗" className="h-[50px] w-auto logo-default" />
-            <img src="/images/logo_w.png" alt="声诺医疗" className="h-[50px] w-auto logo-white" />
-          </Link>
+        {/* Logo — two images stacked, swapped by opacity */}
+        <Link
+          href="/"
+          className="float-left relative"
+          style={{ marginTop: headerFixed ? "12px" : "20px" }}
+        >
+          <img
+            src="/images/logo.png"
+            alt="声诺医疗"
+            style={{ height: headerFixed ? "52px" : "60px", width: "auto", opacity: headerFixed ? 1 : 0, transition: "all 0.5s ease-in-out" }}
+          />
+          <img
+            src="/images/logo_w.png"
+            alt="声诺医疗"
+            className="absolute left-0 top-0"
+            style={{ height: headerFixed ? "52px" : "60px", width: "auto", opacity: headerFixed ? 0 : 1, transition: "all 0.5s ease-in-out" }}
+          />
+        </Link>
 
-          <div className="flex items-center" style={{ height: "100px" }}>
-            <nav className="flex items-center" onMouseLeave={handleMouseLeave}>
-              {navItems.map((item, index) => (
-                <div key={index} className="relative"
-                  onMouseEnter={() => item.children && handleMouseEnter(index)}>
-                  <Link href={item.href}
-                    className={`block text-[18px] transition-colors duration-300 ${isScrolled ? 'text-[#221815] hover:text-[#c7000b]' : 'text-white hover:text-white/80'}`}
-                    style={{ padding: "0 22px 32px", borderBottom: "4px solid transparent" }}>
-                    {item.label}
-                  </Link>
+        <div className="float-right">
+          <ul className="nav float-left flex" style={{ marginRight: "0.7vw" }} onMouseLeave={handleMouseLeave}>
+            {navItems.map((item, index) => (
+              <li key={index}
+                className="relative float-left"
+                onMouseEnter={() => item.children && handleMouseEnter(index)}>
+                <Link
+                  href={item.href}
+                  className="nav_a inline-block relative text-[14px] xl:text-[17px] transition-colors duration-300"
+                  style={{
+                    padding: "0 5px xl:padding:0 1.0vw",
+                    lineHeight: headerFixed ? "76px" : "100px",
+                    color: headerFixed ? "#333" : "#fff",
+                  }}
+                >
+                  {item.label}
+                  {/* Red underline ::after via bg pseudo — we use a real div since we can't use ::after inline */}
+                  <span
+                    className="absolute left-1/2 bottom-0 h-[4px] bg-[#C7000A] transition-all duration-500"
+                    style={{ width: "0%" }}
+                  />
+                </Link>
 
-                  {/* ===== Dropdown ===== */}
-                  {item.children && activeDropdown === index && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-2xl flex overflow-hidden"
-                      style={{ width: "780px", borderRadius: "0 0 6px 6px" }}
-                      onMouseEnter={() => handleMouseEnter(index)}>
-                      {/* Left panel */}
-                      <div className="w-[340px] p-8 flex flex-col justify-between" style={{ background: "linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%)" }}>
-                        <div>
-                          <strong className="text-[22px] text-[#221815] font-bold block mb-3">{item.label}</strong>
-                          <p className="text-[14px] text-[#808080] leading-[28px]">{item.description}</p>
-                        </div>
-                        <Link href={item.href} className="text-[14px] text-[#c7000b] hover:underline mt-6 inline-flex items-center gap-1">
-                          了解详情 <span className="text-lg">→</span>
+                {/* ===== Dropdown ===== */}
+                {item.children && activeDropdown === index && (
+                  <div
+                    className="subNavBox absolute left-0 bg-white border-t border-[#E6E6E6] overflow-hidden"
+                    style={{
+                      top: headerFixed ? "76px" : "100px",
+                      width: "100vw",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      height: headerFixed ? "400px" : "540px",
+                      background: "#fff url(/images/subnav-bg.png) no-repeat right bottom",
+                    }}
+                    onMouseEnter={() => handleMouseEnter(index)}
+                  >
+                    {/* Left panel */}
+                    <div className="float-left relative z-[1] overflow-hidden" style={{ width: "31.5%", height: headerFixed ? "400px" : "540px", background: "#f5f5f5" }}>
+                      {/* Rotating watermark */}
+                      <div
+                        className="absolute bg-no-repeat bg-center animate-[radiusRotate_50s_linear_infinite]"
+                        style={{
+                          height: headerFixed ? "516px" : "716px",
+                          width: headerFixed ? "516px" : "716px",
+                          top: headerFixed ? "50px" : "100px",
+                          right: headerFixed ? "42px" : "92px",
+                          backgroundImage: "url(/images/watermark-logo.png)",
+                          backgroundSize: "cover",
+                        }}
+                      />
+                      <div className="absolute left-[60px] right-[60px] top-1/2 -translate-y-1/2">
+                        <strong className="block text-[24px] font-normal leading-[40px] mb-[10px] text-[#333]">{item.label}</strong>
+                        <p className="text-[14px] leading-[28px] text-[#808080] mb-[15px]">{item.description}</p>
+                        <Link href={item.href} className="subNv_m inline-block text-[14px] leading-[28px] text-[#c7000a] relative">
+                          了解详情
                         </Link>
                       </div>
-
-                      {/* Right panel — sub links + image */}
-                      <div className="flex-1 p-8 flex gap-6">
-                        <dl className="flex-1">
-                          {item.children.map((child, ci) => (
-                            <dd key={ci}>
-                              <Link href={child.href}
-                                className="block py-[10px] text-[15px] text-[#333] hover:text-[#c7000b] transition-colors"
-                                {...(child.external ? { target: "_blank", rel: "noreferrer" } : {})}>
-                                {child.label}
-                              </Link>
-                            </dd>
-                          ))}
-                        </dl>
-                        {item.image && (
-                          <div className="w-[320px] h-[180px] rounded-lg overflow-hidden flex-shrink-0">
-                            <img src={item.image} alt={item.label} className="w-full h-full object-cover" />
-                          </div>
-                        )}
-                      </div>
                     </div>
-                  )}
-                </div>
-              ))}
-            </nav>
 
-            {/* Language */}
-            <div className={`relative ml-[30px] pl-[30px] border-l transition-colors ${isScrolled ? 'border-gray-300' : 'border-white/30'}`}>
-              <Link href="/en"
-                className={`text-[16px] transition-colors ${isScrolled ? 'text-[#221815] hover:text-[#c7000b]' : 'text-white hover:text-white/80'}`}>
-                EN
-              </Link>
-            </div>
+                    {/* Right panel */}
+                    <div style={{ marginLeft: "31.5%", position: "relative", height: headerFixed ? "400px" : "540px" }}>
+                      <dl className="absolute left-[6.14vw] top-1/2 -translate-y-1/2" style={{ width: "320px" }}>
+                        {item.children.map((child, ci) => (
+                          <dd key={ci}>
+                            <Link
+                              href={child.href}
+                              className="subNv_a block text-[15px] text-[#333] hover:text-[#c7000a] transition-colors"
+                              style={{ lineHeight: "46px", height: "46px", paddingLeft: "40px" }}
+                              {...(child.external ? { target: "_blank", rel: "noreferrer" } : {})}>
+                              {child.label}
+                            </Link>
+                          </dd>
+                        ))}
+                      </dl>
+                      {item.image && (
+                        <img
+                          src={item.image}
+                          alt={item.label}
+                          width={320} height={180}
+                          className="absolute rounded-lg"
+                          style={{ right: "9.37vw", top: "50%", transform: "translateY(-50%)" }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+
+          {/* Language switcher — with icon */}
+          <div
+            className="topLan float-left relative"
+            style={{
+              lineHeight: "19px",
+              height: "19px",
+              marginTop: headerFixed ? "28px" : "40px",
+              paddingLeft: "2.08vw",
+              borderLeft: `1px solid ${headerFixed ? "#BCB9B8" : "rgba(255,255,255,0.4)"}`,
+            }}
+          >
+            <Link
+              href="/en"
+              className="topLan_link inline-flex items-center gap-[6px]"
+              style={{ paddingLeft: "26px", fontSize: "14px", lineHeight: "19px", color: headerFixed ? "#333" : "#fff" }}
+            >
+              EN
+              <span className="inline-block w-[7px] h-[4px] ml-[5px]" style={{ background: `url(/images/icons/lang-arrow.png) no-repeat center` }} />
+            </Link>
           </div>
         </div>
       </header>
 
       <style jsx>{`
-        .header-transparent .logo-white { display: inline; }
-        .header-transparent .logo-default { display: none; }
-        :global(.header-transparent):not(.shadow-md) .logo-white { display: inline; }
-        :global(.header-transparent):not(.shadow-md) .logo-default { display: none; }
-        .header-transparent.shadow-md .logo-white,
-        header:not(.header-transparent) .logo-white { display: none; }
-        header:not(.header-transparent) .logo-default { display: inline; }
-        header.bg-white .logo-white { display: none; }
-        header.bg-white .logo-default { display: inline; }
+        /* Red underline hover effect */
+        .nav_a:hover span { width: 100% !important; left: 0 !important; }
+
+        /* subNv_m underline */
+        .subNv_m::after {
+          content: "";
+          width: 0%;
+          height: 1px;
+          background: #c7000a;
+          transition: all 0.5s ease-in-out;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+        .subNv_m:hover::after { width: 100%; }
+
+        /* subNv_a hover */
+        .subNv_a:hover { color: #c7000a !important; }
       `}</style>
     </>
   );
