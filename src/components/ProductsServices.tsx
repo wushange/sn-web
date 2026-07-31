@@ -203,20 +203,6 @@ export default function ProductsServices() {
         .card-hover:hover .card-title,
         .card-hover:hover .card-subtitle,
         .card-hover:hover p { color: #fff !important; }
-        @media (max-width: 767px) {
-          [data-card-row] { opacity: 1 !important; transform: none !important; }
-          [data-card-row] .card-hover:nth-child(1) { background: #c7000b !important; box-shadow: 0 0 25px rgba(199,0,11,0.4) !important; }
-          [data-card-row] .card-hover:nth-child(2) { background: #00a54f !important; box-shadow: 0 0 25px rgba(0,165,79,0.4) !important; }
-          [data-card-row] .card-hover:nth-child(3) { background: #f36e21 !important; box-shadow: 0 0 25px rgba(243,110,33,0.4) !important; }
-          .card-hover { transform: translateY(0) !important; }
-          .card-hover .card-title,
-          .card-hover .card-subtitle,
-          .card-hover p { color: #fff !important; }
-          .card-hover .icon-circle { border-color: #fff !important; }
-          .card-hover .icon-default { opacity: 0 !important; transform: translate(-50%,-50%) rotateY(360deg) !important; }
-          .card-hover .icon-hover { opacity: 1 !important; }
-          .card-hover .row-bg { opacity: 0 !important; }
-        }
       `}</style>
     </section>
   );

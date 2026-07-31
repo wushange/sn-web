@@ -369,6 +369,15 @@
   .pc-header .nav_a { padding: 0 5px; font-size: 14px; }
 }
 
+/* ===== 断点工具类（对齐参考站 993px） ===== */
+.sn-mobile-only { display: none !important; }
+.sn-desktop-only { display: block !important; }
+@media (max-width: 993px) {
+  .sn-mobile-only { display: block !important; }
+  .sn-mobile-header { display: flex !important; }
+  .sn-desktop-only { display: none !important; }
+}
+
 /* ===== 产品卡片 hover 颜色 ===== */
 .card-row-1 .card-hover:nth-child(1):hover { background: #c7000b !important; box-shadow: 0 0 25px rgba(199,0,11,0.4) !important; }
 .card-row-1 .card-hover:nth-child(2):hover { background: #00a54f !important; box-shadow: 0 0 25px rgba(0,165,79,0.4) !important; }
@@ -376,3 +385,20 @@
 .card-row-2 .card-hover:nth-child(1):hover { background: #004d7e !important; box-shadow: 0 0 25px rgba(0,77,126,0.4) !important; }
 .card-row-2 .card-hover:nth-child(2):hover { background: #f36e21 !important; box-shadow: 0 0 25px rgba(243,110,33,0.4) !important; }
 .card-row-2 .card-hover:nth-child(3):hover { background: #fec463 !important; box-shadow: 0 0 25px rgba(254,196,99,0.4) !important; }
+
+/* ===== 产品卡片移动端强制上色（≤767px，对齐参考站） ===== */
+@media (max-width: 767px) {
+  [data-card-row] { opacity: 1 !important; transform: none !important; }
+  [data-card-row] .card-hover { transform: translateY(0) !important; }
+  [data-card-row] .card-hover:nth-child(1) { background: #c7000b !important; box-shadow: 0 0 25px rgba(199,0,11,0.4) !important; }
+  [data-card-row] .card-hover:nth-child(2) { background: #00a54f !important; box-shadow: 0 0 25px rgba(0,165,79,0.4) !important; }
+  [data-card-row] .card-hover:nth-child(3) { background: #f36e21 !important; box-shadow: 0 0 25px rgba(243,110,33,0.4) !important; }
+  [data-card-row] .card-hover .card-title,
+  [data-card-row] .card-hover .card-subtitle,
+  [data-card-row] .card-hover p { color: #fff !important; }
+  [data-card-row] .card-hover .icon-circle { border-color: #fff !important; }
+  [data-card-row] .card-hover .icon-default { opacity: 0 !important; transform: translate(-50%,-50%) rotateY(360deg) !important; }
+  [data-card-row] .card-hover .icon-hover { opacity: 1 !important; }
+  [data-card-row] .card-hover .row-bg { opacity: 0 !important; }
+  [data-card-row] .card-hover .watermark { opacity: 0.8 !important; }
+}

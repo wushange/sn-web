@@ -97,12 +97,12 @@ export default function Header() {
     <>
       {/* Head background overlay - shows when dropdown is open */}
       <div
-        className={`hidden lg:block fixed inset-0 z-[28] bg-black/60 transition-all duration-500 ${activeDropdown !== null ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
+        className={`sn-desktop-only fixed inset-0 z-[28] bg-black/60 transition-all duration-500 ${activeDropdown !== null ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"}`}
         onClick={() => setActiveDropdown(null)}
       />
 
       {/* ===== Mobile Header ===== */}
-      <div className="fixed top-0 left-0 w-full z-[1001] bg-white flex items-center justify-between h-[56px] px-4 lg:hidden shadow-sm">
+      <div className="sn-mobile-only sn-mobile-header fixed top-0 left-0 w-full z-[1001] bg-white flex items-center justify-between h-[56px] px-4 shadow-sm">
         <Link href="/"><img src="/images/logo5.png" alt="声诺医疗" className="h-9 w-auto" /></Link>
         <div className="flex items-center gap-3">
           <Link href="/en" className="text-sm text-[#333]">EN</Link>
@@ -115,9 +115,9 @@ export default function Header() {
       </div>
 
       {/* Mobile overlay + menu */}
-      <div className={`fixed inset-0 bg-black/50 z-[1000] transition-opacity duration-300 lg:hidden ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+      <div className={`sn-mobile-only fixed inset-0 bg-black/50 z-[1000] transition-opacity duration-300 ${mobileMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
         onClick={() => setMobileMenuOpen(false)} />
-      <div className={`fixed top-[56px] right-0 bottom-0 w-full max-w-[320px] bg-white z-[1001] transition-transform duration-300 overflow-y-auto lg:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`sn-mobile-only fixed top-[56px] right-0 bottom-0 w-full max-w-[320px] bg-white z-[1001] transition-transform duration-300 overflow-y-auto ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="py-2">
           {navItems.map((item, index) => (
             <div key={index} className="border-b border-gray-100">
@@ -142,7 +142,7 @@ export default function Header() {
 
       {/* ===== PC Header ===== */}
       <header
-        className={`pc-header hidden lg:block ${headerFixed ? "headerFixed" : "headerTransparent"}`}
+        className={`pc-header sn-desktop-only ${headerFixed ? "headerFixed" : "headerTransparent"}`}
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
       >
