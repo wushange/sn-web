@@ -13,6 +13,7 @@ interface ServiceCard {
   color: string;
   rowBgPattern: string;
   hidden?: boolean;
+  image?: string;
 }
 
 const serviceRows: ServiceCard[][] = [
@@ -24,19 +25,26 @@ const serviceRows: ServiceCard[][] = [
       href: "/products", color: "#c7000b", rowBgPattern: "/images/txt_icon1.png",
     },
     {
+      icon: "/images/icons/health.png", iconHover: "/images/icons/health-hover.png",
+      title: "温控型低频超声导入美容仪", subtitle: "MC200 Temperature-control Ultrasound Beauty Device",
+      description: "集冷敷、热敷、超声三种模式于一体，通过低频超声与机械振动打通肌肤吸收通道，促进护肤成分渗透吸收，配合智能温控实现清洁、导入、修护、紧致的全流程肌肤护理。",
+      href: "/products", color: "#00a54f", rowBgPattern: "/images/txt_icon1.png",
+      image: "/images/beauty-2.jpg",
+    },
+    {
       icon: "/images/icons/stemcell.png", iconHover: "/images/icons/stemcell-hover.png",
       title: "脑机接口·经颅聚焦超声", subtitle: "tFUS Brain-Computer Interface",
       description: "自研4-8通道同心圆环形相控换能器，实现1.5mm级颅内聚焦精度，面向脑胶质瘤、阿尔茨海默症、帕金森病等提供无创深部神经调控诊疗，正在研发转化中。",
       href: "#", color: "#008fd5", rowBgPattern: "/images/txt_icon1.png",
     },
-    {
-      icon: "/images/icons/health.png", iconHover: "/images/icons/health-hover.png",
-      title: "超声成像斑块精准识别", subtitle: "High-res Ultrasound Imaging",
-      description: "应用高分辨率诊断超声自动识别、分型斑块并预判声动力治疗适应症，依据斑块厚度、狭窄率、血流速度等指标给出个体化治疗参数建议与预后判断。",
-      href: "/service", color: "#00a54f", rowBgPattern: "/images/txt_icon1.png",
-    },
   ],
   [
+    {
+      icon: "/images/icons/rx.png", iconHover: "/images/icons/rx-hover.png",
+      title: "超声成像斑块精准识别", subtitle: "High-res Ultrasound Imaging",
+      description: "应用高分辨率诊断超声自动识别、分型斑块并预判声动力治疗适应症，依据斑块厚度、狭窄率、血流速度等指标给出个体化治疗参数建议与预后判断。",
+      href: "/service", color: "#00a54f", rowBgPattern: "/images/txt_icon2.png",
+    },
     {
       icon: "/images/icons/chain.png", iconHover: "/images/icons/chain-hover.png",
       title: "近红外光学定位系统", subtitle: "Near-infrared Optical Navigation",
@@ -165,22 +173,38 @@ export default function ProductsServices() {
                   />
 
                   <div className="relative z-[1] flex-1">
-                    {/* Icon + Title */}
-                    <div className="flex items-center mb-[1.04vw]">
-                      <div className="icon-circle relative w-[40px] h-[40px] md:w-[60px] md:h-[60px] border border-[#E6E6E6] rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-500">
-                        <img src={card.icon} alt={card.title} className="icon-default w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500" />
-                        <img src={card.iconHover} alt={card.title} className="icon-hover w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500" />
+                    {/* Icon + Title — 有 image 时显示产品图 */}
+                    {card.image ? (
+                      <div className="mb-[1.04vw] overflow-hidden rounded-[0.4em]">
+                        <img src={card.image} alt={card.title} className="w-full object-cover transition-transform duration-500 group-hover:scale-105" style={{ maxHeight: "160px" }} />
                       </div>
-                      <div className="ml-[22px] text-left">
-                        <strong className="card-title text-[16px] md:text-[19px] xl:text-[24px] font-normal tracking-[2px] block text-[#221815] transition-colors duration-500" style={{ color: "inherit" }}>
+                    ) : (
+                      <div className="flex items-center mb-[1.04vw]">
+                        <div className="icon-circle relative w-[40px] h-[40px] md:w-[60px] md:h-[60px] border border-[#E6E6E6] rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-500">
+                          <img src={card.icon} alt={card.title} className="icon-default w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500" />
+                          <img src={card.iconHover} alt={card.title} className="icon-hover w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500" />
+                        </div>
+                        <div className="ml-[22px] text-left">
+                          <strong className="card-title text-[16px] md:text-[19px] xl:text-[24px] font-normal tracking-[2px] block text-[#221815] transition-colors duration-500" style={{ color: "inherit" }}>
+                            {card.title}
+                          </strong>
+                          <p className="card-subtitle text-[12px] uppercase text-[#808080] leading-[18px] transition-colors duration-500" style={{ color: "inherit" }}>
+                            {card.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    {card.image && (
+                      <div className="mb-[0.5vw]">
+                        <strong className="card-title block text-[16px] md:text-[19px] xl:text-[24px] font-normal tracking-[2px] text-[#221815]" style={{ color: "inherit" }}>
                           {card.title}
                         </strong>
-                        <p className="card-subtitle text-[12px] uppercase text-[#808080] leading-[18px] transition-colors duration-500" style={{ color: "inherit" }}>
+                        <p className="card-subtitle text-[12px] uppercase text-[#808080] leading-[18px] transition-colors duration-500 mt-1" style={{ color: "inherit" }}>
                           {card.subtitle}
                         </p>
                       </div>
-                    </div>
-                    <p className="text-[14px] md:text-[16px] leading-[26px] md:leading-[32px] text-[#555] transition-colors duration-500 overflow-hidden relative z-[1]" style={{ height: "94px", marginTop: "1.04vw", color: "inherit" }}>
+                    )}
+                    <p className="text-[14px] md:text-[16px] leading-[26px] md:leading-[32px] text-[#555] transition-colors duration-500 overflow-hidden relative z-[1]" style={{ height: "94px", marginTop: card.image ? "0.5vw" : "1.04vw", color: "inherit" }}>
                       {card.description}
                     </p>
                   </div>
