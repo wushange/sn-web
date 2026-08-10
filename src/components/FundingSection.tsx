@@ -29,9 +29,9 @@ export default function FundingSection() {
           {rounds.map((r, i) => (
             <div key={i} className="relative bg-white rounded-[0.6em] p-[1.8vw] shadow-[0_0_25px_rgba(0,0,0,0.08)] hover:shadow-lg transition-shadow overflow-hidden" style={{ minHeight: "180px" }}>
               <span className="text-[40px] md:text-[52px] font-bold text-[#f0f0f0] absolute right-[12px] top-[5px] select-none">{i + 1}</span>
-              <span className="inline-block text-[12px] text-white bg-[#c7000b] px-[10px] py-[3px] rounded-[0.3em]">{r.year}</span>
+              <span className="inline-block text-[12px] text-white bg-(--brand-primary) px-[10px] py-[3px] rounded-[0.3em]">{r.year}</span>
               <h3 className="text-[18px] md:text-[20px] font-medium text-[#221815] mt-[12px]">{r.round}</h3>
-              <p className="text-[22px] md:text-[26px] font-bold text-[#c7000b] mt-[6px]">{r.amount}</p>
+              <p className="text-[22px] md:text-[26px] font-bold text-(--brand-primary) mt-[6px]">{r.amount}</p>
               <p className="text-[13px] text-[#808080] mt-[8px] leading-[22px]">{r.detail}</p>
             </div>
           ))}

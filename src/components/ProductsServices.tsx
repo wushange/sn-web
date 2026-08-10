@@ -22,7 +22,7 @@ const serviceRows: ServiceCard[][] = [
       icon: "/images/icons/hospital.png", iconHover: "/images/icons/hospital-hover.png",
       title: "动脉斑块声动力治疗系统", subtitle: "Plaque Sonodynamic Therapy System",
       description: "全球首台（套）动脉斑块声动力治疗系统（MT-SDT2.0），集生物医疗技术和大数据AI于一体，通过超声与声敏剂协同精准清除动脉粥样硬化斑块，无创、靶向、疗效显著，拥有我国自主知识产权。",
-      href: "/products", color: "#c7000b", rowBgPattern: "/images/txt_icon1.png",
+      href: "/products", color: "var(--brand-primary)", rowBgPattern: "/images/txt_icon1.png",
     },
     {
       icon: "/images/icons/health.png", iconHover: "/images/icons/health-hover.png",
@@ -67,7 +67,7 @@ const serviceRows: ServiceCard[][] = [
 ];
 
 const cardHoverColors: Record<string, string> = {
-  "#c7000b": "rgba(199,0,11,0.4)",
+  "var(--brand-primary)": "var(--brand-primary-shadow)",
   "#00a54f": "rgba(0,165,79,0.4)",
   "#008fd5": "rgba(0,143,213,0.4)",
   "#004d7e": "rgba(0,77,126,0.4)",

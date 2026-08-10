@@ -19,7 +19,7 @@ export default function SocialResponsibility() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-[#c7000b] py-[7.59vw] z-[2] overflow-hidden">
+    <section ref={sectionRef} className="relative bg-(--brand-primary) py-[7.59vw] z-[2] overflow-hidden">
       {/* Background rotating logo */}
       <div className="absolute left-[-12.76vw] top-[-7.81vw] w-[37.29vw] h-[37.29vw] bg-[url('/images/watermark-white.png')] bg-no-repeat bg-cover animate-[rotate_50s_linear_infinite] hidden xl:block" />
 
@@ -53,8 +53,8 @@ export default function SocialResponsibility() {
 
       {/* Bottom angle decorations */}
       <div className="absolute bottom-0 left-[-10vw] right-[-10vw] h-[3.64vw]">
-        <div className="absolute inset-0 bg-[#c7000b] rotate-[-1.8deg] top-[2vw]" />
-        <div className="absolute left-[-10vw] right-[-10vw] bottom-[-2.06vw] h-[3.64vw] bg-[rgba(199,0,11,0.15)] rotate-[2.2deg]" />
+        <div className="absolute inset-0 bg-(--brand-primary) rotate-[-1.8deg] top-[2vw]" />
+        <div className="absolute left-[-10vw] right-[-10vw] bottom-[-2.06vw] h-[3.64vw] bg-(--brand-primary-light) rotate-[2.2deg]" />
       </div>
     </section>
   );

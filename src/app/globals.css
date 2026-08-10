@@ -49,9 +49,10 @@
 }
 
 :root {
-  --brand-red: #c7000b;
-  --brand-red-dark: #AE0009;
-  --brand-red-light: rgba(199, 0, 11, 0.15);
+  --brand-primary: #199BD2;
+  --brand-primary-dark: #0B7CB5;
+  --brand-primary-light: color-mix(in srgb, var(--brand-primary) 15%, transparent);
+  --brand-primary-shadow: color-mix(in srgb, var(--brand-primary) 40%, transparent);
   --brand-green: #00a54f;
   --brand-blue: #008fd5;
   --brand-navy: #004d7e;
@@ -120,8 +121,8 @@
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-button:vertical { display: none; }
 ::-webkit-scrollbar-corner, ::-webkit-scrollbar-track { background-color: #f5f5f5; }
-::-webkit-scrollbar-thumb { border-radius: 0; background-color: #c7000b; }
-::-webkit-scrollbar-thumb:vertical:hover { background-color: #c7000b; }
+::-webkit-scrollbar-thumb { border-radius: 0; background-color: var(--brand-primary); }
+::-webkit-scrollbar-thumb:vertical:hover { background-color: var(--brand-primary); }
 
 /* Brand button */
 .btn-brand {
@@ -132,7 +133,7 @@
   width: 180px;
   text-align: center;
   display: inline-block;
-  background: #c7000b url(/images/nav_si.png) no-repeat right top;
+  background: var(--brand-primary) url(/images/nav_si.png) no-repeat right top;
   transition: all 0.3s ease;
 }
 .btn-brand:hover {
@@ -230,7 +231,7 @@
   content: "";
   transition: all 0.5s ease-in-out;
   width: 0%;
-  background: #C7000A;
+  background: var(--brand-primary);
   height: 4px;
   position: absolute;
   left: 50%;
@@ -241,11 +242,11 @@
 .pc-header:hover .nav_a.on:after,
 .pc-header:hover .nav_a:hover:after { width: 100%; left: 0; }
 .pc-header .nav_a.no { color: #333 !important; }
-.pc-header .nav_a.on { color: #c7000a; }
+.pc-header .nav_a.on { color: var(--brand-primary); }
 .pc-header.headerTransparent .nav_a { color: #fff; }
-.pc-header.headerTransparent .nav_a:hover { color: #C7000A; }
+.pc-header.headerTransparent .nav_a:hover { color: var(--brand-primary); }
 .pc-header.headerFixed .nav_a { color: #333; }
-.pc-header.headerFixed .nav_a:hover { color: #C7000A; }
+.pc-header.headerFixed .nav_a:hover { color: var(--brand-primary); }
 /* topLan 语言切换 */
 .pc-header .topLan {
   float: left;
@@ -328,7 +329,7 @@
 }
 .pc-header .subNv_a-fx:hover {
   color: #fff;
-  background: #c7000a url(/images/nav_si.png) no-repeat right top;
+  background: var(--brand-primary) url(/images/nav_si.png) no-repeat right top;
 }
 .pc-header .subNvImg-fx {
   left: calc(360px + 12.7vw);
@@ -339,7 +340,7 @@
 .subNv_m {
   font-size: 14px;
   line-height: 28px;
-  color: #c7000a;
+  color: var(--brand-primary);
   display: inline-block;
   position: relative;
 }
@@ -347,7 +348,7 @@
   content: "";
   width: 0%;
   height: 1px;
-  background: #c7000a;
+  background: var(--brand-primary);
   transition: all 0.5s ease-in-out;
   position: absolute;
   left: 0;
@@ -387,7 +388,7 @@
 }
 
 /* ===== 产品卡片 hover 颜色 ===== */
-.card-row-1 .card-hover:nth-child(1):hover { background: #c7000b !important; box-shadow: 0 0 25px rgba(199,0,11,0.4) !important; }
+.card-row-1 .card-hover:nth-child(1):hover { background: var(--brand-primary) !important; box-shadow: 0 0 25px var(--brand-primary-shadow) !important; }
 .card-row-1 .card-hover:nth-child(2):hover { background: #00a54f !important; box-shadow: 0 0 25px rgba(0,165,79,0.4) !important; }
 .card-row-1 .card-hover:nth-child(3):hover { background: #008fd5 !important; box-shadow: 0 0 25px rgba(0,143,213,0.4) !important; }
 .card-row-2 .card-hover:nth-child(1):hover { background: #004d7e !important; box-shadow: 0 0 25px rgba(0,77,126,0.4) !important; }
@@ -398,7 +399,7 @@
 @media (max-width: 767px) {
   [data-card-row] { opacity: 1 !important; transform: none !important; }
   [data-card-row] .card-hover { transform: translateY(0) !important; }
-  [data-card-row] .card-hover:nth-child(1) { background: #c7000b !important; box-shadow: 0 0 25px rgba(199,0,11,0.4) !important; }
+  [data-card-row] .card-hover:nth-child(1) { background: var(--brand-primary) !important; box-shadow: 0 0 25px var(--brand-primary-shadow) !important; }
   [data-card-row] .card-hover:nth-child(2) { background: #00a54f !important; box-shadow: 0 0 25px rgba(0,165,79,0.4) !important; }
   [data-card-row] .card-hover:nth-child(3) { background: #f36e21 !important; box-shadow: 0 0 25px rgba(243,110,33,0.4) !important; }
   [data-card-row] .card-hover .card-title,

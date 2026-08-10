@@ -76,8 +76,8 @@ function NewsContent() {
               </div>
               <div className="flex-1 p-[25px]">
                 <div className="flex items-center gap-3">
-                  <span className="text-[13px] font-bold text-[#c7000b]">{n.date}</span>
-                  <span className="text-[12px] text-white bg-[#c7000b] px-[10px] py-[3px] rounded-[0.3em]">{n.tag}</span>
+                  <span className="text-[13px] font-bold text-(--brand-primary)">{n.date}</span>
+                  <span className="text-[12px] text-white bg-(--brand-primary) px-[10px] py-[3px] rounded-[0.3em]">{n.tag}</span>
                 </div>
                 <h3 className="text-[17px] md:text-[20px] font-medium text-[#221815] mt-[10px] leading-[30px]">{n.title}</h3>
                 <p className="text-[14px] leading-[27px] text-[#555] mt-[8px]">{n.summary}</p>

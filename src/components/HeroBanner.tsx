@@ -124,7 +124,7 @@ export default function HeroBanner({ bannerCurrent, onSelectBanner }: HeroBanner
                     <Link
                       href={slide.link}
                       className="inline-flex items-center justify-center text-[14px] md:text-[16px] text-white h-[42px] md:h-[48px] w-[140px] md:w-[180px] text-center transition-all duration-300 hover:-translate-y-[5px] hover:shadow-lg"
-                      style={{ background: "#c7000b url(/images/nav_si.png) no-repeat right top" }}
+                      style={{ background: "var(--brand-primary) url(/images/nav_si.png) no-repeat right top" }}
                     >
                       {slide.linkText}
                     </Link>

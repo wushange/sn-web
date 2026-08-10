@@ -94,10 +94,10 @@ function HistoryBlock() {
         <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[30px]">发展历程</h2>
         <div className="space-y-0">
           {milestones.map((m, i) => (
-            <div key={i} className="relative flex flex-col md:flex-row gap-3 md:gap-8 pb-[25px] md:pb-[30px] border-l-2 border-[#c7000b] pl-5 md:pl-8 ml-2">
-              <span className="absolute left-[-9px] top-[6px] w-[16px] h-[16px] bg-[#c7000b] rounded-full" />
+            <div key={i} className="relative flex flex-col md:flex-row gap-3 md:gap-8 pb-[25px] md:pb-[30px] border-l-2 border-(--brand-primary) pl-5 md:pl-8 ml-2">
+              <span className="absolute left-[-9px] top-[6px] w-[16px] h-[16px] bg-(--brand-primary) rounded-full" />
               <div className="md:w-[150px] md:text-right md:pr-4 md:-ml-[192px] md:pt-0">
-                <span className="text-[16px] md:text-[18px] font-bold text-[#c7000b]">{m.year}</span>
+                <span className="text-[16px] md:text-[18px] font-bold text-(--brand-primary)">{m.year}</span>
               </div>
               <div>
                 <h3 className="text-[17px] md:text-[19px] font-medium text-[#221815]">{m.title}</h3>
@@ -126,7 +126,7 @@ function OrgBlock() {
             { title: "管理中心", desc: "负责公司发展战略、行政、综合、人力资源、质量管理、党群、后勤管理" },
           ].map((o, i) => (
             <div key={i} className="border border-[#E6E6E6] rounded-[0.6em] p-[25px] hover:shadow-lg transition-shadow">
-              <h3 className="text-[18px] md:text-[20px] font-medium text-[#c7000b] mb-[10px]">{o.title}</h3>
+              <h3 className="text-[18px] md:text-[20px] font-medium text-(--brand-primary) mb-[10px]">{o.title}</h3>
               <p className="text-[14px] leading-[26px] text-[#555]">{o.desc}</p>
             </div>
           ))}
@@ -148,7 +148,7 @@ function TeamBlock() {
           {teamMembers.map((t, i) => (
             <div key={i} className="bg-white rounded-[0.6em] p-[25px] shadow-[0_0_20px_rgba(0,0,0,0.06)]">
               <h3 className="text-[17px] md:text-[19px] font-medium text-[#221815]">{t.name}</h3>
-              <p className="text-[13px] text-[#c7000b] mt-[2px]">{t.role}</p>
+              <p className="text-[13px] text-(--brand-primary) mt-[2px]">{t.role}</p>
               <p className="text-[14px] text-[#555] leading-[26px] mt-[8px]">{t.desc}</p>
             </div>
           ))}
@@ -165,8 +165,8 @@ function HonorBlock() {
         <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[30px]">企业荣誉</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[15px]">
           {honorList.map((h, i) => (
-            <div key={i} className="flex items-center gap-4 border border-[#E6E6E6] rounded-[0.6em] p-[18px] hover:border-[#c7000b] transition-colors">
-              <span className="flex-shrink-0 text-[13px] font-bold text-white bg-[#c7000b] px-[10px] py-[4px] rounded-[0.3em]">{h.year}</span>
+            <div key={i} className="flex items-center gap-4 border border-[#E6E6E6] rounded-[0.6em] p-[18px] hover:border-(--brand-primary) transition-colors">
+              <span className="flex-shrink-0 text-[13px] font-bold text-white bg-(--brand-primary) px-[10px] py-[4px] rounded-[0.3em]">{h.year}</span>
               <span className="text-[14px] md:text-[15px] text-[#333]">{h.name}</span>
             </div>
           ))}

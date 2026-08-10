@@ -136,7 +136,7 @@ export default function Header() {
               {item.children && mobileExpanded[index] && (
                 <div className="bg-gray-50 py-1">
                   {item.children.map((child, ci) => (
-                    <Link key={ci} href={child.href} className="block px-8 py-2.5 text-sm text-[#666] hover:text-[#c7000b]"
+                    <Link key={ci} href={child.href} className="block px-8 py-2.5 text-sm text-[#666] hover:text-(--brand-primary)"
                       onClick={() => setMobileMenuOpen(false)}
                       {...(child.external ? { target: "_blank", rel: "noreferrer" } : {})}>{child.label}</Link>
                   ))}
@@ -182,7 +182,7 @@ export default function Header() {
                       <div className="subNvtp absolute left-[60px] right-[60px] top-1/2 -translate-y-1/2">
                         <strong className="block text-[24px] font-normal leading-[40px] mb-[10px] text-[#333]">{item.label}</strong>
                         <p className="text-[14px] leading-[28px] text-[#808080] mb-[15px]">{item.description}</p>
-                        <Link href={item.href} className="subNv_m inline-block text-[14px] leading-[28px] text-[#c7000a] relative">
+                        <Link href={item.href} className="subNv_m inline-block text-[14px] leading-[28px] text-(--brand-primary) relative">
                           了解详情
                         </Link>
                       </div>

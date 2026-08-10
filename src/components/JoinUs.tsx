@@ -43,17 +43,17 @@ export default function JoinUs() {
           </h4>
 
           <form onSubmit={handleSubmit} className="mt-[1.14vw]">
-            <div className="relative h-[48px] md:h-[72px] max-w-[720px] border-2 border-[#c7000b] rounded-[2.8em] overflow-hidden">
+            <div className="relative h-[48px] md:h-[72px] max-w-[720px] border-2 border-(--brand-primary) rounded-[2.8em] overflow-hidden">
               <input
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="请输入您的手机号"
-                className="w-full h-full pl-[18px] md:pl-[28px] pr-[108px] md:pr-[218px] text-[14px] md:text-[16px] text-[#c7000b] bg-transparent border-none outline-none"
+                className="w-full h-full pl-[18px] md:pl-[28px] pr-[108px] md:pr-[218px] text-[14px] md:text-[16px] text-(--brand-primary) bg-transparent border-none outline-none"
               />
               <button
                 type="submit"
-                className="absolute right-[1px] md:right-[4px] top-1/2 -translate-y-1/2 h-[38px] md:h-[60px] w-[100px] md:w-[180px] bg-[#c7000b] hover:bg-[#AE0009] text-white text-[14px] md:text-[16px] rounded-[2.8em] transition-colors cursor-pointer"
+                className="absolute right-[1px] md:right-[4px] top-1/2 -translate-y-1/2 h-[38px] md:h-[60px] w-[100px] md:w-[180px] bg-(--brand-primary) hover:bg-(--brand-primary) text-white text-[14px] md:text-[16px] rounded-[2.8em] transition-colors cursor-pointer"
               >
                 {submitted ? "已提交 ✓" : "立即提交"}
               </button>

@@ -35,7 +35,7 @@ export default function ContactPage() {
             style={{ fontFamily: '"STXingkai","华文行楷","KaiTi","STKaiti",serif' }}>
             大音希声
           </h1>
-          <h2 className="text-[24px] md:text-[36px] text-[#C7000B] mt-[15px] font-normal"
+          <h2 className="text-[24px] md:text-[36px] text-(--brand-primary) mt-[15px] font-normal"
             style={{ fontFamily: '"STXingkai","华文行楷","KaiTi","STKaiti",serif' }}>
             千金一诺
           </h2>
@@ -45,10 +45,10 @@ export default function ContactPage() {
           </p>
           {/* 红印章 + 扩散声波 */}
           <div className="relative inline-flex mt-[50px]">
-            <span className="absolute inset-0 border-[2px] border-[#C7000B] rounded-full animate-[soundWave_3.2s_ease-out_infinite]" />
-            <span className="absolute inset-0 border-[2px] border-[#C7000B] rounded-full animate-[soundWave_3.2s_ease-out_infinite]" style={{ animationDelay: "1.1s" }} />
-            <span className="absolute inset-0 border-[2px] border-[#C7000B] rounded-full animate-[soundWave_3.2s_ease-out_infinite]" style={{ animationDelay: "2.2s" }} />
-            <div className="relative inline-flex items-center justify-center w-[88px] h-[88px] border-[3px] border-[#C7000B] text-[#C7000B] bg-[#E7F2FA] rotate-[-6deg]"
+            <span className="absolute inset-0 border-[2px] border-(--brand-primary) rounded-full animate-[soundWave_3.2s_ease-out_infinite]" />
+            <span className="absolute inset-0 border-[2px] border-(--brand-primary) rounded-full animate-[soundWave_3.2s_ease-out_infinite]" style={{ animationDelay: "1.1s" }} />
+            <span className="absolute inset-0 border-[2px] border-(--brand-primary) rounded-full animate-[soundWave_3.2s_ease-out_infinite]" style={{ animationDelay: "2.2s" }} />
+            <div className="relative inline-flex items-center justify-center w-[88px] h-[88px] border-[3px] border-(--brand-primary) text-(--brand-primary) bg-[#E7F2FA] rotate-[-6deg]"
               style={{ fontFamily: '"STXingkai","华文行楷","KaiTi","STKaiti",serif' }}>
               <span className="text-[22px] leading-[30px] text-center">声诺<br />医疗</span>
             </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   {d.href ? (
-                    <a href={d.href} className="text-[17px] md:text-[20px] text-[#221815] hover:text-[#C7000B] transition-colors">{d.value}</a>
+                    <a href={d.href} className="text-[17px] md:text-[20px] text-[#221815] hover:text-(--brand-primary) transition-colors">{d.value}</a>
                   ) : (
                     <p className="text-[17px] md:text-[20px] text-[#221815] leading-[32px]">{d.value}</p>
                   )}
@@ -94,11 +94,11 @@ export default function ContactPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[30px]">
             {offices.map((o, i) => (
-              <div key={i} className="bg-white p-[35px] md:p-[40px] hover:shadow-lg transition-shadow border-t-2 border-[#C7000B]">
-                <p className="text-[12px] tracking-[0.25em] text-[#C7000B] mb-[12px]">{o.city}</p>
+              <div key={i} className="bg-white p-[35px] md:p-[40px] hover:shadow-lg transition-shadow border-t-2 border-(--brand-primary)">
+                <p className="text-[12px] tracking-[0.25em] text-(--brand-primary) mb-[12px]">{o.city}</p>
                 <h4 className="text-[19px] md:text-[22px] font-normal text-[#221815] mb-[18px]">{o.name}</h4>
                 <p className="text-[14px] text-[#555] leading-[28px] mb-[16px]">{o.address}</p>
-                <a href={`tel:${o.phone}`} className="text-[15px] text-[#C7000B] hover:underline">{o.phone}</a>
+                <a href={`tel:${o.phone}`} className="text-[15px] text-(--brand-primary) hover:underline">{o.phone}</a>
               </div>
             ))}
           </div>

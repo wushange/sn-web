@@ -77,7 +77,7 @@ export default function HistorySection() {
       </div>
 
       {/* Bottom timeline */}
-      <div className="relative z-[2] mt-[2.08vw] border-b-[12px] border-[#c7000b]">
+      <div className="relative z-[2] mt-[2.08vw] border-b-[12px] border-(--brand-primary)">
         <div className="container-custom">
           <div className="h-[72px] leading-[60px] relative hidden lg:flex items-center flex-wrap gap-0">
             {/* The timeline layout matches the original with exact positioning */}
@@ -105,7 +105,7 @@ export default function HistorySection() {
                   }
                 >
                   <i className="not-italic text-[20px] inline-block">{item.year}</i>
-                  <span className={`absolute left-1/2 -translate-x-1/2 w-[2px] h-[12px] block ${isTop ? 'top-0 bg-[#0168b6]' : 'bottom-0 bg-[#c7000b]'}`} />
+                  <span className={`absolute left-1/2 -translate-x-1/2 w-[2px] h-[12px] block ${isTop ? 'top-0 bg-[#0168b6]' : 'bottom-0 bg-(--brand-primary)'}`} />
                 </button>
               );
             })}
@@ -117,7 +117,7 @@ export default function HistorySection() {
               <button
                 key={item.year}
                 onClick={() => setActiveIndex(index)}
-                className={`flex-shrink-0 text-[14px] transition-all ${index === activeIndex ? 'text-[#c7000b] font-bold scale-110' : 'text-[#666]'}`}
+                className={`flex-shrink-0 text-[14px] transition-all ${index === activeIndex ? 'text-(--brand-primary) font-bold scale-110' : 'text-[#666]'}`}
               >
                 {item.year}
               </button>

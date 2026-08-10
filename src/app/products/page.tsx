@@ -89,13 +89,13 @@ function ProductsContent() {
                   <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 p-[25px] md:p-[35px]">
-                  <span className="inline-block text-[12px] text-white bg-[#c7000b] px-[12px] py-[4px] rounded-[0.3em]">{p.tag}</span>
+                  <span className="inline-block text-[12px] text-white bg-(--brand-primary) px-[12px] py-[4px] rounded-[0.3em]">{p.tag}</span>
                   <h3 className="text-[20px] md:text-[26px] font-medium text-[#221815] mt-[15px]">{p.title}</h3>
                   <p className="text-[14px] md:text-[15px] leading-[28px] text-[#555] mt-[12px]">{p.desc}</p>
                   <ul className="mt-[15px] space-y-[8px]">
                     {p.features.map((f, fi) => (
                       <li key={fi} className="flex items-start gap-2 text-[14px] text-[#666]">
-                        <span className="text-[#c7000b] mt-[2px]">◆</span>
+                        <span className="text-(--brand-primary) mt-[2px]">◆</span>
                         <span>{f}</span>
                       </li>
                     ))}
@@ -113,7 +113,7 @@ function ProductsContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[25px]">
             {techs.map((t, i) => (
               <div key={i} className="bg-white rounded-[0.8em] p-[28px] shadow-[0_0_20px_rgba(0,0,0,0.06)] hover:shadow-lg transition-shadow">
-                <span className="text-[#c7000b] text-[28px] font-bold">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-(--brand-primary) text-[28px] font-bold">{String(i + 1).padStart(2, "0")}</span>
                 <h3 className="text-[17px] md:text-[19px] font-medium text-[#221815] mt-[8px]">{t.title}</h3>
                 <p className="text-[14px] leading-[27px] text-[#555] mt-[10px]">{t.desc}</p>
               </div>

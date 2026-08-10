@@ -45,7 +45,7 @@ export default function NewsSection() {
       </div>
 
       {/* Red decorative angle at bottom */}
-      <div className="absolute left-[-10vw] right-[-10vw] bottom-[-5.86vw] h-[4.16vw] bg-[rgba(199,0,11,0.15)] z-0" style={{ transform: "rotate(2.2deg)" }} />
+      <div className="absolute left-[-10vw] right-[-10vw] bottom-[-5.86vw] h-[4.16vw] bg-(--brand-primary-light) z-0" style={{ transform: "rotate(2.2deg)" }} />
 
       <div className="container-custom relative z-[1]">
         <div className="flex flex-col lg:flex-row gap-10">
@@ -54,7 +54,7 @@ export default function NewsSection() {
             <div className="transition-all duration-700">
               <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">动态资讯</h2>
               <p className="text-[16px] md:text-[20px] pt-[1.25vw] text-[#333]" style={{ lineHeight: "3.12vw" }}>
-                <Link href="/news" className="hover:text-[#c7000b] transition-colors">新闻资讯</Link>
+                <Link href="/news" className="hover:text-(--brand-primary) transition-colors">新闻资讯</Link>
               </p>
               <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#808080] mt-[1.82vw] mb-[3.5vw] max-w-[358px]">
                 了解更多声诺医疗的企业资讯信息，请关注动态资讯栏目。
@@ -101,11 +101,11 @@ export default function NewsSection() {
                   className={`transition-all duration-500 group block relative mb-[2.6vw] ${index % 2 === 1 ? "md:translate-y-[3.22vw]" : ""}`}
                   style={{ padding: "0 1.97vw" }}
                 >
-                  <span className="inline-flex flex-col items-center justify-center w-[60px] h-[60px] bg-[#c7000b] text-white rounded-[0.3em] mb-6 text-center leading-[20px]">
+                  <span className="inline-flex flex-col items-center justify-center w-[60px] h-[60px] bg-(--brand-primary) text-white rounded-[0.3em] mb-6 text-center leading-[20px]">
                     <i className="text-[24px] not-italic leading-[26px] block">{item.date.split("-")[2]}</i>
                     <em className="text-[12px] not-italic block tracking-normal">{item.date.split("-")[0]}-{item.date.split("-")[1]}</em>
                   </span>
-                  <strong className="block text-[18px] md:text-[20px] xl:text-[21px] font-normal leading-[32px] mb-4 text-[#333] group-hover:text-[#c7000b] transition-colors line-clamp-2" style={{ height: "64px", overflow: "hidden" }}>
+                  <strong className="block text-[18px] md:text-[20px] xl:text-[21px] font-normal leading-[32px] mb-4 text-[#333] group-hover:text-(--brand-primary) transition-colors line-clamp-2" style={{ height: "64px", overflow: "hidden" }}>
                     {item.title}
                   </strong>
                   <p className="text-[14px] md:text-[16px] leading-[30px] md:leading-[32px] text-[#808080] line-clamp-3 transition-all duration-500" style={{ maxHeight: "160px", overflow: "hidden" }}>

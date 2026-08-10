@@ -116,7 +116,7 @@ export default function CompanyIntro({
               onClick={() => onBannerSelect(i)}
               className="w-[50px] h-[60px] leading-[60px] text-center text-[20px] transition-all duration-300 cursor-pointer border-0 flex-shrink-0"
               style={{
-                background: i === bannerCurrent ? "#c7000b" : "transparent",
+                background: i === bannerCurrent ? "var(--brand-primary)" : "transparent",
                 color: i === bannerCurrent ? "#fff" : "#333",
                 fontWeight: i === bannerCurrent ? 700 : 400,
               }}
@@ -162,7 +162,7 @@ export default function CompanyIntro({
           ].map((stat, i) => (
             <div key={i}>
               <strong className="text-[50px] md:text-[80px] xl:text-[90px] leading-none font-normal block">
-                <span className="text-[#c7000b] mr-2">{stat.value}</span>
+                <span className="text-(--brand-primary) mr-2">{stat.value}</span>
                 <span className="text-[16px] text-[#333]">{stat.suffix}</span>
               </strong>
               <p className="text-[14px] md:text-[16px] text-[#555] mt-1">{stat.label}</p>
@@ -179,7 +179,7 @@ export default function CompanyIntro({
               <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" />
               <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" style={{ animationDelay: "1.5s" }} />
               <svg width="24" height="28" viewBox="0 0 24 28" className="ml-1">
-                <path d="M0 0v28l24-14z" fill="#c7000b" />
+                <path d="M0 0v28l24-14z" fill="var(--brand-primary)" />
               </svg>
             </button>
             <div className="text-white ml-5">

@@ -62,7 +62,7 @@ export default function Footer() {
                     <li key={ci}>
                       <Link
                         href={child.href}
-                        className="text-[14px] text-[#A2A0A0] hover:text-[#c7000b] transition-colors"
+                        className="text-[14px] text-[#A2A0A0] hover:text-(--brand-primary) transition-colors"
                       >
                         {child.label}
                       </Link>
@@ -82,15 +82,15 @@ export default function Footer() {
               href="https://beian.miit.gov.cn"
               target="_blank"
               rel="noreferrer"
-              className="text-[#8d8d8d] hover:text-[#c7000b] ml-4 transition-colors"
+              className="text-[#8d8d8d] hover:text-(--brand-primary) ml-4 transition-colors"
             >
               黑ICP备00000000号
             </a>
           </div>
           <div className="flex gap-4 mt-3 md:mt-0">
-            <Link href="#" className="hover:text-[#c7000b] transition-colors">企业邮箱</Link>
-            <Link href="/join" className="hover:text-[#c7000b] transition-colors">加入我们</Link>
-            <Link href="/contact" className="hover:text-[#c7000b] transition-colors">联系我们</Link>
+            <Link href="#" className="hover:text-(--brand-primary) transition-colors">企业邮箱</Link>
+            <Link href="/join" className="hover:text-(--brand-primary) transition-colors">加入我们</Link>
+            <Link href="/contact" className="hover:text-(--brand-primary) transition-colors">联系我们</Link>
           </div>
         </div>
       </div>
