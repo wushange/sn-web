@@ -42,7 +42,6 @@ const navItems: NavItem[] = [
       { label: "新闻资讯", href: "/news" },
     ],
   },
-  { label: "社会责任", href: "/responsibility" },
   {
     label: "融资与发展", href: "/investor",
     description: "声诺医疗已完成天使轮、Pre-A轮融资，正推进A轮融资与多中心临床试验，规划于2028年完成IPO申报。",
