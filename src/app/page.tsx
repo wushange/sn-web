@@ -11,6 +11,7 @@ import HistorySection from "@/components/HistorySection";
 import JoinUs from "@/components/JoinUs";
 import Footer from "@/components/Footer";
 import SideTools from "@/components/SideTools";
+import FundingSection from "@/components/FundingSection";
 import { useState } from "react";
 
 function HomeContent() {
@@ -30,6 +31,7 @@ function HomeContent() {
       <NewsSection />
       <SocialResponsibility />
       <HistorySection />
+      <FundingSection />
       <JoinUs />
       <Footer />
       <SideTools />

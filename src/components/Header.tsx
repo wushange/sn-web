@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface NavItem {
   label: string;
@@ -55,6 +56,7 @@ const navItems: NavItem[] = [
 ];
 
 export default function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -62,6 +64,11 @@ export default function Header() {
   const [isHoveringHeader, setIsHoveringHeader] = useState(false);
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // 当前激活的导航项索引：根据路由匹配
+  const activeIndex = navItems.findIndex(item =>
+    item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)
+  );
 
   // "headerFixed" mode: when user scrolls >10px OR hovers the header
   const headerFixed = isScrolled || isHoveringHeader;
@@ -81,7 +88,8 @@ export default function Header() {
   const handleMouseEnter = (index: number, hasChildren: boolean) => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
     setHoverIndex(index);
-    if (hasChildren) setActiveDropdown(index);
+    // 有二级菜单则展开；无二级菜单（如"联系我们"）则收起之前残留的下拉
+    setActiveDropdown(hasChildren ? index : null);
   };
   const handleMouseLeave = () => {
     setHoverIndex(null);
@@ -157,7 +165,7 @@ export default function Header() {
                 onMouseEnter={() => handleMouseEnter(index, !!item.children)}>
                 <Link
                   href={item.href}
-                  className={`nav_a relative ${item.label === "首页" ? "on" : ""} ${hoverIndex !== null && hoverIndex !== index ? "no" : ""}`}
+                  className={`nav_a relative ${index === activeIndex ? "on" : ""} ${hoverIndex !== null && hoverIndex !== index ? "no" : ""}`}
                 >
                   {item.label}
                 </Link>
@@ -165,8 +173,8 @@ export default function Header() {
                 {/* ===== Dropdown ===== */}
                 {item.children && activeDropdown === index && (
                   <div
-                    className="subNavBox subNavBox-fx absolute left-0 bg-white border-t border-[#E6E6E6] overflow-hidden"
-                    style={{ width: "100vw", left: "50%", transform: "translateX(-50%)" }}
+                    className="subNavBox subNavBox-fx bg-white border-t border-[#E6E6E6] overflow-hidden"
+                    style={{ position: "fixed", left: 0, right: 0, top: headerFixed ? "76px" : "100px" }}
                     onMouseEnter={() => handleMouseEnter(index, true)}
                   >
                     {/* Left panel */}

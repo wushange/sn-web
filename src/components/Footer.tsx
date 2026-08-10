@@ -32,8 +32,9 @@ const footerLinks = [
     title: "联系我们",
     href: "/contact",
     children: [
-      { label: "电话：0451-00000000", href: "tel:0451-00000000" },
-      { label: "地址：哈尔滨高新区科技创新城", href: "#" },
+      { label: "电话：13904631300", href: "tel:13904631300" },
+      { label: "邮箱：466069861@qq.com", href: "mailto:466069861@qq.com" },
+      { label: "地址：哈尔滨市松北区中源大道15199号", href: "#" },
     ],
   },
 ];
@@ -76,7 +77,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between py-[45px] text-[14px] text-[#A2A0A0]">
           <div>
-            © 2025 哈尔滨声诺医疗科技有限公司. All Rights Reserved.
+            © 2026 哈尔滨声诺医疗科技有限公司. All Rights Reserved.
             <a
               href="https://beian.miit.gov.cn"
               target="_blank"

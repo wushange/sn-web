@@ -160,6 +160,14 @@
   80% { opacity: 1; }
   100% { opacity: 0; transform: scale(1.6); }
 }
+@keyframes soundWave {
+  0% { opacity: 0.55; transform: scale(0.55); }
+  100% { opacity: 0; transform: scale(1.5); }
+}
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /* Intersection observer triggered animations */
 .fade-in-up-section {
