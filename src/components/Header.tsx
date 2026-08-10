@@ -174,7 +174,7 @@ export default function Header() {
                 {item.children && activeDropdown === index && (
                   <div
                     className="subNavBox subNavBox-fx bg-white border-t border-[#E6E6E6] overflow-hidden"
-                    style={{ position: "fixed", left: 0, right: 0, top: headerFixed ? "76px" : "100px" }}
+                    style={{ position: "fixed", left: 0, right: 0 }}
                     onMouseEnter={() => handleMouseEnter(index, true)}
                   >
                     {/* Left panel */}
