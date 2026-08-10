@@ -20,18 +20,18 @@ export default function ContactPage() {
     <main className="min-h-screen overflow-x-hidden">
       <Header />
       {/* 主题区：大音希声 */}
-      <section className="relative bg-[#0E5C5F] pt-[150px] md:pt-[180px] pb-[100px] md:pb-[130px] overflow-hidden">
+      <section className="relative bg-[#E7F2FA] pt-[150px] md:pt-[180px] pb-[100px] md:pb-[130px] overflow-hidden">
         {/* 旋转声场弧线 —— 无声之音的视觉化 */}
-        <svg className="absolute right-[-60px] top-1/2 -translate-y-1/2 w-[560px] md:w-[760px] opacity-[0.16] animate-[slowSpin_60s_linear_infinite]"
+        <svg className="absolute right-[-60px] top-1/2 -translate-y-1/2 w-[560px] md:w-[760px] opacity-[0.25] animate-[slowSpin_60s_linear_infinite]"
           style={{ transformOrigin: "center" }} viewBox="0 0 400 400" fill="none">
           {[40, 80, 120, 160, 200, 240, 280].map((r, i) => (
-            <path key={i} d={`M ${200 - r} 200 A ${r} ${r} 0 0 1 ${200 + r} 200`} stroke="#fff" strokeWidth="1.5" strokeDasharray={i % 2 === 0 ? "none" : "3 6"} />
+            <path key={i} d={`M ${200 - r} 200 A ${r} ${r} 0 0 1 ${200 + r} 200`} stroke="#199BD2" strokeWidth="1.5" strokeDasharray={i % 2 === 0 ? "none" : "3 6"} />
           ))}
-          <circle cx="200" cy="200" r="10" fill="#fff" />
+          <circle cx="200" cy="200" r="10" fill="#199BD2" />
         </svg>
         <div className="container-custom relative z-[1]">
-          <p className="text-[12px] md:text-[13px] tracking-[0.4em] text-white/70 mb-[25px]">CONTACT · 联系我们</p>
-          <h1 className="text-[44px] md:text-[72px] xl:text-[92px] text-white leading-[1.15] font-normal"
+          <p className="text-[12px] md:text-[13px] tracking-[0.4em] text-[#199BD2] mb-[25px]">CONTACT · 联系我们</p>
+          <h1 className="text-[44px] md:text-[72px] xl:text-[92px] text-[#221815] leading-[1.15] font-normal"
             style={{ fontFamily: '"STXingkai","华文行楷","KaiTi","STKaiti",serif' }}>
             大音希声
           </h1>
@@ -39,7 +39,7 @@ export default function ContactPage() {
             style={{ fontFamily: '"STXingkai","华文行楷","KaiTi","STKaiti",serif' }}>
             千金一诺
           </h2>
-          <p className="text-[14px] md:text-[16px] text-white/70 leading-[30px] mt-[35px] max-w-[520px]">
+          <p className="text-[14px] md:text-[16px] text-[#555] leading-[30px] mt-[35px] max-w-[520px]">
             我们以无声之音治愈病痛，也以千金之诺对待每一次托付。
             <br />欢迎各界垂询，共同守护人类健康。
           </p>
@@ -48,7 +48,7 @@ export default function ContactPage() {
             <span className="absolute inset-0 border-[2px] border-[#C7000B] rounded-full animate-[soundWave_3.2s_ease-out_infinite]" />
             <span className="absolute inset-0 border-[2px] border-[#C7000B] rounded-full animate-[soundWave_3.2s_ease-out_infinite]" style={{ animationDelay: "1.1s" }} />
             <span className="absolute inset-0 border-[2px] border-[#C7000B] rounded-full animate-[soundWave_3.2s_ease-out_infinite]" style={{ animationDelay: "2.2s" }} />
-            <div className="relative inline-flex items-center justify-center w-[88px] h-[88px] border-[3px] border-[#C7000B] text-[#C7000B] bg-[#0E5C5F] rotate-[-6deg]"
+            <div className="relative inline-flex items-center justify-center w-[88px] h-[88px] border-[3px] border-[#C7000B] text-[#C7000B] bg-[#E7F2FA] rotate-[-6deg]"
               style={{ fontFamily: '"STXingkai","华文行楷","KaiTi","STKaiti",serif' }}>
               <span className="text-[22px] leading-[30px] text-center">声诺<br />医疗</span>
             </div>
