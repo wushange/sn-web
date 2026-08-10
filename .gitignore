@@ -22,3 +22,7 @@ Thumbs.db
 
 # Claude Code
 .claude/
+# SitePing SQLite database
+*.db
+*.db-journal
+prisma/*.db

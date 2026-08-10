@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_SC } from "next/font/google";
 import "./globals.css";
+import FeedbackProvider from "@/components/FeedbackProvider";
 
 const notoSans = Noto_Sans_SC({
   weight: ["400", "500", "700", "900"],
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh" className={`${notoSans.className} h-full antialiased`}>
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <FeedbackProvider />
+        {children}
+      </body>
     </html>
   );
 }
