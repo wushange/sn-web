@@ -36,15 +36,15 @@ model SitepingAnnotation {
   id            String   @id @default(cuid())
   feedbackId    String
   feedback      SitepingFeedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
-  cssSelector   String 
-  xpath         String 
-  textSnippet   String 
+  cssSelector   String
+  xpath         String
+  textSnippet   String
   elementTag    String
   elementId     String?
-  textPrefix    String 
-  textSuffix    String 
+  textPrefix    String
+  textSuffix    String
   fingerprint   String
-  neighborText  String 
+  neighborText  String
   anchorKey     String?
   xPct          Float
   yPct          Float
@@ -58,4 +58,17 @@ model SitepingAnnotation {
   createdAt     DateTime @default(now())
 
   @@index([feedbackId])
+}
+
+model News {
+  id          Int      @id @default(autoincrement())
+  title       String
+  date        String
+  image       String
+  summary     String
+  tag         String?
+  sortOrder   Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

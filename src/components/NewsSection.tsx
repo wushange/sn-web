@@ -9,23 +9,26 @@ interface NewsItem {
   date: string;
   image: string;
   summary: string;
+  tag?: string;
 }
 
-const newsItems: NewsItem[] = [
-  { id: 1, title: "声诺医疗获人工智能医疗器械创新任务揭榜挂帅第三名", date: "2025-12-15", image: "/images/news-3.jpg", summary: "公司获评2025年人工智能医疗器械创新任务揭榜挂帅智能数字疗法产品组第三名，由国家工信部、国家药监局组织评定。" },
-  { id: 2, title: "公司获得哈尔滨医科大学附属第一医院伦理批件 临床试验即将启动", date: "2025-12-01", image: "/images/news-2.jpg", summary: "公司获得哈尔滨医科大学附属第一医院伦理委员会伦理批件，已招标选定CRO公司并签署临床试验技术服务协议，正式启动临床试验。" },
-  { id: 3, title: "动脉斑块声动力治疗系统完成设备注册检测 具备临床试验条件", date: "2025-07-01", image: "/images/news-1.jpg", summary: "动脉斑块声动力治疗系统（MT-SDT2.0）已通过天津市医疗器械质量监督检验中心检测合格，取得EMC、安规、环境、软件检验报告，设备允许用于临床试验。" },
-  { id: 4, title: "公司完成Pre-A轮融资1800万元 企业投后估值1.08亿元", date: "2023-09-01", image: "/images/news-4.jpg", summary: "公司于2023年获得深创投及穗甬创投共1800万元Pre-A轮融资，并于同年获得省科技厅重点研发项目450万元资金支持。" },
-];
-
 export default function NewsSection() {
+  const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    fetch("/api/news")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => setNewsItems(Array.isArray(data) ? data : []))
+      .catch(() => setNewsItems([]));
+  }, []);
+
+  useEffect(() => {
+    if (newsItems.length === 0) return;
     const timer = setInterval(() => setActiveSlide(prev => (prev + 1) % newsItems.length), 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [newsItems.length]);
 
   return (
     <section
