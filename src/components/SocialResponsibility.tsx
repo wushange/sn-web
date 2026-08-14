@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function SocialResponsibility() {
+  const t = useTranslations("Responsibility");
+  const tCommon = useTranslations("Common");
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -28,19 +31,19 @@ export default function SocialResponsibility() {
           {/* Left Content */}
           <div className={`lg:w-1/2 text-white pt-10 lg:pt-[110px] transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}`}>
             <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight">
-              公司理念
+              {t("title")}
             </h2>
             <p className="text-[16px] md:text-[20px] leading-relaxed pt-[1.25vw] text-white/90">
-              大音希声 千金一诺
+              {t("slogan")}
             </p>
             <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-white/80 max-w-[358px] mt-[1.82vw] mb-[4.5vw]">
-              声诺医疗——为守护人类健康提供中国方案。公司秉承"高端医疗装备+创新药物+先进治疗方法+大数据AI"的科学运营模式，依托产学研协同创新平台，构建数字经济和生物经济领域价值功能叠加的产业定位。
+              {t("paragraph")}
             </p>
             <Link
               href="/about#profile"
               className="inline-flex items-center justify-center text-[16px] leading-[44px] text-white tracking-[2px] h-[48px] w-[180px] border-2 border-white text-center hover:-translate-y-[5px] hover:shadow-lg transition-all duration-300"
             >
-              了解更多
+              {tCommon("learnMoreEn")}
             </Link>
           </div>
 

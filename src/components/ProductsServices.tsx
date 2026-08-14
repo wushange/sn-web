@@ -1,15 +1,14 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import ParticlesBackground from "./ParticlesBackground";
 
 interface ServiceCard {
+  key: string;
   icon: string;
   iconHover: string;
-  title: string;
-  subtitle: string;
-  description: string;
   href: string;
   color: string;
   rowBgPattern: string;
@@ -20,48 +19,41 @@ interface ServiceCard {
 const serviceRows: ServiceCard[][] = [
   [
     {
+      key: "sdt",
       icon: "/images/icons/hospital.png", iconHover: "/images/icons/hospital-hover.png",
-      title: "动脉斑块声动力治疗系统", subtitle: "Plaque Sonodynamic Therapy System",
-      description: "全球首台（套）动脉斑块声动力治疗系统（MT-SDT2.0），集生物医疗技术和大数据AI于一体，通过超声与声敏剂协同精准清除动脉粥样硬化斑块，无创、靶向、疗效显著，拥有我国自主知识产权。",
       href: "/products/arterial-plaque-sdt", color: "var(--brand-primary)", rowBgPattern: "/images/txt_icon1.png",
     },
     {
+      key: "beauty",
       icon: "/images/icons/health.png", iconHover: "/images/icons/health-hover.png",
-      title: "温控型低频超声导入美容仪", subtitle: "MC200 Temperature-control Ultrasound Beauty Device",
-      description: "集冷敷、热敷、超声三种模式于一体，通过低频超声与机械振动打通肌肤吸收通道，促进护肤成分渗透吸收，配合智能温控实现清洁、导入、修护、紧致的全流程肌肤护理。",
       href: "/products/mc200-beauty", color: "#00a54f", rowBgPattern: "/images/txt_icon1.png",
       image: "/images/beauty-2.jpg",
     },
     {
+      key: "bci",
       icon: "/images/icons/stemcell.png", iconHover: "/images/icons/stemcell-hover.png",
-      title: "脑机接口·经颅聚焦超声", subtitle: "tFUS Brain-Computer Interface",
-      description: "自研4-8通道同心圆环形相控换能器，实现1.5mm级颅内聚焦精度，面向脑胶质瘤、阿尔茨海默症、帕金森病等提供无创深部神经调控诊疗，正在研发转化中。",
       href: "/products/tfus-bci", color: "#008fd5", rowBgPattern: "/images/txt_icon1.png",
     },
   ],
   [
     {
+      key: "recognition",
       icon: "/images/icons/rx.png", iconHover: "/images/icons/rx-hover.png",
-      title: "超声成像斑块精准识别", subtitle: "High-res Ultrasound Imaging",
-      description: "应用高分辨率诊断超声自动识别、分型斑块并预判声动力治疗适应症，依据斑块厚度、狭窄率、血流速度等指标给出个体化治疗参数建议与预后判断。",
       href: "/products/ultrasound-plaque-recognition", color: "#00a54f", rowBgPattern: "/images/txt_icon2.png",
     },
     {
+      key: "navigation",
       icon: "/images/icons/chain.png", iconHover: "/images/icons/chain-hover.png",
-      title: "近红外光学定位系统", subtitle: "Near-infrared Optical Navigation",
-      description: "基于双目立体视觉的光学导航系统，实时高精度定位诊断超声探头，误差范围＜0.5mm，并将治疗换能器精确引导至斑块位置，实现精准定位与跟踪。",
       href: "/products/optical-navigation", color: "#004d7e", rowBgPattern: "/images/txt_icon2.png",
     },
     {
+      key: "transducer",
       icon: "/images/icons/otc.png", iconHover: "/images/icons/otc-hover.png",
-      title: "近场均匀超声换能器", subtitle: "Uniform Near-field Transducer",
-      description: "自研治疗超声换能器解决近声场强度紊乱的行业难题，波束不均匀系数（BNR）2.0-2.5之间，超过进口品牌，为声动力治疗精准疗效提供根本保证。",
       href: "/products/uniform-ultrasound-transducer", color: "#f36e21", rowBgPattern: "/images/txt_icon2.png",
     },
     {
+      key: "ai",
       icon: "/images/icons/rx.png", iconHover: "/images/icons/rx-hover.png",
-      title: "人工智能中央数据库", subtitle: "AI Central Database",
-      description: "基于AI算法和个体化治疗参数建立患者样本中央数据库，深度挖掘诊疗数据、持续优化治疗参数，为声动力治疗临床研究提供坚实数据保障。",
       href: "/products/ai-central-database", color: "#fec463", rowBgPattern: "/images/txt_icon2.png",
     },
   ],
@@ -77,6 +69,8 @@ const cardHoverColors: Record<string, string> = {
 };
 
 export default function ProductsServices() {
+  const t = useTranslations("Products");
+  const tCommon = useTranslations("Common");
   const sectionRef = useRef<HTMLDivElement>(null);
   const [, forceRender] = useState(0);
   const [showAll, setShowAll] = useState(false);
@@ -92,7 +86,6 @@ export default function ProductsServices() {
       },
       { threshold: 0.2 },
     );
-    // Use setTimeout to let DOM render first
     const tid = setTimeout(() => {
       const rows = sectionRef.current?.querySelectorAll("[data-card-row]");
       rows?.forEach((el) => observer.observe(el));
@@ -141,14 +134,14 @@ export default function ProductsServices() {
   return (
     <section ref={sectionRef} className="relative bg-[#f5f5f5] pt-[7.81vw] pb-[100px] z-[4]">
       <ParticlesBackground />
-      <div className="container-custom">
+      <div className="container-custom relative z-[1]">
         <div className="relative mb-[2.81vw]">
-          <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">产品与技术</h2>
-          <p className="text-[16px] md:text-[20px] xl:text-[24px] leading-relaxed py-[14px] text-[#333]">
-            大音希声 千金一诺<br />声诺医疗 · 高端医疗装备 · 超声脑机接口
+          <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">{t("title")}</h2>
+          <p className="text-[16px] md:text-[20px] xl:text-[24px] leading-relaxed py-[14px] text-[#333] whitespace-pre-line">
+            {t("subtitle")}
           </p>
-          <Link href="/products" className="btn-brand absolute right-0 bottom-0 hidden md:inline-block">了解详情</Link>
-          <Link href="/products" className="btn-brand mt-4 md:hidden">了解详情</Link>
+          <Link href="/products" className="btn-brand absolute right-0 bottom-0 hidden md:inline-block">{tCommon("learnMore")}</Link>
+          <Link href="/products" className="btn-brand mt-4 md:hidden">{tCommon("learnMore")}</Link>
         </div>
 
         <div className="mx-[2.56vw]">
@@ -168,36 +161,33 @@ export default function ProductsServices() {
                   onMouseEnter={(e) => handleCardHover(e, card.color)}
                   onMouseLeave={handleCardLeave}
                 >
-                  {/* Row background pattern — row 1: txt_icon1, row 2: txt_icon2 */}
                   <div
                     className="row-bg absolute inset-0 bg-no-repeat bg-right-bottom transition-opacity duration-500"
                     style={{ backgroundImage: `url(${card.rowBgPattern})`, backgroundSize: "12.03vw auto" }}
                   />
 
-                  {/* Rotating watermark on hover */}
                   <div
                     className="watermark absolute top-[3.22vw] left-[7.18vw] w-[37.29vw] h-[37.29vw] bg-no-repeat bg-center bg-cover opacity-0 transition-opacity duration-500"
                     style={{ backgroundImage: "url(/images/watermark-service.png)", animation: "rotate 50s linear infinite" }}
                   />
 
                   <div className="relative z-[1] flex-1">
-                    {/* Icon + Title — 有 image 时显示产品图 */}
                     {card.image ? (
                       <div className="mb-[1.04vw] overflow-hidden rounded-[0.4em]">
-                        <img src={card.image} alt={card.title} className="w-full object-cover transition-transform duration-500 group-hover:scale-105" style={{ maxHeight: "160px" }} />
+                        <img src={card.image} alt={t(`cards.${card.key}.title`)} className="w-full object-cover transition-transform duration-500 group-hover:scale-105" style={{ maxHeight: "160px" }} />
                       </div>
                     ) : (
                       <div className="flex items-center mb-[1.04vw]">
                         <div className="icon-circle relative w-[40px] h-[40px] md:w-[60px] md:h-[60px] border border-[#E6E6E6] rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-500">
-                          <img src={card.icon} alt={card.title} className="icon-default w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500" />
-                          <img src={card.iconHover} alt={card.title} className="icon-hover w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500" />
+                          <img src={card.icon} alt={t(`cards.${card.key}.title`)} className="icon-default w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500" />
+                          <img src={card.iconHover} alt={t(`cards.${card.key}.title`)} className="icon-hover w-[26px] md:w-[36px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-all duration-500" />
                         </div>
                         <div className="ml-[22px] text-left">
                           <strong className="card-title text-[16px] md:text-[19px] xl:text-[24px] font-normal tracking-[2px] block text-[#221815] transition-colors duration-500" style={{ color: "inherit" }}>
-                            {card.title}
+                            {t(`cards.${card.key}.title`)}
                           </strong>
                           <p className="card-subtitle text-[12px] uppercase text-[#808080] leading-[18px] transition-colors duration-500" style={{ color: "inherit" }}>
-                            {card.subtitle}
+                            {t(`cards.${card.key}.subtitle`)}
                           </p>
                         </div>
                       </div>
@@ -205,19 +195,18 @@ export default function ProductsServices() {
                     {card.image && (
                       <div className="mb-[0.5vw]">
                         <strong className="card-title block text-[16px] md:text-[19px] xl:text-[24px] font-normal tracking-[2px] text-[#221815]" style={{ color: "inherit" }}>
-                          {card.title}
+                          {t(`cards.${card.key}.title`)}
                         </strong>
                         <p className="card-subtitle text-[12px] uppercase text-[#808080] leading-[18px] transition-colors duration-500 mt-1" style={{ color: "inherit" }}>
-                          {card.subtitle}
+                          {t(`cards.${card.key}.subtitle`)}
                         </p>
                       </div>
                     )}
                     <p className="text-[14px] md:text-[16px] leading-[26px] md:leading-[32px] text-[#555] transition-colors duration-500 relative z-[1]" style={{ marginTop: card.image ? "0.5vw" : "1.04vw", color: "inherit" }}>
-                      {card.description}
+                      {t(`cards.${card.key}.description`)}
                     </p>
                   </div>
 
-                  {/* Arrow indicator */}
                   <div className="relative z-[1] w-[61px] h-[15px] mt-[1.04vw] bg-no-repeat opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ backgroundImage: "url(/images/icons/arrow-right.png)" }} />
                 </Link>
               ))}
@@ -227,7 +216,7 @@ export default function ProductsServices() {
 
         <div className="flex justify-center mt-[2.81vw]">
           <button onClick={() => setShowAll(v => !v)} className="btn-brand">
-            {showAll ? "收起" : "更多产品与技术"}
+            {showAll ? tCommon("collapse") : tCommon("viewMore")}
           </button>
         </div>
       </div>

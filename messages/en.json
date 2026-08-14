@@ -1,0 +1,348 @@
+{
+  "Metadata": {
+    "title": "Sonuo Medical — Guarding Life & Health",
+    "description": "Sonuo Medical is committed to delivering precise, effective services across the full life-cycle of human health — prevention, treatment and rehabilitation.",
+    "keywords": "Sonuo Medical,medical health,prevention,treatment,rehabilitation,health management"
+  },
+  "Common": {
+    "learnMore": "Learn More",
+    "learnMoreEn": "Learn More",
+    "home": "Home",
+    "viewMore": "More Products & Technologies",
+    "collapse": "Collapse",
+    "submit": "Submit",
+    "submitted": "Submitted ✓"
+  },
+  "Header": {
+    "nav": {
+      "home": "Home",
+      "about": "About Us",
+      "products": "Products & Technology",
+      "news": "News",
+      "investor": "Funding & Growth",
+      "contact": "Contact Us"
+    },
+    "submenu": {
+      "profile": "Company Profile",
+      "history": "Milestones",
+      "org": "Organization",
+      "honor": "Honors",
+      "productSdt": "Arterial Plaque Sonodynamic Therapy System",
+      "productBci": "Transcranial Focused Ultrasound BCI",
+      "productRecognition": "Ultrasound Plaque Recognition",
+      "newsList": "News",
+      "funding": "Funding History",
+      "plan": "Growth Plan"
+    },
+    "desc": {
+      "about": "Harbin Sonuo Medical Technology Co., Ltd. is a nationally recognized high-tech enterprise and a specialized & innovative SME of Heilongjiang Province, focused on the R&D, translation and industrialization of high-end medical devices for sonodynamic and transcranial focused ultrasound non-invasive treatment.",
+      "products": "The company's core product is the world's first arterial plaque sonodynamic therapy system, alongside a BCI · transcranial focused ultrasound non-invasive device, building a four-in-one solution of high-end medical equipment + innovative drugs + advanced therapies + big-data AI.",
+      "news": "For the latest company news, please follow the News section.",
+      "investor": "Sonuo Medical has completed Angel and Pre-A rounds, is advancing a Series A round and multi-center clinical trials, and plans to complete its IPO filing by 2028."
+    },
+    "lang": "中文"
+  },
+  "Footer": {
+    "groups": {
+      "about": "About Us",
+      "products": "Products & Technology",
+      "newsInvestor": "News & Funding",
+      "contact": "Contact Us"
+    },
+    "links": {
+      "profile": "Company Profile",
+      "history": "Milestones",
+      "org": "Organization",
+      "team": "Management Team",
+      "honor": "Honors",
+      "productSdt": "Arterial Plaque Sonodynamic Therapy System",
+      "productBci": "Transcranial Focused Ultrasound BCI",
+      "productBeauty": "Temperature-control Ultrasound Beauty Device",
+      "productCore": "Core Technology",
+      "news": "News",
+      "investor": "Funding & Growth",
+      "feedback": "Feedback Inbox",
+      "phone": "Tel: 13904631300",
+      "email": "Email: 466069861@qq.com",
+      "address": "Address: No.15199 Zhongyuan Avenue, Songbei District, Harbin"
+    },
+    "copyright": "© 2026 Harbin Sonuo Medical Technology Co., Ltd. All Rights Reserved.",
+    "icp": "Hei ICP No.00000000",
+    "bottom": {
+      "email": "Email",
+      "about": "About Us",
+      "contact": "Contact Us"
+    }
+  },
+  "Hero": {
+    "slide1": {
+      "title": "Sonuo Medical\nGuarding Life & Health",
+      "linkText": "Learn More"
+    },
+    "slide2": {
+      "title": "Arterial Plaque Sonodynamic Therapy System",
+      "subtitle": "World's First (Set)\nUltrasound sonodynamic therapy precisely removes atherosclerotic plaques\nNon-invasive · Targeted · Safe & Effective",
+      "linkText": "Learn More"
+    },
+    "slide3": {
+      "title": "Transcranial Focused Ultrasound\nBrain-Computer Interface System",
+      "subtitle": "4-8 channel concentric ring phased-array transducer\nMillimeter-level intracranial precision · Non-invasive neuromodulation",
+      "linkText": "Learn More"
+    }
+  },
+  "Intro": {
+    "company": "Harbin Sonuo Medical Technology Co., Ltd.",
+    "slogan": "Focused on high-end medical equipment · Leader in sonodynamic intelligent treatment systems",
+    "paragraph": "Located in the Science & Technology Innovation City of Harbin High-tech Zone, Harbin Sonuo Medical Technology Co., Ltd. is a nationally recognized high-tech enterprise and a specialized & innovative SME of Heilongjiang Province. Focused on the R&D, translation and industrialization of high-end medical devices for sonodynamic and transcranial focused ultrasound non-invasive treatment, it is the only enterprise in Heilongjiang with full-chain capabilities in ultrasonic phased-array device R&D, complete system integration and clinical solution implementation. Its core product, the \"Arterial Plaque Sonodynamic Therapy System\", is the world's first (set) and holds fully independent intellectual property rights.",
+    "stats": {
+      "patents": "Patents, core technologies & independent IP",
+      "base": "Modern R&D & production base",
+      "rdRatio": "Cumulative R&D investment as share of revenue (2022-2024)"
+    },
+    "videoTitle": "Sonuo Medical  Guarding Life & Health",
+    "videoSubtitle": "Watch the Sonuo Medical promo video",
+    "play": "Play promo video"
+  },
+  "Products": {
+    "title": "Products & Technology",
+    "subtitle": "The greatest sound is silence, a promise is worth its weight\nSonuo Medical · High-end Medical Equipment · Ultrasound BCI",
+    "cards": {
+      "sdt": {
+        "title": "Arterial Plaque Sonodynamic Therapy System",
+        "subtitle": "Plaque Sonodynamic Therapy System",
+        "description": "The world's first (set) arterial plaque sonodynamic therapy system (MT-SDT2.0), integrating biomedical technology and big-data AI to precisely remove atherosclerotic plaques through the synergy of ultrasound and sonosensitizers — non-invasive, targeted and highly effective, with fully independent intellectual property in China."
+      },
+      "beauty": {
+        "title": "Temperature-control Low-frequency Ultrasound Beauty Device",
+        "subtitle": "MC200 Temperature-control Ultrasound Beauty Device",
+        "description": "Combining cooling, heating and ultrasound modes in one device, it opens skin absorption channels through low-frequency ultrasound and mechanical vibration to promote penetration of skincare ingredients, delivering a full routine of cleansing, infusion, repair and firming with intelligent temperature control."
+      },
+      "bci": {
+        "title": "Brain-Computer Interface · Transcranial Focused Ultrasound",
+        "subtitle": "tFUS Brain-Computer Interface",
+        "description": "A self-developed 4-8 channel concentric ring phased-array transducer achieving 1.5mm intracranial focusing precision, providing non-invasive deep neuromodulation for glioma, Alzheimer's and Parkinson's disease; under R&D translation."
+      },
+      "recognition": {
+        "title": "Ultrasound Plaque Precise Recognition",
+        "subtitle": "High-res Ultrasound Imaging",
+        "description": "Uses high-resolution diagnostic ultrasound to automatically identify and classify plaques and predict sonodynamic therapy indications, providing individualized treatment parameters and prognosis based on plaque thickness, stenosis rate and blood-flow velocity."
+      },
+      "navigation": {
+        "title": "Near-infrared Optical Navigation System",
+        "subtitle": "Near-infrared Optical Navigation",
+        "description": "A binocular stereo-vision optical navigation system that localizes the diagnostic ultrasound probe in real time with <0.5mm error, precisely guiding the therapy transducer to the plaque position for accurate targeting and tracking."
+      },
+      "transducer": {
+        "title": "Uniform Near-field Ultrasound Transducer",
+        "subtitle": "Uniform Near-field Transducer",
+        "description": "A self-developed therapy transducer that solves the industry problem of near-field intensity disorder, with a beam non-uniformity ratio (BNR) of 2.0-2.5 — surpassing imported brands — providing the fundamental guarantee for precise sonodynamic therapy."
+      },
+      "ai": {
+        "title": "AI Central Database",
+        "subtitle": "AI Central Database",
+        "description": "Builds a central patient-sample database from AI algorithms and individualized treatment parameters, deeply mining diagnostic data and continuously optimizing treatment parameters to provide solid data support for sonodynamic clinical research."
+      }
+    }
+  },
+  "News": {
+    "title": "News",
+    "link": "News",
+    "description": "For the latest Sonuo Medical news, please follow the News section.",
+    "empty": "No news yet",
+    "pageSubtitle": "Latest progress, clinical research, honors and funding updates from Sonuo Medical."
+  },
+  "Responsibility": {
+    "title": "Company Philosophy",
+    "slogan": "The greatest sound is silence, a promise is worth its weight",
+    "paragraph": "Sonuo Medical — providing a Chinese solution to safeguarding human health. Upholding the scientific model of \"high-end medical equipment + innovative drugs + advanced therapies + big-data AI\", the company builds an industrial positioning of combined value in the digital economy and bio-economy through industry-academia-research collaborative innovation."
+  },
+  "History": {
+    "title": "Milestones",
+    "paragraph": "With nearly 20 years of interdisciplinary research, Sonuo Medical has advanced step by step — from fundamental mechanism research to core device development, from complete systems to clinical translation — to provide a Chinese solution for safeguarding human health.",
+    "milestones": {
+      "2021": "Completed Angel round",
+      "2022": "Completed prototype manufacturing",
+      "2023": "Completed Pre-A round",
+      "2024": "Certified High-tech Enterprise",
+      "2025": "Device passed registration testing",
+      "2026": "Launched multi-center clinical trials",
+      "2027": "Obtained Class III registration certificate",
+      "2028": "Completed IPO filing",
+      "2029": "Completed IPO listing"
+    }
+  },
+  "Funding": {
+    "title": "Funding & Growth",
+    "subtitle": "From Angel round to IPO · The industrialization path of sonodynamic therapy",
+    "rounds": {
+      "angel": { "year": "2021", "name": "Angel Round", "amount": "¥8M", "detail": "Jiaorun Tech · Harbin Innovation Investment" },
+      "preA": { "year": "2023", "name": "Pre-A Round", "amount": "¥18M", "detail": "SCGC · Ruihong Hongtu · Suiyong VC" },
+      "a": { "year": "2026", "name": "Series A (ongoing)", "amount": "¥40M", "detail": "Pre-money valuation ¥180M · 18.18% released" },
+      "next": { "year": "2028", "name": "Next Round", "amount": "¥200M", "detail": "Pre-money valuation ¥600M · IPO preparation" }
+    }
+  },
+  "JoinUs": {
+    "title": "Join Sonuo Medical",
+    "slogan": "The greatest sound is silence, a promise is worth its weight · A Chinese solution for human health",
+    "hint": "Leave your contact details — we look forward to working with you",
+    "placeholder": "Please enter your phone number",
+    "privacy": "Your data will be securely stored by Sonuo Medical (privacy policy) and used only for our talent development program."
+  },
+  "Breadcrumb": {
+    "home": "Home"
+  },
+  "About": {
+    "pageTitle": "About Us",
+    "pageSubtitle": "Harbin Sonuo Medical Technology Co., Ltd. — a nationally recognized high-tech enterprise focused on high-end medical equipment R&D, creator of the world's first (set) arterial plaque sonodynamic intelligent treatment system.",
+    "profileTitle": "Company Profile",
+    "profileP1": "Founded on December 3, 2020 with registered capital of ¥14.3 million, Harbin Sonuo Medical Technology Co., Ltd. is located at Unit 1, Building 4, Enterprise Accelerator, No.15199 Zhongyuan Avenue, Songbei District, Harbin. The company is a nationally recognized high-tech enterprise and a specialized & innovative SME of Heilongjiang Province, focused on the R&D, design, production, promotion and sales of high-end medical devices for sonodynamic and transcranial focused ultrasound non-invasive treatment.",
+    "profileP2": "In December 2020, the company acquired all patents and core technologies of the \"macrophage-targeted sonodynamic therapy for atherosclerotic plaque\" research by Professor Tian Ye's team of Harbin Medical University through online bidding, and translated them in Harbin New Area. Relying on national major scientific research instrument projects, and in deep cooperation with Harbin Institute of Technology, Shenzhen Institute of Advanced Technology (CAS), the National High-performance Medical Device Innovation Center and Harbin Medical University, the company independently developed the world's first (set) \"Arterial Plaque Sonodynamic Intelligent Treatment System\" (MT-SDT2.0).",
+    "profileP3": "The device is a Class III innovative medical device integrating biomedical technology and big-data AI, reported internationally for the first time, with fully independent intellectual property rights. The company holds 31 authorized patents, software copyrights and design patents, has received 13 National Natural Science Foundation grants and 2 National Support Program grants, and won the first prize of the 2021 Heilongjiang Provincial Science & Technology Award (Progress category).",
+    "historyTitle": "Milestones",
+    "historyItems": {
+      "1": { "year": "2008-2021", "title": "14 years of research by Prof. Tian Ye's team", "desc": "200 in-house clinical cases, 15 patents, nearly ¥20M in National Natural Science Foundation funding" },
+      "2": { "year": "2020.12", "title": "Sonuo Medical founded", "desc": "Acquired the patented research of Prof. Tian Ye's team and translated it in Harbin New Area" },
+      "3": { "year": "2021", "title": "Completed Angel round", "desc": "¥8M Angel investment from Jiaorun Tech and Harbin Innovation Investment" },
+      "4": { "year": "2023", "title": "Completed Pre-A round", "desc": "¥18M Pre-A1 financing from SCGC, Ruihong Hongtu and Suiyong VC; ¥4.5M provincial key R&D grant" },
+      "5": { "year": "2025.07", "title": "Device passed testing", "desc": "Passed testing by Tianjin Medical Device Quality Supervision & Inspection Center, qualified for clinical trials" },
+      "6": { "year": "2025.12", "title": "Obtained ethics approval", "desc": "Approved by the Ethics Committee of the First Affiliated Hospital of Harbin Medical University; signed a CRO" },
+      "7": { "year": "2026", "title": "Launched multi-center clinical trials", "desc": "Launched prospective multi-center randomized controlled trials for carotid and lower-limb arterial plaques" },
+      "8": { "year": "2028.06", "title": "Obtained Class III registration certificate", "desc": "Plans to obtain the Class III medical device registration certificate for the arterial plaque sonodynamic intelligent treatment system" },
+      "9": { "year": "2029", "title": "IPO launch", "desc": "Plans to launch an IPO on multi-tier capital markets" }
+    },
+    "orgTitle": "Organization",
+    "orgIntro": "The company is managed along three lines with clear responsibilities and efficient collaboration:",
+    "orgCenters": {
+      "device": { "title": "Equipment Center", "desc": "Responsible for equipment R&D, assembly, commissioning, testing and production" },
+      "medical": { "title": "Medical Center", "desc": "Responsible for medical research and clinical trials of the devices" },
+      "management": { "title": "Management Center", "desc": "Responsible for corporate strategy, administration, HR, quality management, party affairs and logistics" }
+    },
+    "orgFooter": "The company currently has 30 employees (15 in R&D), with 90% holding advanced degrees and senior titles — a highly qualified, specialized team. Shenzhen Sonuo Medical Technology Co., Ltd. (90% owned) conducts key technology joint R&D through the National High-performance Medical Device Innovation Center.",
+    "teamTitle": "Management Team",
+    "team": {
+      "1": { "name": "Liu Guochao", "role": "Founder, Chairman", "desc": "Dual master's degrees from HIT and Tsinghua University, HIT professor, expert enjoying special government allowance; former Executive VP of HIT National University Science Park and GM of Chenneng HIT High-tech Venture Capital; now Chairman of Harbin Equity Investment Association. Has led investment in several high-tech companies." },
+      "2": { "name": "Tian Ye", "role": "Inventor, Chief Scientist", "desc": "PhD in cardiovascular medicine and second-level professor at Harbin Medical University, chief of cardiology, HIT postdoc, senior visiting scholar at Johns Hopkins School of Medicine; leads 2 national major scientific instrument projects and 1 key NSFC project, 12 provincial S&T awards, 141 SCI papers." },
+      "3": { "name": "Zhang Wangsheng", "role": "General Manager", "desc": "Pharmaceutical/medical device expert and licensed pharmacist, former senior executive at Abbott and other major medical device companies, familiar with clinical trial and regulatory approval processes, extensive marketing and hospital promotion experience." },
+      "4": { "name": "Zhang Xuelong", "role": "Chief Engineer", "desc": "Senior engineer and industrial automation expert, HIT graduate in industrial electrical automation, former factory director and chief engineer of state-owned Songjiang Electric Furnace Plant, responsible for equipment R&D." },
+      "5": { "name": "Wang Hongmin", "role": "R&D Director", "desc": "Professor and expert in motors and electrical apparatus, HIT graduate in micromotors, responsible for new technology development." },
+      "6": { "name": "Wu Qun", "role": "Director, Management Director & Board Secretary", "desc": "Senior engineer, HIT graduate in technical physics, familiar with enterprise operations, responsible for strategy, HR and legal affairs." },
+      "7": { "name": "Lu Dongyang", "role": "Assistant to Chairman", "desc": "Responsible for R&D, production and marketing of the company's health products." },
+      "8": { "name": "Liu Kai", "role": "Deputy Chief Engineer & R&D Center Director", "desc": "HIT bachelor's-master's-doctorate across mechanical forming, instrument science and electrical engineering; assists the Chief Engineer in equipment R&D and R&D center management." },
+      "9": { "name": "Wu Guodong", "role": "Medical Director", "desc": "Master's in biochemistry and molecular biology from Harbin Medical University, responsible for pathology research, clinical trials, patent applications and project applications." },
+      "10": { "name": "Tian Hao", "role": "Clinical Center Director", "desc": "Attending physician, master's in internal medicine from Harbin Medical University, familiar with clinical trial design, recruitment, grouping and follow-up, responsible for clinical medicine and trials." }
+    },
+    "honorTitle": "Honors",
+    "honors": {
+      "1": { "year": "2021", "name": "First prize, Heilongjiang Provincial Science & Technology Award (Progress category)" },
+      "2": { "year": "2021", "name": "S&T SME (Harbin Science & Technology Bureau)" },
+      "3": { "year": "2021", "name": "Medical device business license / Class II medical device business filing" },
+      "4": { "year": "2022", "name": "National High-tech Enterprise certification" },
+      "5": { "year": "2022", "name": "IP management system certification" },
+      "6": { "year": "2023", "name": "Specialized & innovative SME of Heilongjiang Province" },
+      "7": { "year": "2023", "name": "Innovative SME title" },
+      "8": { "year": "2024", "name": "Most transformable S&T achievement (Heilongjiang S&T Department)" },
+      "9": { "year": "2024", "name": "Medical device classification notification (NMPA)" },
+      "10": { "year": "2025", "name": "Third place in AI medical device innovation task, intelligent digital therapy group (MIIT & NMPA)" }
+    }
+  },
+  "Contact": {
+    "pageTitle": "Contact Us",
+    "pageSubtitle": "Welcome to consult on products, business cooperation and investment; we look forward to working with you to safeguard health.",
+    "heroTag": "Contact Us",
+    "heroTitle": "The greatest sound is silence",
+    "heroSubtitle": "A promise worth its weight in gold",
+    "heroText": "We heal with the sound of silence and honor every trust with a promise worth gold.\nWelcome to contact us and join us in safeguarding human health.",
+    "seal": "Sonuo\nMedical",
+    "directoryTitle": "Contact Directory",
+    "officesTitle": "Offices",
+    "offices": {
+      "harbin": { "city": "Harbin · HQ", "name": "Harbin Sonuo Medical Technology Co., Ltd.", "address": "Unit 1, Building 4, Enterprise Accelerator, No.15199 Zhongyuan Avenue, Songbei District" },
+      "shenzhen": { "city": "Shenzhen · R&D Collaboration", "name": "Shenzhen Sonuo Medical Technology Co., Ltd.", "address": "Joint key technology R&D through the National High-performance Medical Device Innovation Center" }
+    },
+    "items": {
+      "phone": { "label": "Phone", "value": "13904631300", "note": "Product inquiries / Business cooperation" },
+      "email": { "label": "Email", "value": "466069861@qq.com", "note": "Project documents / Partnership" },
+      "person": { "label": "Contact", "value": "Wu Qun", "note": "Company Director · Management Director & Board Secretary" },
+      "address": { "label": "Address", "value": "Unit 1, Building 4, Enterprise Accelerator, No.15199 Zhongyuan Avenue, Songbei District, Harbin", "note": "Welcome for on-site visits" }
+    }
+  },
+  "Investor": {
+    "pageTitle": "Funding & Growth",
+    "pageSubtitle": "Sonuo Medical has completed Angel and Pre-A rounds, is advancing a Series A round and multi-center clinical trials, and plans to launch an IPO by 2029.",
+    "fundingTitle": "Funding History",
+    "tableHead": { "round": "Round", "time": "Time", "amount": "Amount", "investors": "Investors", "valuation": "Valuation" },
+    "fundingRounds": {
+      "1": { "round": "Angel Round", "year": "2021", "amount": "¥8M", "investors": "Heilongjiang Jiaorun Technology Development Fund, Harbin Innovation Investment Co., Ltd.", "note": "Post-money valuation ¥50M" },
+      "2": { "round": "Pre-A Round", "year": "2023", "amount": "¥18M", "investors": "Shenzhen Innovation Capital Investment, Heilongjiang Ruihong Hongtu Investment, Harbin Suiyong VC", "note": "Post-money valuation ¥108M" },
+      "3": { "round": "Series A (current)", "year": "2026", "amount": "¥40M", "investors": "Strategic and financial investors to be introduced (Longjiang Angel Fund committed ¥5M)", "note": "Pre-money valuation ¥180M, 18.18% equity released" },
+      "4": { "round": "Next Round", "year": "2028", "amount": "¥200M", "investors": "New round to be launched", "note": "Pre-money valuation ¥600M, for plant expansion and marketing" }
+    },
+    "planTitle": "Series A Financing Plan",
+    "planBody": "The company plans to raise {amount} through capital increase, releasing {percent} equity at a pre-money valuation of {valuation}. Funds will mainly go to multi-center clinical trials (≈¥29M), clinical device manufacturing & prototypes (¥3.2M), operations (¥9.2M), and IP & marketing (≈¥4.6M).",
+    "planAmount": "RMB 40 million",
+    "planPercent": "18.18%",
+    "planValuation": "RMB 180 million",
+    "planTitle2": "Growth Plan",
+    "plans": {
+      "short": { "period": "Short term (2026-2028)", "items": ["Complete product finalization and clinical device production", "Launch and complete 5-7 multi-center clinical trials", "Complete efficacy evaluation, data statistics and academic promotion", "Obtain Class III medical device registration certificate", "Produce 6 clinical devices in 2026", "Grow to 40 employees with R&D >70%"] },
+      "mid": { "period": "Mid term (2028-2029)", "items": ["Small-batch production of 60 devices/year from 2029", "Treat 100,000 patients", "Cover top-tier and cardiovascular hospitals nationwide", "Participate in formulating sonodynamic therapy guidelines, expert consensus and national standards", "Develop MT-SDT3.0 phased-array device and expand indications"] },
+      "long": { "period": "Long term (2029 and beyond)", "items": ["Reach 300 devices and 725,700 patients in 2029", "Push international expansion into overseas markets", "Grow into an open high-end medical device platform enterprise", "Launch IPO plan in 2029", "Focus on devices, sonosensitizer development and indication expansion over the next 10 years"] }
+    },
+    "marketTitle": "Business Prospects",
+    "markets": {
+      "device": { "label": "Device Sales", "desc": "Unified price ¥3.6M/unit, distributor price ¥2.16M/unit; 60 units in 2028 and 300 units in 2029" },
+      "consumable": { "label": "Treatment Consumables", "desc": "¥3,000/person per session at 6 patients/device/day and 80% utilization, forming stable recurring revenue" },
+      "market": { "label": "Market Space", "desc": "2,996 tertiary hospitals nationwide (1,580 Grade-A); initial focus on 50 national + 120 provincial regional medical centers" }
+    }
+  },
+  "Feedback": {
+    "pageTitle": "Feedback Inbox",
+    "pageSubtitle": "Your feedback matters to us. Please share your thoughts."
+  },
+  "ProductsPage": {
+    "pageTitle": "Products & Technology",
+    "pageSubtitle": "Building a four-in-one solution of high-end medical equipment + innovative drugs + advanced therapies + big-data AI.",
+    "coreTitle": "Core Products",
+    "techTitle": "Core Technologies"
+  },
+  "ProductData": {
+    "products": {
+      "arterial-plaque-sdt": {
+        "title": "Arterial Plaque Sonodynamic Intelligent Treatment System (MT-SDT2.0)",
+        "tag": "World's First (Set) · Internationally First Reported",
+        "desc": "A Class III innovative medical device integrating biomedical technology and big-data AI, precisely removing atherosclerotic plaques through the synergy of ultrasound and sonosensitizers — non-invasive, targeted, safe and highly effective, with fully independent intellectual property.",
+        "features": ["World's first (set) atherosclerotic sonodynamic treatment device, first reported internationally", "Used for sonodynamic treatment of lower-limb and carotid atherosclerosis", "Passed testing by an NMPA-designated institution, qualified for clinical trials", "Integrated diagnosis and treatment, repeatable and easy to operate"]
+      },
+      "tfus-bci": {
+        "title": "Transcranial Focused Ultrasound BCI Treatment System",
+        "tag": "Under R&D Translation",
+        "desc": "A self-developed 4-8 channel concentric ring phased-array transducer achieving 1.5mm intracranial focusing precision, providing non-invasive, deep, precise, closed-loop neuromodulation for glioma, Alzheimer's, Parkinson's and more.",
+        "features": ["4-8 channel concentric ring phased-array ultrasound transducer", "Stable 1.5mm intracranial focusing precision", "Non-invasive neuromodulation, reversible blood-brain barrier opening, real-time closed-loop brain monitoring", "Medical-engineering platform co-built with HIT and Harbin First Specialist Hospital"]
+      },
+      "mc200-beauty": {
+        "title": "Temperature-control Low-frequency Ultrasound Beauty Device (MC200)",
+        "tag": "Health Product",
+        "desc": "Combining cooling, heating and ultrasound modes, it opens skin absorption channels through low-frequency ultrasound and mechanical vibration to promote ingredient penetration, with intelligent temperature control for cleansing, infusion, repair and firming.",
+        "features": ["Ultrasound/heating/cooling three modes in one", "Low-frequency ultrasound promotes effective ingredient absorption", "Intelligent temperature control, suitable for home facial care and professional skin management"]
+      }
+    },
+    "techs": {
+      "ultrasound-plaque-recognition": {
+        "title": "High-resolution Ultrasound Plaque Precise Recognition",
+        "desc": "Uses high-resolution diagnostic ultrasound to automatically identify and classify plaques and predict sonodynamic therapy indications, providing individualized parameters and prognosis based on plaque thickness, stenosis rate and blood-flow velocity."
+      },
+      "uniform-ultrasound-transducer": {
+        "title": "Uniform Near-field Stable Ultrasound Transducer",
+        "desc": "A self-developed therapy transducer that solves the industry problem of near-field intensity disorder, with a beam non-uniformity ratio (BNR) of 2.0-2.5 — surpassing imported brands — guaranteeing precise sonodynamic efficacy."
+      },
+      "optical-navigation": {
+        "title": "Near-infrared Optical Navigation System",
+        "desc": "A binocular stereo-vision optical navigation system that localizes the diagnostic ultrasound probe in real time with <0.5mm error, precisely guiding the therapy transducer to the plaque position."
+      },
+      "ai-central-database": {
+        "title": "AI Central Database",
+        "desc": "Builds a central patient-sample database from AI algorithms and individualized parameters, deeply mining diagnostic data and optimizing treatment parameters to provide solid support for clinical research."
+      }
+    }
+  }
+}

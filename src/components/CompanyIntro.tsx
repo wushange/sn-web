@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback, type Dispatch, type SetStateAction } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 interface CompanyIntroProps {
   bannerCurrent: number;
@@ -42,6 +43,7 @@ export default function CompanyIntro({
 }: CompanyIntroProps) {
   const [counters, setCounters] = useState({ num1: 0, num2: 0, num3: 0 });
   const [playing, setPlaying] = useState(false);
+  const t = useTranslations("Intro");
   const counterTriggered = useRef(false);
   const counterRef = useRef<HTMLDivElement>(null);
 
@@ -138,19 +140,19 @@ export default function CompanyIntro({
         {/* === Scroll-triggered fadeInUp items === */}
         <div ref={item1.ref} className={`transition-all duration-700 ${item1.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
           <h4 className="text-[24px] md:text-[30px] xl:text-[48px] font-normal leading-tight text-[#221815]">
-            哈尔滨声诺医疗科技有限公司
+            {t("company")}
           </h4>
         </div>
 
         <div ref={item2.ref} className={`transition-all duration-700 ${item2.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
           <h5 className="text-[18px] md:text-[20px] xl:text-[24px] font-normal leading-relaxed py-[14px] text-[#333]">
-            专注高端医疗装备 · 声动力智能诊疗系统领航者
+            {t("slogan")}
           </h5>
         </div>
 
         <div ref={item3.ref} className={`transition-all duration-700 ${item3.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
           <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#555] mb-[3.5vw] max-w-[900px]">
-            哈尔滨声诺医疗科技有限公司坐落于哈尔滨高新区科技创新城，为国家认定高新技术企业、黑龙江省专精特新中小企业，专注声动力、经颅聚焦超声无创诊疗高端医疗器械研发、转化与产业化，是黑龙江省内唯一同时具备超声相控阵器件自研、整机系统集成、临床方案落地全链条能力的医疗科技企业。核心产品"动脉斑块声动力治疗系统"为全球首台（套），拥有完全自主知识产权。
+            {t("paragraph")}
           </p>
         </div>
 
@@ -158,9 +160,9 @@ export default function CompanyIntro({
         <div ref={item4.ref} className={`transition-all duration-700 ${item4.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
           <div ref={counterRef} className="flex flex-wrap gap-[5.62vw] mb-[4vw]">
             {[
-              { value: counters.num1, suffix: "项", label: "专利核心技术及自主知识产权" },
-              { value: counters.num2, suffix: "㎡", label: "现代化研发生产基地" },
-              { value: counters.num3, suffix: "%", label: "2022-2024累计研发投入占营收比" },
+              { value: counters.num1, suffix: "项", label: t("stats.patents") },
+              { value: counters.num2, suffix: "㎡", label: t("stats.base") },
+              { value: counters.num3, suffix: "%", label: t("stats.rdRatio") },
             ].map((stat, i) => (
               <div key={i}>
                 <strong className="text-[50px] md:text-[80px] xl:text-[90px] leading-none font-bold block">
@@ -191,7 +193,7 @@ export default function CompanyIntro({
                 <button
                   onClick={() => setPlaying(true)}
                   className="relative w-[50px] h-[50px] md:w-[90px] md:h-[90px] bg-white rounded-full flex items-center justify-center group hover:shadow-xl transition-shadow cursor-pointer border-0"
-                  aria-label="播放宣传片"
+                  aria-label={t("play")}
                 >
                   <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" />
                   <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" style={{ animationDelay: "1.5s" }} />
@@ -200,8 +202,8 @@ export default function CompanyIntro({
                   </svg>
                 </button>
                 <div className="text-white ml-5">
-                  <strong className="text-[21px] md:text-[32px] font-normal block">声诺医疗  守护生命健康</strong>
-                  <p className="text-[14px] md:text-[16px] opacity-80 mt-1">查看声诺医疗宣传片</p>
+                  <strong className="text-[21px] md:text-[32px] font-normal block">{t("videoTitle")}</strong>
+                  <p className="text-[14px] md:text-[16px] opacity-80 mt-1">{t("videoSubtitle")}</p>
                 </div>
               </div>
             </>

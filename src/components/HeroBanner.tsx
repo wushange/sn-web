@@ -1,37 +1,18 @@
 "use client";
 
-import { useRef, useCallback, useState, useEffect } from "react";
-import Link from "next/link";
+import { useRef, useCallback, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 interface Slide {
   bgImage: string;
-  title: string;
-  subtitle?: string;
   link: string;
-  linkText: string;
 }
 
 const slides: Slide[] = [
-  {
-    bgImage: "/images/banner-1.jpg",
-    title: "声诺医疗\n守护生命健康",
-    link: "/about",
-    linkText: "了解详情",
-  },
-  {
-    bgImage: "/images/banner-2.jpg",
-    title: "动脉斑块声动力治疗系统",
-    subtitle: "全球首台（套）\n超声声动力疗法精准清除动脉粥样硬化斑块\n无创 · 靶向 · 安全有效",
-    link: "/products",
-    linkText: "了解详情",
-  },
-  {
-    bgImage: "/images/banner-3.jpg",
-    title: "经颅聚焦超声\n脑机接口诊疗系统",
-    subtitle: "4-8通道同心圆环形相控换能器\n毫米级颅内精准调控 · 无创神经调控",
-    link: "/products",
-    linkText: "了解详情",
-  },
+  { bgImage: "/images/banner-1.jpg", link: "/about" },
+  { bgImage: "/images/banner-2.jpg", link: "/products" },
+  { bgImage: "/images/banner-3.jpg", link: "/products" },
 ];
 
 interface HeroBannerProps {
@@ -40,6 +21,7 @@ interface HeroBannerProps {
 }
 
 export default function HeroBanner({ bannerCurrent, onSelectBanner }: HeroBannerProps) {
+  const t = useTranslations("Hero");
   const current = bannerCurrent;
   const isAnimating = useRef(false);
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -65,6 +47,7 @@ export default function HeroBanner({ bannerCurrent, onSelectBanner }: HeroBanner
       <div className="fixed left-0 top-0 w-full h-[400px] md:h-[500px] lg:h-[46.25vw] overflow-hidden z-0">
         {slides.map((slide, index) => {
           const isActive = index === current;
+          const key = `slide${index + 1}` as const;
           return (
             <div
               key={index}
@@ -99,8 +82,8 @@ export default function HeroBanner({ bannerCurrent, onSelectBanner }: HeroBanner
                       transitionDelay: isActive ? "0.1s" : "0s",
                     }}
                   >
-                    {slide.title}
-                    {slide.subtitle && (
+                    {t(`${key}.title`)}
+                    {t.has(`${key}.subtitle`) && (
                       <span
                         className="block mt-[15px] font-normal"
                         style={{
@@ -109,7 +92,7 @@ export default function HeroBanner({ bannerCurrent, onSelectBanner }: HeroBanner
                           letterSpacing: "clamp(0px, 0.5vw, 8px)",
                         }}
                       >
-                        {slide.subtitle}
+                        {t(`${key}.subtitle`)}
                       </span>
                     )}
                   </h1>
@@ -126,7 +109,7 @@ export default function HeroBanner({ bannerCurrent, onSelectBanner }: HeroBanner
                       className="inline-flex items-center justify-center text-[14px] md:text-[16px] text-white h-[42px] md:h-[48px] w-[140px] md:w-[180px] text-center transition-all duration-300 hover:-translate-y-[5px] hover:shadow-lg"
                       style={{ background: "var(--brand-primary) url(/images/nav_si.png) no-repeat right top" }}
                     >
-                      {slide.linkText}
+                      {t(`${key}.linkText`)}
                     </Link>
                   </div>
                 </div>
@@ -135,7 +118,7 @@ export default function HeroBanner({ bannerCurrent, onSelectBanner }: HeroBanner
           );
         })}
 
-      
+
       </div>
     </div>
   );

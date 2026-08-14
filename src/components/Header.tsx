@@ -1,62 +1,78 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
+
+interface NavChild {
+  labelKey: string;
+  href: string;
+  external?: boolean;
+}
 
 interface NavItem {
-  label: string;
+  key: string;
+  labelKey: string;
   href: string;
-  children?: { label: string; href: string; external?: boolean }[];
-  description?: string;
+  children?: NavChild[];
+  descKey?: string;
   image?: string;
 }
 
 const navItems: NavItem[] = [
-  { label: "首页", href: "/" },
+  { key: "home", labelKey: "home", href: "/" },
   {
-    label: "走进声诺", href: "/about",
-    description: "哈尔滨声诺医疗科技有限公司是国家认定高新技术企业、黑龙江省专精特新中小企业，专注声动力、经颅聚焦超声无创诊疗高端医疗器械研发、转化与产业化。",
+    key: "about",
+    labelKey: "about",
+    href: "/about",
+    descKey: "about",
     image: "/images/subnav-about.jpg",
     children: [
-      { label: "企业简介", href: "/about#profile" },
-      { label: "发展历程", href: "/about#history" },
-      { label: "组织架构", href: "/about#org" },
-      { label: "企业荣誉", href: "/about#honor" },
+      { labelKey: "profile", href: "/about#profile" },
+      { labelKey: "history", href: "/about#history" },
+      { labelKey: "org", href: "/about#org" },
+      { labelKey: "honor", href: "/about#honor" },
     ],
   },
   {
-    label: "产品与技术", href: "/products",
-    description: "公司核心产品为全球首台（套）动脉斑块声动力治疗系统，同时布局脑机接口·经颅聚焦超声无创诊疗设备，构建「高端医疗装备+创新药物+先进治疗方法+大数据AI」四位一体解决方案。",
+    key: "products",
+    labelKey: "products",
+    href: "/products",
+    descKey: "products",
     image: "/images/subnav-products.jpg",
     children: [
-      { label: "动脉斑块声动力治疗系统", href: "/products/arterial-plaque-sdt" },
-      { label: "经颅聚焦超声脑机接口", href: "/products/tfus-bci" },
-      { label: "超声成像斑块识别", href: "/products/ultrasound-plaque-recognition" },
+      { labelKey: "productSdt", href: "/products/arterial-plaque-sdt" },
+      { labelKey: "productBci", href: "/products/tfus-bci" },
+      { labelKey: "productRecognition", href: "/products/ultrasound-plaque-recognition" },
     ],
   },
   {
-    label: "动态资讯", href: "/news",
-    description: "了解更多声诺医疗的企业动态，请关注动态资讯栏目。",
+    key: "news",
+    labelKey: "news",
+    href: "/news",
+    descKey: "news",
     image: "/images/subnav-news.jpg",
-    children: [
-      { label: "新闻资讯", href: "/news" },
-    ],
+    children: [{ labelKey: "newsList", href: "/news" }],
   },
   {
-    label: "融资与发展", href: "/investor",
-    description: "声诺医疗已完成天使轮、Pre-A轮融资，正推进A轮融资与多中心临床试验，规划于2028年完成IPO申报。",
+    key: "investor",
+    labelKey: "investor",
+    href: "/investor",
+    descKey: "investor",
     image: "/images/subnav-investor.jpg",
     children: [
-      { label: "融资历程", href: "/investor#funding" },
-      { label: "发展规划", href: "/investor#plan" },
+      { labelKey: "funding", href: "/investor#funding" },
+      { labelKey: "plan", href: "/investor#plan" },
     ],
   },
-  { label: "联系我们", href: "/contact" },
+  { key: "contact", labelKey: "contact", href: "/contact" },
 ];
 
 export default function Header() {
+  const t = useTranslations("Header");
+  const tCommon = useTranslations("Common");
   const pathname = usePathname();
+  const locale = useLocale();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
@@ -65,12 +81,11 @@ export default function Header() {
   const [hoverIndex, setHoverIndex] = useState<number | null>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // 当前激活的导航项索引：根据路由匹配
-  const activeIndex = navItems.findIndex(item =>
-    item.href === "/" ? pathname === "/" : pathname.startsWith(item.href)
+  // 当前激活的导航项索引：根据路由匹配（pathname 不含 locale 前缀）
+  const activeIndex = navItems.findIndex((item) =>
+    item.href === "/" ? pathname === "/" : pathname.startsWith(item.href),
   );
 
-  // "headerFixed" mode: when user scrolls >10px OR hovers the header
   const headerFixed = isScrolled || isHoveringHeader;
 
   useEffect(() => {
@@ -88,7 +103,6 @@ export default function Header() {
   const handleMouseEnter = (index: number, hasChildren: boolean) => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
     setHoverIndex(index);
-    // 有二级菜单则展开；无二级菜单（如"联系我们"）则收起之前残留的下拉
     setActiveDropdown(hasChildren ? index : null);
   };
   const handleMouseLeave = () => {
@@ -97,8 +111,10 @@ export default function Header() {
   };
 
   const toggleMobileExpand = (index: number) => {
-    setMobileExpanded(prev => ({ ...prev, [index]: !prev[index] }));
+    setMobileExpanded((prev) => ({ ...prev, [index]: !prev[index] }));
   };
+
+  const otherLocale = locale === "zh" ? "en" : "zh";
 
   return (
     <>
@@ -112,7 +128,7 @@ export default function Header() {
       <div className="sn-mobile-only sn-mobile-header fixed top-0 left-0 w-full z-[1001] bg-white flex items-center justify-between h-[56px] px-4 shadow-sm">
         <Link href="/"><img src="/images/logo5.png" alt="声诺医疗" className="h-9 w-auto" /></Link>
         <div className="flex items-center gap-3">
-          <Link href="/en" className="text-sm text-[#333]">EN</Link>
+          <Link href={pathname} locale={otherLocale} className="text-sm text-[#333]">{t("lang")}</Link>
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="w-6 h-6 flex flex-col justify-center gap-[5px] relative">
             <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
             <span className={`block w-full h-[2px] bg-[#333] transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
@@ -129,8 +145,8 @@ export default function Header() {
           {navItems.map((item, index) => (
             <div key={index} className="border-b border-gray-100">
               <div className="flex items-center justify-between px-5 py-3 cursor-pointer"
-                onClick={() => item.children ? toggleMobileExpand(index) : setMobileMenuOpen(false)}>
-                <Link href={item.href} className="text-[15px] text-[#333]" onClick={() => setMobileMenuOpen(false)}>{item.label}</Link>
+                onClick={() => (item.children ? toggleMobileExpand(index) : setMobileMenuOpen(false))}>
+                <Link href={item.href} className="text-[15px] text-[#333]" onClick={() => setMobileMenuOpen(false)}>{t(`nav.${item.labelKey}`)}</Link>
                 {item.children && <span className={`text-xs transition-transform ${mobileExpanded[index] ? "rotate-90" : ""}`}>▶</span>}
               </div>
               {item.children && mobileExpanded[index] && (
@@ -138,7 +154,7 @@ export default function Header() {
                   {item.children.map((child, ci) => (
                     <Link key={ci} href={child.href} className="block px-8 py-2.5 text-sm text-[#666] hover:text-(--brand-primary)"
                       onClick={() => setMobileMenuOpen(false)}
-                      {...(child.external ? { target: "_blank", rel: "noreferrer" } : {})}>{child.label}</Link>
+                      {...(child.external ? { target: "_blank", rel: "noreferrer" } : {})}>{t(`submenu.${child.labelKey}`)}</Link>
                   ))}
                 </div>
               )}
@@ -167,7 +183,7 @@ export default function Header() {
                   href={item.href}
                   className={`nav_a relative ${index === activeIndex ? "on" : ""} ${hoverIndex !== null && hoverIndex !== index ? "no" : ""}`}
                 >
-                  {item.label}
+                  {t(`nav.${item.labelKey}`)}
                 </Link>
 
                 {/* ===== Dropdown ===== */}
@@ -180,10 +196,10 @@ export default function Header() {
                     {/* Left panel */}
                     <div className="subNvLx subNvLx-fx">
                       <div className="subNvtp absolute left-[60px] right-[60px] top-1/2 -translate-y-1/2">
-                        <strong className="block text-[24px] font-normal leading-[40px] mb-[10px] text-[#333]">{item.label}</strong>
-                        <p className="text-[14px] leading-[28px] text-[#808080] mb-[15px]">{item.description}</p>
+                        <strong className="block text-[24px] font-normal leading-[40px] mb-[10px] text-[#333]">{t(`nav.${item.labelKey}`)}</strong>
+                        <p className="text-[14px] leading-[28px] text-[#808080] mb-[15px]">{item.descKey ? t(`desc.${item.descKey}`) : ""}</p>
                         <Link href={item.href} className="subNv_m inline-block text-[14px] leading-[28px] text-(--brand-primary) relative">
-                          了解详情
+                          {tCommon("learnMore")}
                         </Link>
                       </div>
                     </div>
@@ -197,7 +213,7 @@ export default function Header() {
                               href={child.href}
                               className="subNv_a subNv_a-fx block text-[16px] text-[#808080]"
                               {...(child.external ? { target: "_blank", rel: "noreferrer" } : {})}>
-                              {child.label}
+                              {t(`submenu.${child.labelKey}`)}
                             </Link>
                           </dd>
                         ))}
@@ -205,7 +221,7 @@ export default function Header() {
                       {item.image && (
                         <img
                           src={item.image}
-                          alt={item.label}
+                          alt={item.labelKey}
                           width={320} height={180}
                           className="subNvImg-fx absolute rounded-lg"
                         />
@@ -219,7 +235,7 @@ export default function Header() {
 
           {/* Language switcher */}
           <div className="topLan">
-            <Link href="/en"><span>EN</span></Link>
+            <Link href={pathname} locale={otherLocale}><span>{t("lang")}</span></Link>
           </div>
         </div>
       </header>
