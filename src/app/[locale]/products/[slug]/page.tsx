@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import PageHeader from "@/components/PageHeader";
 import Footer from "@/components/Footer";
 import SideTools from "@/components/SideTools";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -17,6 +17,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
   const t = await getTranslations("ProductData");
   const pt = await getTranslations("ProductsPage");
+  const locale = await getLocale();
   const ns = item.type === "product" ? "products" : "techs";
   const title = t(`${ns}.${slug}.title`);
   const desc = t(`${ns}.${slug}.desc`);
@@ -59,7 +60,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 [&_h3]:text-[20px] [&_h3]:font-medium [&_h3]:text-[#221815] [&_h3]:mt-8 [&_h3]:mb-3
                 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1
                 [&_li]:text-[14px] [&_li]:leading-[28px]"
-              dangerouslySetInnerHTML={{ __html: item.detailHtml ?? "" }}
+              dangerouslySetInnerHTML={{ __html: item.detailHtml?.[locale as "zh" | "en"] ?? "" }}
             />
           </div>
         </div>
