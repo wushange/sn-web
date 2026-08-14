@@ -19,10 +19,10 @@ const navItems: NavItem[] = [
     description: "哈尔滨声诺医疗科技有限公司是国家认定高新技术企业、黑龙江省专精特新中小企业，专注声动力、经颅聚焦超声无创诊疗高端医疗器械研发、转化与产业化。",
     image: "/images/subnav-about.jpg",
     children: [
-      { label: "企业简介", href: "/about/profile" },
-      { label: "发展历程", href: "/about/history" },
-      { label: "组织架构", href: "/about/structure" },
-      { label: "企业荣誉", href: "/about/honor" },
+      { label: "企业简介", href: "/about#profile" },
+      { label: "发展历程", href: "/about#history" },
+      { label: "组织架构", href: "/about#org" },
+      { label: "企业荣誉", href: "/about#honor" },
     ],
   },
   {
@@ -30,9 +30,9 @@ const navItems: NavItem[] = [
     description: "公司核心产品为全球首台（套）动脉斑块声动力治疗系统，同时布局脑机接口·经颅聚焦超声无创诊疗设备，构建「高端医疗装备+创新药物+先进治疗方法+大数据AI」四位一体解决方案。",
     image: "/images/subnav-products.jpg",
     children: [
-      { label: "动脉斑块声动力治疗系统", href: "/products" },
-      { label: "经颅聚焦超声脑机接口", href: "/products" },
-      { label: "超声成像斑块识别", href: "/products" },
+      { label: "动脉斑块声动力治疗系统", href: "/products/arterial-plaque-sdt" },
+      { label: "经颅聚焦超声脑机接口", href: "/products/tfus-bci" },
+      { label: "超声成像斑块识别", href: "/products/ultrasound-plaque-recognition" },
     ],
   },
   {
@@ -48,8 +48,8 @@ const navItems: NavItem[] = [
     description: "声诺医疗已完成天使轮、Pre-A轮融资，正推进A轮融资与多中心临床试验，规划于2028年完成IPO申报。",
     image: "/images/subnav-investor.jpg",
     children: [
-      { label: "融资历程", href: "/investor" },
-      { label: "发展规划", href: "/investor/plan" },
+      { label: "融资历程", href: "/investor#funding" },
+      { label: "发展规划", href: "/investor#plan" },
     ],
   },
   { label: "联系我们", href: "/contact" },

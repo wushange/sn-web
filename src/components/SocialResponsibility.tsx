@@ -37,7 +37,7 @@ export default function SocialResponsibility() {
               声诺医疗——为守护人类健康提供中国方案。公司秉承"高端医疗装备+创新药物+先进治疗方法+大数据AI"的科学运营模式，依托产学研协同创新平台，构建数字经济和生物经济领域价值功能叠加的产业定位。
             </p>
             <Link
-              href="/responsibility"
+              href="/about#profile"
               className="inline-flex items-center justify-center text-[16px] leading-[44px] text-white tracking-[2px] h-[48px] w-[180px] border-2 border-white text-center hover:-translate-y-[5px] hover:shadow-lg transition-all duration-300"
             >
               了解更多

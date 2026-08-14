@@ -47,7 +47,7 @@ export default function HistorySection() {
             <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#808080] my-[12px] md:my-[32px]">
               声诺医疗依托近20年跨学科科研积淀，从基础机理研究到核心器件自研，从整机装备到临床转化，一步一个脚印，为守护人类健康提供中国方案。
             </p>
-            <Link href="/about/history" className="btn-brand">
+            <Link href="/about" className="btn-brand">
               了解详情
             </Link>
           </div>

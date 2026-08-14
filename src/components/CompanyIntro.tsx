@@ -10,6 +10,8 @@ interface CompanyIntroProps {
   setBannerNavVisible: Dispatch<SetStateAction<boolean>>;
 }
 
+const PROMO_VIDEO_SRC = "/videos/company-promo.mp4";
+
 function useFadeInUp(delay: number = 0) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -39,6 +41,7 @@ export default function CompanyIntro({
   setBannerNavVisible,
 }: CompanyIntroProps) {
   const [counters, setCounters] = useState({ num1: 0, num2: 0, num3: 0 });
+  const [playing, setPlaying] = useState(false);
   const counterTriggered = useRef(false);
   const counterRef = useRef<HTMLDivElement>(null);
 
@@ -102,19 +105,17 @@ export default function CompanyIntro({
 
       {/* === Banner slide navigator: 01 02 03 === */}
       <div
-        className="absolute left-1/2 -translate-x-1/2 w-full max-w-[1200px] px-4 z-[3] flex justify-end transition-all duration-500"
+        className="absolute left-1/2 -translate-x-1/2 w-full max-w-[1200px] px-4 z-[3] flex justify-center md:justify-end transition-all duration-500 h-[44px] md:h-[60px] top-[-40px] md:top-[calc(-2.8vw)]"
         style={{
-          top: "calc(-2.8vw)",
           opacity: bannerNavVisible ? 1 : 0,
-          height: "60px",
         }}
       >
-        <div className="flex gap-[22px] h-[60px] items-center">
+        <div className="flex gap-[12px] md:gap-[22px] h-[44px] md:h-[60px] items-center">
           {[0, 1, 2].map((i) => (
             <button
               key={i}
               onClick={() => onBannerSelect(i)}
-              className="w-[50px] h-[60px] leading-[60px] text-center text-[20px] transition-all duration-300 cursor-pointer border-0 flex-shrink-0"
+              className="w-[40px] h-[44px] leading-[44px] md:w-[50px] md:h-[60px] md:leading-[60px] text-center text-[16px] md:text-[20px] transition-all duration-300 cursor-pointer border-0 flex-shrink-0"
               style={{
                 background: i === bannerCurrent ? "var(--brand-primary)" : "transparent",
                 color: i === bannerCurrent ? "#fff" : "#333",
@@ -148,45 +149,63 @@ export default function CompanyIntro({
         </div>
 
         <div ref={item3.ref} className={`transition-all duration-700 ${item3.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
-          <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#555] mb-[4.2vw] max-w-[900px]">
+          <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#555] mb-[3.5vw] max-w-[900px]">
             哈尔滨声诺医疗科技有限公司坐落于哈尔滨高新区科技创新城，为国家认定高新技术企业、黑龙江省专精特新中小企业，专注声动力、经颅聚焦超声无创诊疗高端医疗器械研发、转化与产业化，是黑龙江省内唯一同时具备超声相控阵器件自研、整机系统集成、临床方案落地全链条能力的医疗科技企业。核心产品"动脉斑块声动力治疗系统"为全球首台（套），拥有完全自主知识产权。
           </p>
         </div>
 
         {/* Stat counters */}
-        <div ref={counterRef} className={`flex flex-wrap gap-[5.62vw] mb-[5.62vw] ${item4.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"} transition-all duration-700`}>
-          {[
-            { value: counters.num1, suffix: "项", label: "专利核心技术及自主知识产权" },
-            { value: counters.num2, suffix: "㎡", label: "现代化研发生产基地" },
-            { value: counters.num3, suffix: "%", label: "2022-2024累计研发投入占营收比" },
-          ].map((stat, i) => (
-            <div key={i}>
-              <strong className="text-[50px] md:text-[80px] xl:text-[90px] leading-none font-normal block">
-                <span className="text-(--brand-primary) mr-2">{stat.value}</span>
-                <span className="text-[16px] text-[#333]">{stat.suffix}</span>
-              </strong>
-              <p className="text-[14px] md:text-[16px] text-[#555] mt-1">{stat.label}</p>
-            </div>
-          ))}
+        <div ref={item4.ref} className={`transition-all duration-700 ${item4.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
+          <div ref={counterRef} className="flex flex-wrap gap-[5.62vw] mb-[4vw]">
+            {[
+              { value: counters.num1, suffix: "项", label: "专利核心技术及自主知识产权" },
+              { value: counters.num2, suffix: "㎡", label: "现代化研发生产基地" },
+              { value: counters.num3, suffix: "%", label: "2022-2024累计研发投入占营收比" },
+            ].map((stat, i) => (
+              <div key={i}>
+                <strong className="text-[50px] md:text-[80px] xl:text-[90px] leading-none font-bold block">
+                  <span className="text-(--brand-primary) mr-2">{stat.value}</span>
+                  <span className="text-[16px] text-[#333]">{stat.suffix}</span>
+                </strong>
+                <p className="text-[14px] md:text-[16px] text-[#555] mt-1">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Video / Image area */}
         <div ref={item5.ref} className={`relative mx-auto max-w-[1200px] h-[198px] md:h-[400px] xl:h-[580px] overflow-hidden rounded-lg transition-all duration-700 ${item5.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[30px]"}`}>
-          <img src="/images/company-intro.jpg" alt="声诺医疗" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/15" />
-          <div className="absolute inset-0 flex items-center pl-[20px] md:pl-[58px] xl:pl-[116px]">
-            <button className="relative w-[50px] h-[50px] md:w-[90px] md:h-[90px] bg-white rounded-full flex items-center justify-center group hover:shadow-xl transition-shadow">
-              <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" />
-              <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" style={{ animationDelay: "1.5s" }} />
-              <svg width="24" height="28" viewBox="0 0 24 28" className="ml-1">
-                <path d="M0 0v28l24-14z" fill="var(--brand-primary)" />
-              </svg>
-            </button>
-            <div className="text-white ml-5">
-              <strong className="text-[21px] md:text-[32px] font-normal block">声诺医疗  守护生命健康</strong>
-              <p className="text-[14px] md:text-[16px] opacity-80 mt-1">查看声诺医疗宣传片</p>
-            </div>
-          </div>
+          {playing ? (
+            <video
+              src={PROMO_VIDEO_SRC}
+              controls
+              autoPlay
+              playsInline
+              className="w-full h-full object-cover bg-black"
+            />
+          ) : (
+            <>
+              <img src="/images/company-intro.jpg" alt="声诺医疗" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-black/15" />
+              <div className="absolute inset-0 flex items-center pl-[20px] md:pl-[58px] xl:pl-[116px]">
+                <button
+                  onClick={() => setPlaying(true)}
+                  className="relative w-[50px] h-[50px] md:w-[90px] md:h-[90px] bg-white rounded-full flex items-center justify-center group hover:shadow-xl transition-shadow cursor-pointer border-0"
+                  aria-label="播放宣传片"
+                >
+                  <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" />
+                  <div className="absolute inset-0 rounded-full bg-white/15 animate-[rangeScale_3s_linear_infinite]" style={{ animationDelay: "1.5s" }} />
+                  <svg width="24" height="28" viewBox="0 0 24 28" className="ml-1">
+                    <path d="M0 0v28l24-14z" fill="var(--brand-primary)" />
+                  </svg>
+                </button>
+                <div className="text-white ml-5">
+                  <strong className="text-[21px] md:text-[32px] font-normal block">声诺医疗  守护生命健康</strong>
+                  <p className="text-[14px] md:text-[16px] opacity-80 mt-1">查看声诺医疗宣传片</p>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
 

@@ -41,7 +41,7 @@ export default function InvestorPage() {
 function InvestorContent() {
   return (
     <>
-      <section className="relative bg-white py-[60px] md:py-[90px]">
+      <section id="funding" className="relative bg-white py-[60px] md:py-[90px] scroll-mt-[56px] md:scroll-mt-[76px]">
         <div className="container-custom">
           <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[35px]">融资历程</h2>
           <div className="overflow-x-auto">
@@ -80,7 +80,7 @@ function InvestorContent() {
         </div>
       </section>
 
-      <section className="relative bg-[#f5f5f5] py-[60px] md:py-[90px]">
+      <section id="plan" className="relative bg-[#f5f5f5] py-[60px] md:py-[90px] scroll-mt-[56px] md:scroll-mt-[76px]">
         <div className="container-custom">
           <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[35px]">发展规划</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[25px]">

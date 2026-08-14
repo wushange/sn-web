@@ -48,7 +48,7 @@ export default function AboutPage() {
 function AboutContent() {
   return (
     <>
-      <section className="relative bg-white py-[60px] md:py-[90px]">
+      <section id="profile" className="relative bg-white py-[60px] md:py-[90px] scroll-mt-[56px] md:scroll-mt-[76px]">
         <div className="container-custom">
           <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[20px]">公司简介</h2>
           <div className="prose max-w-none text-[15px] md:text-[16px] leading-[30px] text-[#555] space-y-4">
@@ -89,7 +89,7 @@ function HistoryBlock() {
     { year: "2029", title: "启动IPO", desc: "计划启动IPO，登陆多层次资本市场" },
   ];
   return (
-    <section className="relative bg-[#f5f5f5] py-[60px] md:py-[90px]">
+    <section id="history" className="relative bg-[#f5f5f5] py-[60px] md:py-[90px] scroll-mt-[56px] md:scroll-mt-[76px]">
       <div className="container-custom">
         <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[30px]">发展历程</h2>
         <div className="space-y-0">
@@ -113,7 +113,7 @@ function HistoryBlock() {
 
 function OrgBlock() {
   return (
-    <section className="relative bg-white py-[60px] md:py-[90px]">
+    <section id="org" className="relative bg-white py-[60px] md:py-[90px] scroll-mt-[56px] md:scroll-mt-[76px]">
       <div className="container-custom">
         <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[30px]">组织架构</h2>
         <p className="text-[15px] md:text-[16px] leading-[30px] text-[#555] mb-[25px]">
@@ -141,7 +141,7 @@ function OrgBlock() {
 
 function TeamBlock() {
   return (
-    <section className="relative bg-[#f5f5f5] py-[60px] md:py-[90px]">
+    <section id="team" className="relative bg-[#f5f5f5] py-[60px] md:py-[90px] scroll-mt-[56px] md:scroll-mt-[76px]">
       <div className="container-custom">
         <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[30px]">管理团队</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -160,7 +160,7 @@ function TeamBlock() {
 
 function HonorBlock() {
   return (
-    <section className="relative bg-white py-[60px] md:py-[90px]">
+    <section id="honor" className="relative bg-white py-[60px] md:py-[90px] scroll-mt-[56px] md:scroll-mt-[76px]">
       <div className="container-custom">
         <h2 className="text-[24px] md:text-[34px] font-normal text-[#221815] mb-[30px]">企业荣誉</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[15px]">

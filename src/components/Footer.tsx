@@ -44,23 +44,23 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative z-[1] bg-[#f5f5f5]">
+    <footer className="relative z-[1] bg-[#f5f5f5] md:bg-[url('/images/footer-bg.jpg')] md:bg-cover md:bg-top md:bg-no-repeat">
       <div className="container-custom">
         {/* Top */}
-        <div className="flex flex-col md:flex-row py-[60px] md:py-[115px] border-b border-[#d9d9d9]">
-          <div className="flex-shrink-0 mb-8 md:mb-0 md:pr-[60px] flex justify-center md:block">
+        <div className="flex flex-col md:flex-row pt-[30px] pb-[15px] md:py-[115px] border-b border-[#d9d9d9]">
+          <div className="flex-shrink-0 mb-[15px] md:mb-0 md:pr-[60px] flex justify-center md:block">
             <Link href="/">
               <img src="/images/logo8.png" alt="声诺医疗" className="h-[60px] w-auto" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 flex-1">
+          <div className="flex-1 flex flex-wrap justify-center gap-x-[10px] gap-y-[8px] md:grid md:grid-cols-4 md:gap-8">
             {footerLinks.map((group, index) => (
               <div key={index}>
-                <h4 className="text-[15px] md:text-[18px] text-[#221815] mb-[20px] font-medium">
+                <h4 className="text-[14px] md:text-[18px] text-[#221815] mb-0 md:mb-[20px] font-medium">
                   <Link href={group.href}>{group.title}</Link>
                 </h4>
-                <ul className="space-y-[10px] md:space-y-[15px]">
+                <ul className="hidden md:block space-y-[15px]">
                   {group.children.map((child, ci) => (
                     <li key={ci}>
                       <Link
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="flex flex-col md:flex-row justify-between py-[45px] text-[14px] text-[#A2A0A0]">
+        <div className="flex flex-col md:flex-row md:justify-between items-center text-center md:text-left py-[15px] md:py-[45px] text-[12px] md:text-[14px] text-[#A2A0A0]">
           <div>
             © 2026 哈尔滨声诺医疗科技有限公司. All Rights Reserved.
             <a
@@ -90,7 +90,7 @@ export default function Footer() {
               黑ICP备00000000号
             </a>
           </div>
-          <div className="flex gap-4 mt-3 md:mt-0">
+          <div className="flex gap-4 mt-[15px] md:mt-0 justify-center md:justify-start">
             <a href="mailto:466069861@qq.com" className="hover:text-(--brand-primary) transition-colors">企业邮箱</a>
             <Link href="/about" className="hover:text-(--brand-primary) transition-colors">关于我们</Link>
             <Link href="/contact" className="hover:text-(--brand-primary) transition-colors">联系我们</Link>

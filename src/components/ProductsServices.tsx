@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import Link from "next/link";
+import ParticlesBackground from "./ParticlesBackground";
 
 interface ServiceCard {
   icon: string;
@@ -22,20 +23,20 @@ const serviceRows: ServiceCard[][] = [
       icon: "/images/icons/hospital.png", iconHover: "/images/icons/hospital-hover.png",
       title: "动脉斑块声动力治疗系统", subtitle: "Plaque Sonodynamic Therapy System",
       description: "全球首台（套）动脉斑块声动力治疗系统（MT-SDT2.0），集生物医疗技术和大数据AI于一体，通过超声与声敏剂协同精准清除动脉粥样硬化斑块，无创、靶向、疗效显著，拥有我国自主知识产权。",
-      href: "/products", color: "var(--brand-primary)", rowBgPattern: "/images/txt_icon1.png",
+      href: "/products/arterial-plaque-sdt", color: "var(--brand-primary)", rowBgPattern: "/images/txt_icon1.png",
     },
     {
       icon: "/images/icons/health.png", iconHover: "/images/icons/health-hover.png",
       title: "温控型低频超声导入美容仪", subtitle: "MC200 Temperature-control Ultrasound Beauty Device",
       description: "集冷敷、热敷、超声三种模式于一体，通过低频超声与机械振动打通肌肤吸收通道，促进护肤成分渗透吸收，配合智能温控实现清洁、导入、修护、紧致的全流程肌肤护理。",
-      href: "/products", color: "#00a54f", rowBgPattern: "/images/txt_icon1.png",
+      href: "/products/mc200-beauty", color: "#00a54f", rowBgPattern: "/images/txt_icon1.png",
       image: "/images/beauty-2.jpg",
     },
     {
       icon: "/images/icons/stemcell.png", iconHover: "/images/icons/stemcell-hover.png",
       title: "脑机接口·经颅聚焦超声", subtitle: "tFUS Brain-Computer Interface",
       description: "自研4-8通道同心圆环形相控换能器，实现1.5mm级颅内聚焦精度，面向脑胶质瘤、阿尔茨海默症、帕金森病等提供无创深部神经调控诊疗，正在研发转化中。",
-      href: "#", color: "#008fd5", rowBgPattern: "/images/txt_icon1.png",
+      href: "/products/tfus-bci", color: "#008fd5", rowBgPattern: "/images/txt_icon1.png",
     },
   ],
   [
@@ -43,25 +44,25 @@ const serviceRows: ServiceCard[][] = [
       icon: "/images/icons/rx.png", iconHover: "/images/icons/rx-hover.png",
       title: "超声成像斑块精准识别", subtitle: "High-res Ultrasound Imaging",
       description: "应用高分辨率诊断超声自动识别、分型斑块并预判声动力治疗适应症，依据斑块厚度、狭窄率、血流速度等指标给出个体化治疗参数建议与预后判断。",
-      href: "/service", color: "#00a54f", rowBgPattern: "/images/txt_icon2.png",
+      href: "/products/ultrasound-plaque-recognition", color: "#00a54f", rowBgPattern: "/images/txt_icon2.png",
     },
     {
       icon: "/images/icons/chain.png", iconHover: "/images/icons/chain-hover.png",
       title: "近红外光学定位系统", subtitle: "Near-infrared Optical Navigation",
       description: "基于双目立体视觉的光学导航系统，实时高精度定位诊断超声探头，误差范围＜0.5mm，并将治疗换能器精确引导至斑块位置，实现精准定位与跟踪。",
-      href: "/service", color: "#004d7e", rowBgPattern: "/images/txt_icon2.png",
+      href: "/products/optical-navigation", color: "#004d7e", rowBgPattern: "/images/txt_icon2.png",
     },
     {
       icon: "/images/icons/otc.png", iconHover: "/images/icons/otc-hover.png",
       title: "近场均匀超声换能器", subtitle: "Uniform Near-field Transducer",
       description: "自研治疗超声换能器解决近声场强度紊乱的行业难题，波束不均匀系数（BNR）2.0-2.5之间，超过进口品牌，为声动力治疗精准疗效提供根本保证。",
-      href: "/innovate", color: "#f36e21", rowBgPattern: "/images/txt_icon2.png",
+      href: "/products/uniform-ultrasound-transducer", color: "#f36e21", rowBgPattern: "/images/txt_icon2.png",
     },
     {
       icon: "/images/icons/rx.png", iconHover: "/images/icons/rx-hover.png",
       title: "人工智能中央数据库", subtitle: "AI Central Database",
       description: "基于AI算法和个体化治疗参数建立患者样本中央数据库，深度挖掘诊疗数据、持续优化治疗参数，为声动力治疗临床研究提供坚实数据保障。",
-      href: "#", color: "#fec463", rowBgPattern: "/images/txt_icon2.png",
+      href: "/products/ai-central-database", color: "#fec463", rowBgPattern: "/images/txt_icon2.png",
     },
   ],
 ];
@@ -78,6 +79,7 @@ const cardHoverColors: Record<string, string> = {
 export default function ProductsServices() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [, forceRender] = useState(0);
+  const [showAll, setShowAll] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -96,7 +98,7 @@ export default function ProductsServices() {
       rows?.forEach((el) => observer.observe(el));
     }, 100);
     return () => { clearTimeout(tid); observer.disconnect(); };
-  }, []);
+  }, [showAll]);
 
   const handleCardHover = (e: React.MouseEvent<HTMLAnchorElement>, color: string) => {
     const card = e.currentTarget;
@@ -138,6 +140,7 @@ export default function ProductsServices() {
 
   return (
     <section ref={sectionRef} className="relative bg-[#f5f5f5] pt-[7.81vw] pb-[100px] z-[4]">
+      <ParticlesBackground />
       <div className="container-custom">
         <div className="relative mb-[2.81vw]">
           <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">产品与技术</h2>
@@ -149,8 +152,13 @@ export default function ProductsServices() {
         </div>
 
         <div className="mx-[2.56vw]">
-          {serviceRows.map((row, rowIndex) => (
-            <div key={rowIndex} data-card-row className="flex flex-col md:flex-row gap-[3.12vw] mb-[3.12vw]" style={{ opacity: 0, transform: "translateY(30px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}>
+          {(showAll ? serviceRows : serviceRows.slice(0, 1)).map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              data-card-row
+              className={`grid grid-cols-1 ${row.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-[3.12vw] mb-[3.12vw]`}
+              style={{ opacity: 0, transform: "translateY(30px)", transition: "opacity 0.7s ease, transform 0.7s ease" }}
+            >
               {row.filter(c => !c.hidden).map((card, cardIndex) => (
                 <Link
                   key={cardIndex}
@@ -204,7 +212,7 @@ export default function ProductsServices() {
                         </p>
                       </div>
                     )}
-                    <p className="text-[14px] md:text-[16px] leading-[26px] md:leading-[32px] text-[#555] transition-colors duration-500 overflow-hidden relative z-[1]" style={{ height: "94px", marginTop: card.image ? "0.5vw" : "1.04vw", color: "inherit" }}>
+                    <p className="text-[14px] md:text-[16px] leading-[26px] md:leading-[32px] text-[#555] transition-colors duration-500 relative z-[1]" style={{ marginTop: card.image ? "0.5vw" : "1.04vw", color: "inherit" }}>
                       {card.description}
                     </p>
                   </div>
@@ -215,6 +223,12 @@ export default function ProductsServices() {
               ))}
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-[2.81vw]">
+          <button onClick={() => setShowAll(v => !v)} className="btn-brand">
+            {showAll ? "收起" : "更多产品与技术"}
+          </button>
         </div>
       </div>
 

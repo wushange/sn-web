@@ -125,21 +125,23 @@
 ::-webkit-scrollbar-thumb:vertical:hover { background-color: var(--brand-primary); }
 
 /* Brand button */
-.btn-brand {
-  font-size: 16px;
-  line-height: 46px;
-  color: #fff;
-  height: 48px;
-  width: 180px;
-  text-align: center;
-  display: inline-block;
-  background: var(--brand-primary) url(/images/nav_si.png) no-repeat right top;
-  transition: all 0.3s ease;
-}
-.btn-brand:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 8px rgba(0,0,0,0.2);
-  color: #fff;
+@layer components {
+  .btn-brand {
+    font-size: 16px;
+    line-height: 46px;
+    color: #fff;
+    height: 48px;
+    width: 180px;
+    text-align: center;
+    display: inline-block;
+    background: var(--brand-primary) url(/images/nav_si.png) no-repeat right top;
+    transition: all 0.3s ease;
+  }
+  .btn-brand:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+    color: #fff;
+  }
 }
 
 /* Animations */

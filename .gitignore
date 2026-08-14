@@ -26,3 +26,6 @@ Thumbs.db
 *.db
 *.db-journal
 prisma/*.db
+
+# 上传到服务器的媒体资源（不入库）
+public/videos/

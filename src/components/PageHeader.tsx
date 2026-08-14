@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function PageHeader({ title, subtitle, crumb }: { title: string; subtitle: string; crumb: string }) {
+export default function PageHeader({ title, subtitle, crumb, crumbHref }: { title: string; subtitle: string; crumb: string; crumbHref?: string }) {
   return (
     <section className="relative bg-(--brand-primary) pt-[120px] md:pt-[140px] pb-[50px] md:pb-[70px] overflow-hidden">
       <div className="absolute left-[-12.76vw] top-[-7.81vw] w-[37.29vw] h-[37.29vw] bg-[url('/images/watermark-white.png')] bg-no-repeat bg-cover animate-[rotate_50s_linear_infinite] hidden xl:block" />
@@ -10,7 +10,7 @@ export default function PageHeader({ title, subtitle, crumb }: { title: string; 
         <div className="mt-[25px] text-[13px] md:text-[14px] text-white/70">
           <Link href="/" className="hover:text-white transition-colors">首页</Link>
           <span className="mx-2">/</span>
-          <span>{crumb}</span>
+          <span>{crumbHref ? <Link href={crumbHref} className="hover:text-white transition-colors">{crumb}</Link> : crumb}</span>
         </div>
       </div>
     </section>

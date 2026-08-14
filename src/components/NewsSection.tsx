@@ -72,7 +72,7 @@ export default function NewsSection() {
             <div className="transition-all duration-700 relative rounded-[1.0em] overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.15)] mb-[2.86vw]">
               <div className="relative" style={{ paddingTop: "56.25%" }}>
                 {newsItems.map((item, index) => (
-                  <Link key={item.id} href={`/news/${item.id}`}
+                  <Link key={item.id} href="/news"
                     className={`absolute inset-0 transition-opacity duration-500 ${index === activeSlide ? "opacity-100 z-10" : "opacity-0 z-0"}`}>
                     <img src={item.image} alt={item.title} className="w-full h-full object-cover absolute inset-0" />
                     <div className="absolute inset-0 pointer-events-none" style={{ background: "url(/images/news-swiper-overlay.png) repeat-x left bottom" }} />
@@ -100,7 +100,7 @@ export default function NewsSection() {
             {/* News List */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 pt-[2.86vw]" style={{ margin: "0 -1.97vw" }}>
               {newsItems.map((item, index) => (
-                <Link key={item.id} href={`/news/${item.id}`}
+                <Link key={item.id} href="/news"
                   className={`transition-all duration-500 group block relative mb-[2.6vw] ${index % 2 === 1 ? "md:translate-y-[3.22vw]" : ""}`}
                   style={{ padding: "0 1.97vw" }}
                 >
