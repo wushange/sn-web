@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const milestones = [
   { year: 2021, title: "完成天使轮融资", image: "/images/history-1.jpg" },
@@ -20,6 +21,8 @@ const bottomRow = [2021, 2022];
 const topRow = [2023, 2025, 2027];
 
 export default function HistorySection() {
+  const t = useTranslations("History");
+  const tCommon = useTranslations("Common");
   const [isVisible, setIsVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -42,13 +45,13 @@ export default function HistorySection() {
           {/* Left */}
           <div className={`lg:w-[500px] pt-[60px] transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}`}>
             <h2 className="text-[26px] md:text-[38px] xl:text-[48px] font-normal tracking-[2px] md:tracking-[6px] leading-tight text-[#221815]">
-              发展历程
+              {t("title")}
             </h2>
             <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#808080] my-[12px] md:my-[32px]">
-              声诺医疗依托近20年跨学科科研积淀，从基础机理研究到核心器件自研，从整机装备到临床转化，一步一个脚印，为守护人类健康提供中国方案。
+              {t("paragraph")}
             </p>
-            <Link href="/about" className="btn-brand">
-              了解详情
+            <Link href="/about#history" className="btn-brand">
+              {tCommon("learnMore")}
             </Link>
           </div>
 
@@ -60,9 +63,9 @@ export default function HistorySection() {
                   key={item.year}
                   className={`absolute inset-0 transition-opacity duration-500 ${index === activeIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
                 >
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  <img src={item.image} alt={t(`milestones.${item.year}`)} className="w-full h-full object-cover" />
                   <strong className="absolute bottom-5 left-7 text-[18px] md:text-[24px] font-normal text-white leading-[40px]">
-                    {item.title}
+                    {t(`milestones.${item.year}`)}
                   </strong>
                 </div>
               ))}

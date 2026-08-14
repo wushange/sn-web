@@ -3,10 +3,12 @@ import PageHeader from "@/components/PageHeader";
 import Footer from "@/components/Footer";
 import SideTools from "@/components/SideTools";
 import { prisma } from "@/lib/prisma";
+import { getTranslations } from "next-intl/server";
 
 export const dynamic = "force-dynamic"; // 运行时渲染，连接数据库获取最新新闻
 
 export default async function NewsPage() {
+  const t = await getTranslations("News");
   const news = await prisma.news.findMany({
     where: { published: true },
     orderBy: [{ sortOrder: "desc" }, { date: "desc" }],
@@ -16,23 +18,23 @@ export default async function NewsPage() {
     <main className="min-h-screen overflow-x-hidden">
       <Header />
       <PageHeader
-        title="动态资讯"
-        subtitle="了解声诺医疗的最新进展、临床研究、荣誉资质与融资动态。"
-        crumb="动态资讯"
+        title={t("title")}
+        subtitle={t("pageSubtitle")}
+        crumb={t("title")}
       />
-      <NewsContent news={news} />
+      <NewsContent news={news} emptyText={t("empty")} />
       <Footer />
       <SideTools />
     </main>
   );
 }
 
-function NewsContent({ news }: { news: { id: number; title: string; date: string; image: string; summary: string; tag?: string | null }[] }) {
+function NewsContent({ news, emptyText }: { news: { id: number; title: string; date: string; image: string; summary: string; tag?: string | null }[]; emptyText: string }) {
   return (
     <section className="relative bg-white py-[60px] md:py-[90px]">
       <div className="container-custom">
         {news.length === 0 ? (
-          <p className="text-center text-[#808080] py-[60px]">暂无新闻</p>
+          <p className="text-center text-[#808080] py-[60px]">{emptyText}</p>
         ) : (
           <div className="space-y-[25px]">
             {news.map((n) => (

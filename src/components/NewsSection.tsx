@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 interface NewsItem {
   id: number;
@@ -13,6 +14,8 @@ interface NewsItem {
 }
 
 export default function NewsSection() {
+  const t = useTranslations("News");
+  const tCommon = useTranslations("Common");
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [activeSlide, setActiveSlide] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -55,14 +58,14 @@ export default function NewsSection() {
           {/* Left Column */}
           <div className="lg:w-[358px] flex-shrink-0 lg:pt-[5.46vw]">
             <div className="transition-all duration-700">
-              <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">动态资讯</h2>
+              <h2 className="text-[24px] md:text-[38px] xl:text-[48px] font-normal leading-tight text-[#221815]">{t("title")}</h2>
               <p className="text-[16px] md:text-[20px] pt-[1.25vw] text-[#333]" style={{ lineHeight: "3.12vw" }}>
-                <Link href="/news" className="hover:text-(--brand-primary) transition-colors">新闻资讯</Link>
+                <Link href="/news" className="hover:text-(--brand-primary) transition-colors">{t("link")}</Link>
               </p>
               <p className="text-[14px] md:text-[16px] leading-[28px] md:leading-[32px] text-[#808080] mt-[1.82vw] mb-[3.5vw] max-w-[358px]">
-                了解更多声诺医疗的企业资讯信息，请关注动态资讯栏目。
+                {t("description")}
               </p>
-              <Link href="/news" className="btn-brand">了解详情</Link>
+              <Link href="/news" className="btn-brand">{tCommon("learnMore")}</Link>
             </div>
           </div>
 
