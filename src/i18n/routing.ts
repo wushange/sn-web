@@ -4,6 +4,6 @@ export const routing = defineRouting({
   // 默认语言放在第一位
   locales: ["zh", "en"],
   defaultLocale: "zh",
-  // 中文不带前缀（/about），英文带 /en 前缀（/en/about）
-  localePrefix: "as-needed",
+  // 中英文都带前缀（/zh/about、/en/about），避免默认语言在代理环境下的重定向循环
+  localePrefix: "always",
 });
