@@ -87,7 +87,7 @@ export default function Footer() {
           <div>
             {t("copyright")}
             <a
-              href="https://beian.miit.gov.cn"
+              href="https://beian.miit.gov.cn/"
               target="_blank"
               rel="noreferrer"
               className="text-[#8d8d8d] hover:text-(--brand-primary) ml-4 transition-colors"
